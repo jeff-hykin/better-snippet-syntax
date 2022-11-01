@@ -1,0 +1,950 @@
+- source: '{'
+  scopesBegin:
+    - meta.structure.dictionary.json.comments
+  scopes:
+    - punctuation.definition.dictionary.begin.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'information_for_contributors": ['
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "This file has been converted from https://github.com/microsoft/vscode-JSON.tmLanguage/blob/master/JSON.tmLanguage",'
+- source: '        "If you want to provide a fix or improvement, please create a pull request against the original repository.",'
+- source: '        "Once accepted there, we are happy to receive an update request."'
+- source: '    ],'
+- source: '    "version": "https://github.com/microsoft/vscode-JSON.tmLanguage/commit/9bd83f1c252b375e957203f21793316203f61f70",'
+- source: '    "name": "JSON with comments",'
+- source: '    "scopeName": "source.json.comments",'
+- source: '    "patterns": ['
+- source: '        {'
+- source: '            "include": "#value"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '    ],'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '    "repository": {'
+- source: '        "array": {'
+- source: '            "begin": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '['
+  scopes:
+    - string.quoted.double.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'beginCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.array.begin.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: ']'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'endCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.array.end.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "name": "meta.structure.array.json.comments",'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "include": "#value"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "match": ",",'
+- source: '                    "name": "punctuation.separator.array.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "match": "[^'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: s
+  scopes:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: ']'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: ']",'
+- source: '                    "name": "invalid.illegal.expected-array-separator.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "comments": {'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "begin": "/'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '*'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '*'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '(?!/)",'
+- source: '                    "captures": {'
+- source: '                        "0": {'
+- source: '                            "name": "punctuation.definition.comment.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '*'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '/",'
+- source: '                    "name": "comment.block.documentation.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "begin": "/'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '*'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'captures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                        "0": {'
+- source: '                            "name": "punctuation.definition.comment.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '*'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '/",'
+- source: '                    "name": "comment.block.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "captures": {'
+- source: '                        "1": {'
+- source: '                            "name": "punctuation.definition.comment.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "match": "(//).*$'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: 'n'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '?",'
+- source: '                    "name": "comment.line.double-slash.js"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "constant": {'
+- source: '            "match": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: b
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '(?:true|false|null)'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: b
+  scopes:
+    - string.quoted.double.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'name": "constant.language.json.comments"'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "number": {'
+- source: '            "match": "(?x)        # turn on extended mode'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  -?        # an optional minus'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  (?:'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    0       # a zero'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    |       # ...or...'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    [1-9]   # a 1-9 character'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: d
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '*     # followed by zero or more digits'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  )'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  (?:'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    (?:'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: .
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '    # a period'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: d
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '+   # followed by one or more digits'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    )?'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    (?:'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '      [eE]  # an e character'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '      [+-]? # followed by an option +/-'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: d
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '+   # followed by one or more digits'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    )?      # make exponent optional'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  )?        # make decimal portion optional",'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "name": "constant.numeric.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "object": {'
+- source: '            "begin": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '{",'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "beginCaptures": {'
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.dictionary.begin.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '}'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'endCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.dictionary.end.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "name": "meta.structure.dictionary.json.comments",'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "comment": "the JSON object key",'
+- source: '                    "include": "#objectkey"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "begin": ":",'
+- source: '                    "beginCaptures": {'
+- source: '                        "0": {'
+- source: '                            "name": "punctuation.separator.dictionary.key-value.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "end": "(,)|(?='
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '}'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: ')",'
+- source: '                    "endCaptures": {'
+- source: '                        "1": {'
+- source: '                            "name": "punctuation.separator.dictionary.pair.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "name": "meta.structure.dictionary.value.json.comments",'
+- source: '                    "patterns": ['
+- source: '                        {'
+- source: '                            "comment": "the JSON object value",'
+- source: '                            "include": "#value"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                        {'
+- source: '                            "match": "[^'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: s
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: ',]",'
+- source: '                            "name": "invalid.illegal.expected-dictionary-separator.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '                    ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "match": "[^'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: s
+  scopes:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: '}'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: ']",'
+- source: '                    "name": "invalid.illegal.expected-dictionary-separator.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "string": {'
+- source: '            "begin": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \"
+  scopes:
+    - constant.character.escape.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'beginCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.string.begin.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \"
+  scopes:
+    - constant.character.escape.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'endCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.definition.string.end.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "name": "string.quoted.double.json.comments",'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "include": "#stringcontent"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "objectkey": {'
+- source: '            "begin": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \"
+  scopes:
+    - constant.character.escape.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'beginCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.support.type.property-name.begin.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "end": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \"
+  scopes:
+    - constant.character.escape.json.comments
+- source: '"'
+  scopes:
+    - punctuation.support.type.property-name.end.json.comments
+  scopesEnd:
+    - string.json.comments
+    - support.type.property-name.json.comments
+- source: ','
+  scopes:
+    - invalid.illegal.expected-dictionary-separator.json.comments
+- source: '"'
+  scopesBegin:
+    - string.json.comments
+    - support.type.property-name.json.comments
+  scopes:
+    - punctuation.support.type.property-name.begin.json.comments
+- source: 'endCaptures": {'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                "0": {'
+- source: '                    "name": "punctuation.support.type.property-name.end.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '            "name": "string.json.comments support.type.property-name.json.comments",'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "include": "#stringcontent"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "stringcontent": {'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "match": "(?x)                # turn on extended mode'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \n
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: \
+  scopes:
+    - string.quoted.double.json.comments
+- source: \
+- source: '                # a literal backslash'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '  (?:               # ...followed by...'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    ['
+  scopes:
+    - string.quoted.double.json.comments
+- source: \"
+  scopesBegin:
+    - constant.character.escape.json.comments
+- source: \\
+  scopesEnd:
+    - constant.character.escape.json.comments
+- source: \
+  scopes:
+    - string.quoted.double.json.comments
+- source: \/
+  scopes:
+    - constant.character.escape.json.comments
+- source: 'bfnrt]     # one of these characters'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    |               # ...or...'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    u               # a u'
+  scopes:
+    - string.quoted.double.json.comments
+- source: \n
+  scopes:
+    - constant.character.escape.json.comments
+- source: '    [0-9a-fA-F]{4'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ') # and four hex digits",'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "name": "constant.character.escape.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "match": "'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: \\
+  scopes:
+    - constant.character.escape.json.comments
+- source: \
+  scopes:
+    - string.quoted.double.json.comments
+- source: \
+- source: '.",'
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                    "name": "invalid.illegal.unrecognized-string-escape.json.comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '        "value": {'
+- source: '            "patterns": ['
+- source: '                {'
+- source: '                    "include": "#constant"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#number"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#string"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#array"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#object"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: ','
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: '                {'
+- source: '                    "include": "#comments"'
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '            ]'
+  scopes:
+    - string.quoted.double.json.comments
+- source: '}'
+- source: '}'
+- source: '}'

@@ -175,7 +175,7 @@
             "name": "string.json.comments support.type.property-name.json.comments",
             "patterns": [
                 {
-                    "include": "#stringcontent"
+                    "include": "#string_key_content"
                 }
             ]
         },
