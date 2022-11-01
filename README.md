@@ -1,8 +1,9 @@
+# What does this do?
+Highlights the snippets-json file for VS Code snippets. Its Incredibly useful for bash/shell/perl snippets or really anything that includes $'s.
+
 ### Like this extension?
 You'll probably like this as well: [The Better Syntax Megapack](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.better-syntax)
 
-# What does this do?
-This will get you the bleeding-edge syntax highlighting for VS Code Snippets. Which means your theme will be able to color your code better.
 
 NOTE: The default VS Code theme does not color much. Switch to the Dark+ theme (installed by default) or use a theme like one of the following to benefit from the changes:
 - [XD Theme](https://marketplace.visualstudio.com/items?itemName=jeff-hykin.xd-theme)
@@ -18,10 +19,11 @@ NOTE: The default VS Code theme does not color much. Switch to the Dark+ theme (
 ## How do I use it?
 Just install the VS Code extension and the changes will automatically be applied to all relevent files.
 
-<!-- # Before and After (Material Theme)
+# Before and After (XD Theme)
+
 Before                     | After 
 :-------------------------:|:-------------------------:
-![material_before](https://user-images.githubusercontent.com/17692058/59826753-83abd080-92fc-11e9-9dfb-d891da55cd13.png) | ![material_after](https://user-images.githubusercontent.com/17692058/59826766-8ad2de80-92fc-11e9-9bd6-3496ed5c917b.png) -->
+<img width="658" alt="before" src="https://user-images.githubusercontent.com/17692058/199324680-558c7489-2e12-4afb-8ccc-5d43b74f224a.png"> | <img width="665" alt="after" src="https://user-images.githubusercontent.com/17692058/199324673-3c548580-ddf8-484b-b3b7-b14036fc6284.png">
 
 ## Contributing
 If you'd like to help improve the syntax, take a look at `main/main.rb`. And make sure to take a look at `CONTRIBUTING.md` to get a better idea of how code works.
