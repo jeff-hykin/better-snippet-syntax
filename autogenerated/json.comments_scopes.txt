@@ -1,6 +1,6 @@
+comment.block.comments
 comment.block.documentation.json.comments
 comment.block.json.comments
-comment.comments
 comment.line.double-slash.js
 constant.character.escape.json.comments
 constant.language.json.comments
@@ -8,8 +8,6 @@ constant.numeric.json.comments
 invalid.illegal.expected-array-separator.json.comments
 invalid.illegal.expected-dictionary-separator.json.comments
 invalid.illegal.unrecognized-string-escape.json.comments
-meta.null_quad_backslash.comments
-meta.special_object_key.comments
 meta.structure.array.json.comments
 meta.structure.dictionary.json.comments
 meta.structure.dictionary.value.json.comments
@@ -21,10 +19,9 @@ punctuation.definition.dictionary.begin.json.comments
 punctuation.definition.dictionary.end.json.comments
 punctuation.definition.string.begin.json.comments
 punctuation.definition.string.end.json.comments
-punctuation.insertion.comments
-punctuation.insertion.escape.escapee.json.comments
-punctuation.insertion.escape.escaper.json.comments
-punctuation.internal.comments
+punctuation.section.insertion.comments
+punctuation.section.insertion.escape.escapee.json.comments
+punctuation.section.insertion.escape.escaper.json.comments
 punctuation.separator.array.json.comments
 punctuation.separator.dictionary.key-value.json.comments
 punctuation.separator.dictionary.pair.json.comments

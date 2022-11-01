@@ -1,213 +1,657 @@
 {
-    "information_for_contributors": [
-        "This file has been converted from https://github.com/microsoft/vscode-JSON.tmLanguage/blob/master/JSON.tmLanguage",
-        "If you want to provide a fix or improvement, please create a pull request against the original repository.",
-        "Once accepted there, we are happy to receive an update request."
-    ],
-    "version": "https://github.com/microsoft/vscode-JSON.tmLanguage/commit/9bd83f1c252b375e957203f21793316203f61f70",
-    "name": "JSON with comments",
-    "scopeName": "source.json.comments",
-    "patterns": [
-        {
-            "include": "#value"
-        }
-    ],
-    "repository": {
-        "array": {
-            "begin": "\\[",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.array.begin.json.comments"
-                }
-            },
-            "end": "\\]",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.array.end.json.comments"
-                }
-            },
-            "name": "meta.structure.array.json.comments",
-            "patterns": [
-                {
-                    "include": "#value"
-                },
-                {
-                    "match": ",",
-                    "name": "punctuation.separator.array.json.comments"
-                },
-                {
-                    "match": "[^\\s\\]]",
-                    "name": "invalid.illegal.expected-array-separator.json.comments"
-                }
-            ]
-        },
-        "comments": {
-            "patterns": [
-                {
-                    "begin": "/\\*\\*(?!/)",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.json.comments"
-                        }
-                    },
-                    "end": "\\*/",
-                    "name": "comment.block.documentation.json.comments"
-                },
-                {
-                    "begin": "/\\*",
-                    "captures": {
-                        "0": {
-                            "name": "punctuation.definition.comment.json.comments"
-                        }
-                    },
-                    "end": "\\*/",
-                    "name": "comment.block.json.comments"
-                },
-                {
-                    "captures": {
-                        "1": {
-                            "name": "punctuation.definition.comment.json.comments"
-                        }
-                    },
-                    "match": "(//).*$\\n?",
-                    "name": "comment.line.double-slash.js"
-                }
-            ]
-        },
-        "constant": {
-            "match": "\\b(?:true|false|null)\\b",
-            "name": "constant.language.json.comments"
-        },
-        "number": {
-            "match": "(?x)        # turn on extended mode\n  -?        # an optional minus\n  (?:\n    0       # a zero\n    |       # ...or...\n    [1-9]   # a 1-9 character\n    \\d*     # followed by zero or more digits\n  )\n  (?:\n    (?:\n      \\.    # a period\n      \\d+   # followed by one or more digits\n    )?\n    (?:\n      [eE]  # an e character\n      [+-]? # followed by an option +/-\n      \\d+   # followed by one or more digits\n    )?      # make exponent optional\n  )?        # make decimal portion optional",
-            "name": "constant.numeric.json.comments"
-        },
-        "object": {
-            "begin": "\\{",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.dictionary.begin.json.comments"
-                }
-            },
-            "end": "\\}",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.dictionary.end.json.comments"
-                }
-            },
-            "name": "meta.structure.dictionary.json.comments",
-            "patterns": [
-                {
-                    "comment": "the JSON object key",
-                    "include": "#objectkey"
-                },
-                {
-                    "include": "#comments"
-                },
-                {
-                    "begin": ":",
-                    "beginCaptures": {
-                        "0": {
-                            "name": "punctuation.separator.dictionary.key-value.json.comments"
-                        }
-                    },
-                    "end": "(,)|(?=\\})",
-                    "endCaptures": {
-                        "1": {
-                            "name": "punctuation.separator.dictionary.pair.json.comments"
-                        }
-                    },
-                    "name": "meta.structure.dictionary.value.json.comments",
-                    "patterns": [
-                        {
-                            "comment": "the JSON object value",
-                            "include": "#value"
-                        },
-                        {
-                            "match": "[^\\s,]",
-                            "name": "invalid.illegal.expected-dictionary-separator.json.comments"
-                        }
-                    ]
-                },
-                {
-                    "match": "[^\\s\\}]",
-                    "name": "invalid.illegal.expected-dictionary-separator.json.comments"
-                }
-            ]
-        },
-        "string": {
-            "begin": "\"",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.begin.json.comments"
-                }
-            },
-            "end": "\"",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.string.end.json.comments"
-                }
-            },
-            "name": "string.quoted.double.json.comments",
-            "patterns": [
-                {
-                    "include": "#stringcontent"
-                }
-            ]
-        },
-        "objectkey": {
-            "begin": "\"",
-            "beginCaptures": {
-                "0": {
-                    "name": "punctuation.support.type.property-name.begin.json.comments"
-                }
-            },
-            "end": "\"",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.support.type.property-name.end.json.comments"
-                }
-            },
-            "name": "string.json.comments support.type.property-name.json.comments",
-            "patterns": [
-                {
-                    "include": "#stringcontent"
-                }
-            ]
-        },
-        "stringcontent": {
-            "patterns": [
-                {
-                    "match": "(?x)                # turn on extended mode\n  \\\\                # a literal backslash\n  (?:               # ...followed by...\n    [\"\\\\/bfnrt]     # one of these characters\n    |               # ...or...\n    u               # a u\n    [0-9a-fA-F]{4}) # and four hex digits",
-                    "name": "constant.character.escape.json.comments"
-                },
-                {
-                    "match": "\\\\.",
-                    "name": "invalid.illegal.unrecognized-string-escape.json.comments"
-                }
-            ]
-        },
-        "value": {
-            "patterns": [
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#number"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#array"
-                },
-                {
-                    "include": "#object"
-                },
-                {
-                    "include": "#comments"
-                }
-            ]
-        }
-    }
+/*
+	// Place your snippets for Python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+
+    "Print to console": {
+        "prefix": "print",
+        "body": [
+            "print(f'''$0''')"
+        ],
+        "description": "print"
+    },
+    "@classmethod": {
+        "prefix": "@classmethod",
+        "body": [
+            "@classmethod",
+        ],
+        "description": "create a new @classmethod"
+    },
+    "Class": {
+        "prefix": "class",
+        "body": [
+            "class $1():",
+            "    def __init__(self, *args):",
+            "        $0",
+        ],
+        "description": "create a new class"
+    },
+    "output ": {
+        "prefix": "out",
+        "body": [
+            "print(f'''$0 = {$0}''')"
+        ],
+        "description": "print a var"
+    },
+    "FIXME debugging": {
+        "prefix": "fixme: debugging",
+        "body": [
+            "# FIXME: Debugging "
+        ],
+        "description": "debugging fixme"
+    },
+    "raise": {
+        "prefix": "raise",
+        "body": [
+            "raise Exception(f'''$0''')"
+        ],
+        "description": "Raise an exception"
+    },
+    "lambda": {
+        "prefix": "lambda each",
+        "body": [
+            "lambda each: each$0"
+        ],
+        "description": "Create a lambda"
+    },
+    "decorator": {
+        "prefix": "decorator",
+        "body": [
+            "def ${1:decorator_name}(function_being_wrapped):",
+            "    def wrapper(*args, **kwargs):",
+            "        ${2:modify_args_somehow}",
+            "        output = function_being_wrapped(*args, **kwargs)",
+            "        ${3:modify_output_somehow}",
+            "        return output",
+            "    return wrapper",
+        ],
+        "description": "Create a lambda"
+    },
+    "reduce": {
+        "prefix": "reduce",
+        "body": [
+            "import functools",
+            "summed = functools.reduce(",
+            "    lambda each_new, existing: (each_new + existing),",
+            "    a_list,",
+            "    0, # inital existing value",
+            ")",
+        ],
+    },
+    "init": {
+        "prefix": "init",
+        "body": [
+            "def __init__(self, $0):",
+            "    pass"
+        ],
+        "description": "create the init of a class"
+    },
+    "try": {
+        "prefix": "try",
+        "body": [
+            "try:",
+            "    $0",
+            "except Exception as error:",
+            "    pass"
+        ],
+        "description": "exception"
+    },
+    "siphon": {
+        "prefix": "siphon",
+        "body": [
+            "@siphon(",
+            "    when=lambda arg1, *args, **kwargs: isinstance(arg1, (SomeType,)),",
+            "    is_true_for=to_tensor,",
+            ")",
+            "def then(*args, **kwargs):",
+            "    return None",
+        ],
+    },
+    "import defaultdict": {
+        "prefix": "import defaultdict",
+        "body": [
+            "from collections import defaultdict",
+        ],
+        "description": "import defaultdict"
+    },
+    
+    "from os": {
+        "prefix": "from os",
+        "body": [
+            "from os.path import isabs, isfile, isdir, join, dirname, basename, exists, splitext, relpath",
+            "from os import remove, getcwd, makedirs, listdir, rename, rmdir, system",
+        ],
+        "description": "import a bunch of file tools"
+    },
+    
+    "progress": {
+        "prefix": "progress",
+        "body": [
+            "def progress(percent=0, width=30):",
+            "    left = width * percent // 100",
+            "    right = width - left",
+            "    print(",
+            "        '\\r[', '#' * left, ' ' * right, ']',",
+            "        f' {percent:.0f}%',",
+            "        sep='',",
+            "        end='',",
+            "        flush=True",
+            "    )",
+        ],
+        "description": "display a progress loading bar in the console"
+    },
+    
+    "import random": {
+        "prefix": "import random",
+        "body": [
+            "from random import random, sample, choices",
+        ],
+        "description": "average"
+    },
+    
+    "lowercase": {
+        "prefix": "lowercase",
+        "body": [
+            "''.lower()",
+        ],
+        "description": "lowercase"
+    },
+    
+    "average": {
+        "prefix": "average",
+        "body": [
+            "from statistics import mean as average",
+        ],
+        "description": "average"
+    },
+    
+    "flatten": {
+        "prefix": "flatten",
+        "body": [
+            "flatten = lambda *m: (i for n in m for i in (flatten(*n) if isinstance(n, (tuple, list)) else (n,)))",
+            "# note: returns a generator, not a list",
+        ],
+        "description": "flatten any iterable"
+    },
+    
+    "args": {
+        "prefix": "args",
+        "body": [
+            "import sys",
+            "first_real_arg = sys.argv[1]",
+        ],
+        "description": "commandline args"
+    },
+    
+    "sqrt": {
+        "prefix": "sqrt",
+        "body": [
+            "import math",
+            "math.sqrt($0)",
+        ],
+        "description": "sqrt"
+    },
+    
+    "get function definition": {
+        "prefix": "get function definition",
+        "body": [
+            "import inspect",
+            "print(inspect.getsource(${1:function_name}))",
+        ],
+        "description": "get function definition"
+    },
+    
+    "weighted_random": {
+        "prefix": "weighted_random",
+        "body": [
+            "import random",
+            "random.choices(${1:things}, weights=${2:probability_of_each_thing})[0]",
+        ],
+        "description": "weighted_random"
+    },
+    
+    "forof": {
+        "prefix": "forof",
+        "body": [
+            "for each in ${1:var}:",
+            "    ${2:pass}"
+        ],
+        "description": "numbered iterate"
+    },
+    
+    "forin": {
+        "prefix": "forin",
+        "body": [
+            "for each_index, each_value in enumerate(${1:var}):",
+            "    ${2:pass}"
+        ],
+        "description": "numbered iterate"
+    },
+    
+    "fordict": {
+        "prefix": "fordict",
+        "body": [
+            "for each_key, each_value in ${1:var}.items():",
+            "    ${2:pass}"
+        ],
+        "description": "iterate over dict"
+    },
+    // just a javascript clone
+    "forentries": {
+        "prefix": "forentries",
+        "body": [
+            "for each_key, each_value in ${1:var}.items():",
+            "    ${2:pass}"
+        ],
+        "description": "iterate over dict"
+    },
+    
+    "count": {
+        "prefix": "count indefinitely",
+        "body": [
+            "import itertools",
+            "for index in itertools.count(0): # starting at 0",
+            "    ${0:pass}"
+        ],
+        "description": "iterate forever"
+    },
+    
+    "pairwise": {
+        "prefix": "pairwise",
+        "body": [
+            "# get pairwise elements",
+            "for prev, each in zip(a_string[0:-1], a_string[1:]):",
+            "    print('prev, each = ', prev, each)",
+        ],
+        "description": "iterate over sliding pairs"
+    },
+    
+    "read": {
+        "prefix": "read",
+        "body": [
+            "try:",
+            "    with open(filepath,'r') as f:",
+            "        output = f.read()",
+            "except:",
+            "    output = None"
+        ],
+        "description": "file read"
+    },
+    
+    "write": {
+        "prefix": "write",
+        "body": [
+            "with open(${1:file_path}, 'w') as the_file:",
+            "    the_file.write(str(${2:data}))",
+        ],
+        "description": "file write"
+    },
+    "download": {
+        "prefix": "download",
+        "body": [
+            "import requests",
+            "url = '${1:url}'",
+            "myfile = requests.get(url, allow_redirects=True)",
+            "open('./download', 'wb').write(myfile.content)",
+        ],
+        "description": "download a file"
+    },
+    "mkdirs": {
+        "prefix": "mkdirs",
+        "body": [
+            "import os",
+            "directory = os.path.dirname(${1:file})",
+            "if directory == '': directory = '.'",
+            "os.makedirs(directory, exist_ok=True)",
+        ],
+    },
+    "custom_with_as": {
+        "prefix": "with_as_class",
+        "body": [
+            "class WithObj(object):",
+            "    def __init__(self, *args, **kwargs):",
+            "        # with_as_arguments",
+            "        pass",
+            "    ",
+            "    def __enter__(self):",
+            "        with_as_value = 31415926535",
+            "        return with_as_value",
+            "    ",
+            "    def __exit__(self, _, error, traceback):",
+            "        # normal cleanup HERE",
+            "        ",
+            "        if error is not None:",
+            "            # error cleanup HERE",
+            "            raise error",
+        ],
+    },
+    "write_json": {
+        "prefix": "write_json",
+        "body": [
+            "import json",
+            "from os.path import join",
+            "with open(join(__dirname__, '$1data'), 'w') as outfile:",
+            "    json.dump($2result, outfile)",
+        ],
+        "description": "write a json file"
+    },
+    "read_json": {
+        "prefix": "read_json",
+        "body": [
+            "import json",
+            "from os.path import join",
+            "with open(join(__dirname__, '$1data'), 'r') as in_file:",
+            "    output = json.load(in_file)",
+        ],
+        "description": "read a json file"
+    },
+    "cut_video": {
+        "prefix": "cut_video",
+        "body": [
+            "from subprocess import call,run",
+            "from pathlib import Path",
+            "import os",
+            "",
+            "def cut_video(source, start, end, output_path, hide_errors=False, errors_to_ignore=None):",
+            "    '''",
+            "    Example:",
+            "        exit_code, stdout, stderr = cut_video(source='./myvid.mp4', start=30, end=60, output_path='./myvid_30to60.mp4')",
+            "    ",
+            "    Note:",
+            "        - this will not modify the existing video",
+            "        - this was tested with ffmpeg 4.3.1",
+            "    ",
+            "    Args:",
+            "        source: filepath to the video",
+            "        start: seconds (float or int)",
+            "        end: seconds (float or int)",
+            "        output_path: filepath to new clip",
+            "        hide_errors: print or dont print stderr",
+            "        errors_to_ignore: list of strings, if string is in the stderr the stderr wont be printed",
+            "        ",
+            "    Returns:",
+            "        (exit_code, stdout, stderr)",
+            "    ",
+            "    Raises:",
+            "        Exception: 'End time is before start time for '+source",
+            "        Exception: 'When calling cut_video() it seems ffmpeg is not installed (or not on the path). This was called with '+source",
+            "        Exception: 'When calling cut_video() it seems the video didn't exist as a file: '+source",
+            "    '''",
+            "    errors_to_ignore = [] if errors_to_ignore is None else errors_to_ignore",
+            "    duration = end - start",
+            "    # check start/end",
+            "    if duration <= 0:",
+            "        raise Exception('End time is before start time for '+source)",
+            "    # make sure ffmpeg exists (only check once per python process)",
+            "    if globals().get('__ffpeg_exists', False):",
+            "        command_output = run(['ffmpeg', '-version',], capture_output=True)",
+            "        stdout = str(command_output.stdout.decode('UTF-8'))",
+            "        if 'ffmpeg version' in stdout:",
+            "            globals()['__ffpeg_exists'] = True",
+            "        else:",
+            "            raise Exception('When calling cut_video() it seems ffmpeg is not installed (or not on the path). This was called with '+source)",
+            "    # make sure the video exists",
+            "    if not os.path.isfile(source):",
+            "        raise Exception('When calling cut_video() it seems the video didn't exist as a file: '+source)",
+            "        ",
+            "    # touch the original video so that the file system knows it has been used recently",
+            "    Path(source).touch()",
+            "    ",
+            "    # ",
+            "    # actually run the command",
+            "    # ",
+            "    command_output = run(['ffmpeg', '-i', str(source), '-ss', str(start), '-t', str(duration), '-async', '1', str(output_path), '-hide_banner', '-loglevel', 'panic'], capture_output=True)",
+            "    ",
+            "    # process the output",
+            "    exit_code = command_output.exit_code",
+            "    stdout = str(command_output.stdout.decode('UTF-8'))",
+            "    stderr = str(command_output.stderr.decode('UTF-8'))",
+            "    if not hide_errors and len(stderr) != 0:",
+            "        common_errors = [ common_error for common_error in errors_to_ignore if common_error in stderr ]",
+            "        if len(common_errors) == 0:",
+            "            print('ffmpeg inside cut_video(source='+str(source)+') produced some errors:')",
+            "            print(stderr)",
+            "    ",
+            "    return exit_code, stdout, stderr",
+        ],
+        "description": "use ffmpeg to cut a video"
+    },
+    
+    "import everything": {
+        "prefix": "import everything",
+        "body": [
+            "import sys",
+            "import os",
+            "from os.path import isabs, isfile, isdir, join, dirname, basename, exists, splitext, relpath",
+            "from os import remove, getcwd, makedirs, listdir, rename, rmdir, system",
+            "from shutil import move",
+            "import glob",
+            "import pickle",
+            "import random",
+            "import itertools",
+            "import time",
+            "import subprocess",
+            "import defaultdict",
+            "from pprint import pprint",
+            "from subprocess import call",
+            "from pathlib import Path",
+            "from os.path import join, dirname",
+            "from random import random, sample, choices",
+            "from statistics import mean as average",
+            "import numpy as np",
+            "import pandas as pd",
+            "import regex as re",
+        ],
+        "description": "import everything"
+    },
+    
+    "onehot max": {
+        "prefix": "onehot max",
+        "body": [
+            "onehot_argmax = lambda list_of_values: (lambda arg_max: [ 0 if index != arg_max else 1 for index,_ in enumerate(list_of_values) ])(max(range(len(list_of_values)), key=lambda each: list_of_values[each]))",
+        ],
+        "description": "give a list, get a list that has 1 at the maximum, 0 everywhere else"
+    },
+    
+    "dataclass": {
+        "prefix": "dataclass",
+        "body": [
+            "import dataclasses",
+            "@dataclasses.dataclass",
+            "class ${1:StructName}:",
+            "    duration: float",
+            "    protocol_type: str",
+            "    ",
+            "    # type coersion",
+            "    def __post_init__(self):",
+            "        for field in dataclasses.fields(self): setattr(self, field.name, field.type(getattr(self, field.name)))",
+        ],
+        "description": "a quick way to create attributes instead of dicts"
+    },
+    
+    "autoenum": {
+        "prefix": "autoenum",
+        "body": [
+            "class AutoEnum():",
+            "    count = 0",
+            "    converter = {}",
+            "    def __getitem__(self, key):",
+            "        if self.converter.get(key,None) is None:",
+            "            self.count += 1",
+            "            self.converter[key] = self.count",
+            "            self.converter[self.count] = key",
+            "        return self.converter[key]",
+        ],
+        "description": "enum that dynamically adds elements"
+    },
+    
+    "merge": {
+        "prefix": "merge",
+        "body": [
+            "def is_iterable(thing):",
+            "    try:",
+            "        iter(thing)",
+            "    except TypeError:",
+            "        return False",
+            "    else:",
+            "        return True",
+            "import collections.abc",
+            "def merge(old_value, new_value):",
+            "    # if not dict, see if it is iterable",
+            "    if not isinstance(new_value, collections.abc.Mapping):",
+            "        if is_iterable(new_value):",
+            "            new_value = { index: value for index, value in enumerate(new_value) }",
+            "    ",
+            "    # if still not a dict, then just return the current value",
+            "    if not isinstance(new_value, collections.abc.Mapping):",
+            "        return new_value",
+            "    # otherwise get recursive",
+            "    else:",
+            "        # if not dict, see if it is iterable",
+            "        if not isinstance(old_value, collections.abc.Mapping):",
+            "            if is_iterable(old_value):",
+            "                old_value = { index: value for index, value in enumerate(old_value) }",
+            "        # if still not a dict",
+            "        if not isinstance(old_value, collections.abc.Mapping):",
+            "            # force it to be one",
+            "            old_value = {}",
+            "        ",
+            "        # override each key recursively",
+            "        for key, updated_value in new_value.items():",
+            "            old_value[key] = merge(old_value.get(key, {}), updated_value)",
+            "        ",
+            "        return old_value",
+        ],
+        "description": "merge recursively"
+    },
+    "home": {
+        "prefix": "home",
+        "body": [
+            "from os.path import expanduser",
+            "home = expanduser('~')",
+        ],
+        "description": "home"
+    },
+    "block": {
+        "prefix": "block",
+        "body": [
+            "#%% ",
+            "if True:",
+            "    ",
+        ],
+        "description": "home"
+    },
+    "network": {
+        "prefix": "network",
+        "body": [
+            "from tools.all_tools import *",
+            "",
+            "from torchvision import datasets, transforms",
+            "from tools.basics import product",
+            "from tools.pytorch_tools import Network",
+            "",
+            "class ${1:NetworkName}(nn.Module):",
+            "    def __init__(self, **config):",
+            "        super(${1:NetworkName}, self).__init__()",
+            "        # ",
+            "        # options",
+            "        # ",
+            "        Network.default_setup(self, config)",
+            "        self.input_shape     = config.get('input_shape'    , (1, 28, 28))",
+            "        self.output_shape    = config.get('output_shape'   , (2,))",
+            "        self.lr              = config.get('lr'             , 0.01)",
+            "        self.momentum        = config.get('momentum'       , 0.5 )",
+            "        ",
+            "        # ",
+            "        # layers",
+            "        # ",
+            "        self.layers.add_module('conv1', nn.Conv2d(1, 10, kernel_size=5))",
+            "        self.layers.add_module('conv1_pool', nn.MaxPool2d(2))",
+            "        self.layers.add_module('conv1_activation', nn.ReLU())",
+            "        self.layers.add_module('conv2', nn.Conv2d(10, 10, kernel_size=5))",
+            "        self.layers.add_module('conv2_drop', nn.Dropout2d())",
+            "        self.layers.add_module('conv2_pool', nn.MaxPool2d(2))",
+            "        self.layers.add_module('conv2_activation', nn.ReLU())",
+            "        self.layers.add_module('flatten', nn.Flatten(1)) # 1 => skip the first dimension because thats the batch dimension",
+            "        self.layers.add_module('fc1', nn.Linear(self.size_of_last_layer, product(self.output_shape)))",
+            "        self.layers.add_module('fc1_activation', nn.LogSoftmax(dim=1))",
+            "        ",
+            "        # ",
+            "        # support (optimizer, loss)",
+            "        # ",
+            "        self.to(self.device)",
+            "        # create an optimizer",
+            "        self.optimizer = optim.SGD(self.parameters(), lr=self.lr, momentum=self.momentum)",
+            "    ",
+            "    @property",
+            "    def size_of_last_layer(self):",
+            "        return product(self.input_shape if len(self.layers) == 0 else layer_output_shapes(self.input_shape, self.layers)[-1])",
+            "        ",
+            "    def loss_function(self, model_output, ideal_output):",
+            "        # convert from one-hot into number, and send tensor to device",
+            "        ideal_output = from_onehot_batch(ideal_output).to(self.device)",
+            "        return F.nll_loss(model_output, ideal_output)",
+            "    ",
+            "    def correctness_function(self, model_batch_output, ideal_batch_output):",
+            "        return Network.onehot_correctness_function(self, model_batch_output, ideal_batch_output)",
+            "",
+            "    def forward(self, input_data):",
+            "        return Network.default_forward(self, input_data)",
+            "    ",
+            "    def update_weights(self, batch_of_inputs, batch_of_ideal_outputs, epoch_index, batch_index):",
+            "        return Network.default_update_weights(self, batch_of_inputs, batch_of_ideal_outputs, epoch_index, batch_index)",
+            "        ",
+            "    def fit(self, *, input_output_pairs=None, dataset=None, loader=None, number_of_epochs=3, batch_size=64, shuffle=True):",
+            "        return Network.default_fit(self, input_output_pairs=input_output_pairs, dataset=dataset, loader=loader, number_of_epochs=number_of_epochs, batch_size=batch_size, shuffle=shuffle,)",
+            "    ",
+            "    def test(self, loader, correctness_function=None):",
+            "        return Network.default_test(self, loader)",
+            "",
+            "# ",
+            "# perform test if run directly",
+            "# ",
+            "if __name__ == '__main__':",
+            "    from tools.dataset_tools import *",
+            "    from tools.basics import *",
+            "    ",
+            "    model = ${1:NetworkName}()",
+            "    # FIXME: dataset",
+            "    train_dataset, test_dataset, train_loader, test_loader = binary_mnist([9])",
+            "    model.fit(loader=train_loader, number_of_epochs=3)",
+            "    model.test(loader=test_loader)",
+            "    ",
+            "    # ",
+            "    # test inputs/outputs",
+            "    # ",
+            "    for each_index in range(100):",
+            "        input_data, correct_output = train_dataset[each_index]",
+            "        # train_dataset, test_dataset, train_loader, test_loader",
+            "        guess = [ round(each, ndigits=0) for each in to_pure(model.forward(input_data)) ]",
+            "        actual = to_pure(correct_output)",
+            "        index = max_index(guess)",
+            "        print(f'guess: {guess},\\t  index: {index},\\t actual: {actual}')",
+        ],
+        "description": "model"
+    },
+    "python_lightning_methods": {
+        "prefix": "python_lightning_methods",
+        "body": [
+            "['datamodule', 'example_input_array', 'on_gpu', 'current_epoch', 'global_step', 'global_rank', 'local_rank', 'logger', 'model_size', 'automatic_optimization', 'truncated_bptt_steps', 'loaded_optimizer_states_dict', 'device', 'dtype', 'hparams', 'hparams_initial', 'optimizers', 'lr_schedulers', '_apply_batch_transfer_handler', 'print', 'log', 'log_dict', '_LightningModule__check_not_nested', '_LightningModule__check_allowed', '_LightningModule__to_tensor', 'log_grad_norm', 'write_prediction', 'write_prediction_dict', '_LightningModule__auto_choose_log_on_step', '_LightningModule__auto_choose_log_on_epoch', 'all_gather', 'forward', 'training_step', 'training_step_end', 'training_epoch_end', 'validation_step', 'validation_step_end', 'validation_epoch_end', 'test_step', 'test_step_end', 'test_epoch_end', 'predict_step', 'configure_callbacks', 'configure_optimizers', 'manual_backward', 'backward', 'toggle_optimizer', 'untoggle_optimizer', 'optimizer_step', 'optimizer_zero_grad', 'tbptt_split_batch', 'summarize', 'freeze', 'unfreeze', 'get_progress_bar_dict', 'to_onnx', 'to_torchscript', 'add_to_queue', 'get_from_queue', 'trainer' ]",
+        ],
+        "description": "list of methods that can be used with pl.LightningModule"
+    },
+    
 }
+

@@ -51,8 +51,8 @@ grammar.scope_name = "source.json.comments"
     # overwrite the stringcontent
     normal_escape_tag = "constant.character.escape.json.comments"
     outputs_just_a_backslash_tag = "entity.name.escape.backslash.insertion.json.comments"
-    double_escaper_tag = "punctuation.insertion.escape.escaper.json.comments comment punctuation.definition.comment.insertion.escape.json.comments"
-    double_escapee_tag = "punctuation.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+    double_escaper_tag = "punctuation.section.insertion.escape.escaper.json.comments comment.block punctuation.definition.comment.insertion.escape.json.comments"
+    double_escapee_tag = "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
     normal_string_charater_tag = "string.quoted.double.json.comments"
     
     grammar[:basic_escape] = Pattern.new(
@@ -75,7 +75,6 @@ grammar.scope_name = "source.json.comments"
         ),
     )
     grammar[:null_quad_backslash] = Pattern.new(
-        tag_as: "meta.null_quad_backslash",
         match: Pattern.new(
             # FIXME: check what \\\" does
             match: lookAheadToAvoid(/\\/).oneOf([
@@ -129,7 +128,7 @@ grammar.scope_name = "source.json.comments"
     )
     grammar[:normal_characters] = Pattern.new(
         tag_as: normal_string_charater_tag,
-        match: /[^\\\n\}"]+/, # normal characters
+        match: /[^\\\n\}"]/, # normal characters
     )
     simple_escape_context = [
         :null_quad_backslash,
@@ -171,17 +170,16 @@ grammar.scope_name = "source.json.comments"
                 tag_as: insertion_tag,
                 match: Pattern.new(
                     Pattern.new(
-                        tag_as: "punctuation.insertion",
+                        tag_as: "punctuation.section.insertion",
                         match: /\$\{/,
                     ).then(
                         match: /\d+/,
                     ).then(
-                        tag_as: "punctuation.insertion",
+                        tag_as: "punctuation.section.insertion",
                         match: /:/,
                     )
                 ),
             ).then(
-                tag_as: "punctuation.internal",
                 match: zeroOrMoreOf(
                     match: oneOf([
                         grammar[:bracket_escape], 
@@ -193,7 +191,7 @@ grammar.scope_name = "source.json.comments"
                     includes: simple_escape_context,
                 )
             ).then(
-                tag_as: insertion_tag + " punctuation.insertion",
+                tag_as: insertion_tag + " punctuation.section.insertion",
                 match: "}",
             )
         )
@@ -209,12 +207,13 @@ grammar.scope_name = "source.json.comments"
             # logic
                 # all quad slashes means the $ is 
             match: oneOf([
+                grammar[:naive_insertion_area],
                 # exclusively quad backslashes, meaning the insertion area is still active
                 Pattern.new(
                     match: zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(grammar[:naive_insertion_area]),
                     includes: [
-                        :quad_backslash_match,
                         grammar[:naive_insertion_area],
+                        :quad_backslash_match,
                     ]
                 ),
                 # double backslash, then quad backslashes, meaning the insertion area is NOT active
@@ -252,7 +251,6 @@ grammar.scope_name = "source.json.comments"
     )
     
     grammar[:special_object_key] = PatternRange.new(
-        tag_as: "meta.special_object_key",
         start_pattern: Pattern.new(
             Pattern.new(
                 match: '"',
