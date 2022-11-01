@@ -4,6 +4,7 @@
     "description": "",
     "version": "0.0.1",
     "icon": "icon.png",
+    "repository": "git@github.com:jeff-hykin/better-snippet-syntax.git",
     "scripts": {},
     "keywords": [
         "syntax",
