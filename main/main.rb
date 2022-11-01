@@ -75,25 +75,27 @@ grammar.scope_name = "source.json.comments"
         ),
     )
     grammar[:null_quad_backslash] = Pattern.new(
-        # FIXME: check what \\\" does
-        match: oneOf([
-            Pattern.new(/\\\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
-                Pattern.new(/[^\{\$"\\]/).or(lookAheadFor('"'))
-            ),
-            oneOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
-                Pattern.new(/[^\{\$"\\]/).or(lookAheadFor('"'))
-            ),
-        ]),
-        includes: [
-            # quad match
-            :quad_backslash_match,
-            # double match
-            Pattern.new(
-                tag_as: normal_escape_tag,
-                match: /\\\\/,
-            ),
-            :normal_characters,
-        ],
+        tag_as: "meta.null_quad_backslash",
+        match: Pattern.new(
+            # FIXME: check what \\\" does
+            match: lookAheadToAvoid(/\\/).oneOf([
+                Pattern.new(/\\\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
+                    Pattern.new(/[^\{\$"\\]/).or(lookAheadFor('"'))
+                ),
+                oneOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
+                    Pattern.new(/[^\{\$"\\]/).or(lookAheadFor('"'))
+                ),
+            ]),
+            includes: [
+                # quad match
+                :quad_backslash_match,
+                :dollar_sign_escape,
+                :bracket_escape,
+                :basic_escape,
+                :invalid_escape,
+                :normal_characters,
+            ],
+        )
     )
     grammar[:dollar_sign_escape] = Pattern.new(
         match: lookBehindToAvoid(/\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
@@ -110,12 +112,20 @@ grammar.scope_name = "source.json.comments"
             ),
         ]
     )
-    grammar[:naive_bracket_escape] = Pattern.new(
-        tag_as: double_escapee_tag,
-        match: Pattern.new(
-            tag_as: double_escaper_tag,
-            match: /\\\\/,
-        ).then("}")
+    grammar[:bracket_escape] = Pattern.new(
+        match: lookBehindToAvoid(/\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
+            Pattern.new(/\\\\/).then("}")
+        ),
+        includes: [
+            :quad_backslash_match,
+            Pattern.new(
+                tag_as: double_escapee_tag,
+                match: Pattern.new(
+                    tag_as: double_escaper_tag,
+                    match: /\\\\/,
+                ).then("}")
+            ),
+        ]
     )
     grammar[:normal_characters] = Pattern.new(
         tag_as: normal_string_charater_tag,
@@ -124,7 +134,8 @@ grammar.scope_name = "source.json.comments"
     simple_escape_context = [
         :null_quad_backslash,
         :dollar_sign_escape,
-        :naive_bracket_escape,
+        :bracket_escape,
+        :quad_backslash_match,
         :basic_escape,
         :invalid_escape,
         :normal_characters,
@@ -170,17 +181,20 @@ grammar.scope_name = "source.json.comments"
                     )
                 ),
             ).then(
-                zeroOrMoreOf(
+                tag_as: "punctuation.internal",
+                match: zeroOrMoreOf(
                     match: oneOf([
-                        /[^\\\n\}]/,            # a primitive character, including $
-                        /\\\\\\\\/,             # a quadruple backslash (ends up as a slash)
-                        /\\\\[^\\\n\}]/,        # a double-backslash escaped thing
-                        grammar[:basic_escape], # a normal json escape
+                        grammar[:bracket_escape], 
+                        /[^\\\n\}"]/,             # a primitive character, including $
+                        /(?:\\\\\\\\)++/,         # a quadruple backslash (ends up as a slash)
+                        /\\\\[^\\\n\}]/,          # a double-backslash escaped normal thing
+                        grammar[:basic_escape].lookBehindToAvoid(/\\/),   # a normal json escape, that is not a \\ escape
                     ]),
-                    includes: simple_escape_context,
+                    # includes: simple_escape_context,
+                    # no_backtrack: true,
                 )
             ).then(
-                tag_as: insertion_tag + "punctuation.insertion",
+                tag_as: insertion_tag + " punctuation.insertion",
                 match: "}",
             )
         )

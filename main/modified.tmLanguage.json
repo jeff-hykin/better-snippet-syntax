@@ -103,6 +103,10 @@
             "patterns": [
                 {
                     "comment": "the JSON object key",
+                    "include": "#special_object_key"
+                },
+                {
+                    "comment": "the JSON object key",
                     "include": "#objectkey"
                 },
                 {
@@ -158,6 +162,9 @@
                     "include": "#stringcontent"
                 }
             ]
+        },
+        "special_object_key": {
+            
         },
         "objectkey": {
             "begin": "\"",

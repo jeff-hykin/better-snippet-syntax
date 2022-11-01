@@ -8,6 +8,7 @@ constant.numeric.json.comments
 invalid.illegal.expected-array-separator.json.comments
 invalid.illegal.expected-dictionary-separator.json.comments
 invalid.illegal.unrecognized-string-escape.json.comments
+meta.null_quad_backslash.comments
 meta.structure.array.json.comments
 meta.structure.dictionary.json.comments
 meta.structure.dictionary.value.json.comments
@@ -22,6 +23,7 @@ punctuation.definition.string.end.json.comments
 punctuation.insertion.comments
 punctuation.insertion.escape.escapee.comments
 punctuation.insertion.escape.escaper.comments
+punctuation.internal.comments
 punctuation.separator.array.json.comments
 punctuation.separator.dictionary.key-value.json.comments
 punctuation.separator.dictionary.pair.json.comments
@@ -32,5 +34,4 @@ string.quoted.comments
 string.quoted.double.json.comments
 string.regexp.insertion.escape.comments
 support.class.insertion.comments
-support.class.insertionpunctuation.insertion.comments
 support.type.property-name.json.comments
