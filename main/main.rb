@@ -50,10 +50,10 @@ grammar.scope_name = "source.json.comments"
 # 
     # overwrite the stringcontent
     normal_escape_tag = "constant.character.escape.json.comments"
-    outputs_just_a_backslash_tag = "entity.name.escape.backslash.insertion"
-    double_escaper_tag = "punctuation.insertion.escape.escaper comment punctuation.definition.comment.insertion.escape"
-    double_escapee_tag = "punctuation.insertion.escape.escapee string.regexp.insertion.escape"
-    normal_string_charater_tag = "string.quoted"
+    outputs_just_a_backslash_tag = "entity.name.escape.backslash.insertion.json.comments"
+    double_escaper_tag = "punctuation.insertion.escape.escaper.json.comments comment punctuation.definition.comment.insertion.escape.json.comments"
+    double_escapee_tag = "punctuation.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+    normal_string_charater_tag = "string.quoted.double.json.comments"
     
     grammar[:basic_escape] = Pattern.new(
         tag_as: normal_escape_tag,
@@ -190,8 +190,7 @@ grammar.scope_name = "source.json.comments"
                         /\\\\[^\\\n\}]/,          # a double-backslash escaped normal thing
                         grammar[:basic_escape].lookBehindToAvoid(/\\/),   # a normal json escape, that is not a \\ escape
                     ]),
-                    # includes: simple_escape_context,
-                    # no_backtrack: true,
+                    includes: simple_escape_context,
                 )
             ).then(
                 tag_as: insertion_tag + " punctuation.insertion",
@@ -252,15 +251,57 @@ grammar.scope_name = "source.json.comments"
         )
     )
     
-    grammar[:stringcontent] = [
+    grammar[:special_object_key] = PatternRange.new(
+        tag_as: "meta.special_object_key",
+        start_pattern: Pattern.new(
+            Pattern.new(
+                match: '"',
+                tag_as: "string.json.comments support.type.property-name.json.comments punctuation.support.type.property-name.begin.json.comments",
+            ).then(
+                match: 'body',
+                tag_as: "string.json.comments support.type.property-name.json.comments",
+            ).then(
+                match: '"',
+                tag_as: "string.json.comments support.type.property-name.json.comments punctuation.support.type.property-name.begin.json.comments",
+            )
+        ),
+        end_pattern: lookBehindFor(/,/).or(lookAheadFor("}")),
+        includes: [
+            PatternRange.new(
+                tag_as: "meta.structure.dictionary.value.json.comments",
+                start_pattern: Pattern.new(
+                    Pattern.new(
+                        match: ':',
+                        tag_as: "punctuation.separator.dictionary.key-value.json.comments"
+                    )
+                ),
+                end_pattern: Pattern.new(
+                    Pattern.new(
+                        tag_as: "punctuation.separator.dictionary.pair.json.comments",
+                        match: /,/,
+                    ).or(lookAheadFor(/\}/))
+                ),
+                includes: [
+                    :body_value,
+                    Pattern.new(
+                        tag_as: "invalid.illegal.expected-dictionary-separator.json.comments",
+                        match: /[^\s,]/,
+                    ),
+                ],
+            ),
+        ],
+    )
+    
+    grammar[:body_stringcontent] = [
         :any_potential_insertion,
         *simple_escape_context,
     ]
-    grammar[:string_key_content] = [
+    
+    grammar[:stringcontent] = grammar[:string_key_content] = [
         :basic_escape,
         :invalid_escape,
     ]
-
+    
 #
 # Save
 #
