@@ -143,57 +143,66 @@ grammar.scope_name = "source.json.comments"
     insertion_tag = "support.class.insertion"
     grammar[:naive_insertion_area] = Pattern.new(
         Pattern.new(
-            tag_as: insertion_tag,
-            should_fully_match: [ "$1", "$2", "$howdeee" ],
-            match: Pattern.new("$").oneOf([
-                /\d+/,
-                /[a-zA-Z_]+/, # FIXME: this probably should include more characters, maybe numbers
-            ]),
-        ).or(
-            # key question is: what results in an inert/unmatched ${}
-                # "${}"               => ${}
-                # "${:}"              => ${:}
-                # "${:a}"             => ${:a}
-                # "${0:}"             => special
-                # "${0:\\}"           => ${0:}
-                # "${0:\\a}"          => \a and special
-                # "${0:\\\\}"         => \ and special
-                # "${0:\\\\a}"        => \a and special
-                # "${0:\\\\\\}"       => ${0:\}
-                # "${0:\\\\\\\\}"     => \\ and special
-                # "${0:\\\\\\\\a}"    => \\a and special
-                # "${0:\\}\\\\\\a}"   => }\\a and special
-                # "${0:\\}\\\\\\a}"   => }\\a and special
-                # "${0:\\\\}\\\\\\a}" => \\\a} and first slash special
-                # "${0:$}"            => $ and first slash special(
-            Pattern.new(
-                tag_as: insertion_tag,
-                match: Pattern.new(
-                    Pattern.new(
-                        tag_as: "punctuation.section.insertion",
-                        match: /\$\{/,
-                    ).then(
-                        match: /\d+/,
-                    ).then(
-                        tag_as: "punctuation.section.insertion",
-                        match: /:/,
-                    )
-                ),
-            ).then(
-                match: zeroOrMoreOf(
-                    match: oneOf([
-                        grammar[:bracket_escape], 
-                        /[^\\\n\}"]/,             # a primitive character, including $
-                        /(?:\\\\\\\\)++/,         # a quadruple backslash (ends up as a slash)
-                        /\\\\[^\\\n\}]/,          # a double-backslash escaped normal thing
-                        grammar[:basic_escape].lookBehindToAvoid(/\\/),   # a normal json escape, that is not a \\ escape
+            reference: "naive_insertion",
+            match: Pattern.new(
+                Pattern.new(
+                    tag_as: insertion_tag,
+                    should_fully_match: [ "$1", "$2", "$howdeee" ],
+                    match: Pattern.new("$").oneOf([
+                        /\d+/,
+                        /[a-zA-Z_]+/, # FIXME: this probably should include more characters, maybe numbers
                     ]),
-                    includes: simple_escape_context,
+                ).or(
+                    # key question is: what results in an inert/unmatched ${}
+                        # "${}"               => ${}
+                        # "${:}"              => ${:}
+                        # "${:a}"             => ${:a}
+                        # "${0:}"             => special
+                        # "${0:\\}"           => ${0:}
+                        # "${0:\\a}"          => \a and special
+                        # "${0:\\\\}"         => \ and special
+                        # "${0:\\\\a}"        => \a and special
+                        # "${0:\\\\\\}"       => ${0:\}
+                        # "${0:\\\\\\\\}"     => \\ and special
+                        # "${0:\\\\\\\\a}"    => \\a and special
+                        # "${0:\\}\\\\\\a}"   => }\\a and special
+                        # "${0:\\}\\\\\\a}"   => }\\a and special
+                        # "${0:\\\\}\\\\\\a}" => \\\a} and first slash special
+                        # "${0:$}"            => $ and first slash special(
+                    Pattern.new(
+                        tag_as: insertion_tag,
+                        match: Pattern.new(
+                            Pattern.new(
+                                tag_as: "punctuation.section.insertion",
+                                match: /\$\{/,
+                            ).then(
+                                match: /\d+/,
+                            ).then(
+                                tag_as: "punctuation.section.insertion",
+                                match: /:/,
+                            )
+                        ),
+                    ).then(
+                        match: zeroOrMoreOf(
+                            match: oneOf([
+                                recursivelyMatch("naive_insertion"),
+                                grammar[:bracket_escape], 
+                                /[^\\\n\}"]/,             # a primitive character, including $
+                                /(?:\\\\\\\\)++/,         # a quadruple backslash (ends up as a slash)
+                                /\\\\[^\\\n\}]/,          # a double-backslash escaped normal thing
+                                grammar[:basic_escape].lookBehindToAvoid(/\\/),   # a normal json escape, that is not a \\ escape
+                            ]),
+                            includes: [
+                                :naive_insertion_area,
+                                *simple_escape_context
+                            ],
+                        )
+                    ).then(
+                        tag_as: insertion_tag + " punctuation.section.insertion",
+                        match: "}",
+                    )
                 )
-            ).then(
-                tag_as: insertion_tag + " punctuation.section.insertion",
-                match: "}",
-            )
+            ),
         )
     )
     # every possible match or failed-match of insertion area
