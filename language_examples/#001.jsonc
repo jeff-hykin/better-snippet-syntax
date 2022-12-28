@@ -1,657 +1,1008 @@
 {
-/*
-	// Place your snippets for Python here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
-	"Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	}
+    /*
+    // Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    "Print to console": {
+        "prefix": "log",
+        "body": [
+            "console.log('$1');",
+            "$2"
+        ],
+        "description": "Log output to console"
+    }
 */
-
+	"Check if err is not nil": {
+		"prefix": "ife",
+		"body": [
+			"if err != nil {",
+			"\t${1:panic(${2:err})}",
+			"}",
+			"$0",
+		],
+		"description": "Check if err is not nil"
+	},
+    "1": {
+        "prefix": "no1",
+        "body": [
+            "\\", // \
+        ],
+    },
+    "2": {
+        "prefix": "no2",
+        "body": [
+            "\\\\", // \
+        ],
+    },
+    "3": {
+        "prefix": "no3",
+        "body": [
+            "\\\\\\", // \\
+        ],
+    },
+    "4": {
+        "prefix": "no4",
+        "body": [
+            "\\\\\\\\", // \\
+        ],
+    },
+    "5": {
+        "prefix": "no5",
+        "body": [
+            "\\\\\\\\\\",
+        ],
+    },
+    "6": {
+        "prefix": "no6",
+        "body": [
+            "\\\\\\\\\\\\",
+        ],
+    },
+    "1.1": {
+        "prefix": "no2.1",
+        "body": [
+            "\\$1", // $1
+        ],
+    },
+    "2.2": {
+        "prefix": "no2.2",
+        "body": [
+            "\\\\$1", // \
+        ],
+    },
+    "3.3": {
+        "prefix": "no2.3",
+        "body": [
+            "\\\\\\$1", // \$1
+        ],
+    },
+    "4.4": {
+        "prefix": "no2.4",
+        "body": [
+            "\\\\\\\\$1", // \\
+        ],
+    },
+    "5.5": {
+        "prefix": "no2.5",
+        "body": [
+            "\\\\\\\\\\$1",
+        ],
+    },
+    "6.6": {
+        "prefix": "no2.6",
+        "body": [
+            "\\\\\\\\\\\\$1", // \\\ and special
+        ],
+    },
+    "any1": {
+        "prefix": "any1",
+        "body": [
+            "\\$$1", // $ and special
+        ],
+    },
+    "any2": {
+        "prefix": "any2",
+        "body": [
+            "\\\\$$1", // \$ and special
+        ],
+    },
+    "any3": {
+        "prefix": "any3",
+        "body": [
+            "\\\\\\$$1", // \$ and special
+        ],
+    },
+    "any2.1": {
+        "prefix": "any2.1",
+        "body": [
+            "\\\\$$abra 1", // \$ and abra is special
+        ],
+    },
+    "any3.1": {
+        "prefix": "any3.1",
+        "body": [
+            "\\\\\\$$abra 1", // \$ and abra is special
+        ],
+    },
+    "any3.2": {
+        "prefix": "any3.2",
+        "body": [
+            "\\\\\\\\$$abra 1", // \\$ and abra is special
+        ],
+    },
+    "any3.3": {
+        "prefix": "any3.3",
+        "body": [
+            "\\\\\\\\$$ 1", // \\$$ 1
+        ],
+    },
+    "d1": {
+        "prefix": "d1",
+        "body": [
+            "$", // $
+        ],
+    },
+    "d2": {
+        "prefix": "d2",
+        "body": [
+            "$$", // $$
+        ],
+    },
+    "d3": {
+        "prefix": "d3",
+        "body": [
+            "\\$", // $
+        ],
+    },
+    "d4": {
+        "prefix": "d4",
+        "body": [
+            "\\\\$", // \$
+        ],
+    },
+    "d5": {
+        "prefix": "d5",
+        "body": [
+            "\\\\\\$", // \$
+        ],
+    },
+    "d1.1": {
+        "prefix": "d1.1",
+        "body": [
+            "$1", // special
+        ],
+    },
+    "d2.1": {
+        "prefix": "d2.1",
+        "body": [
+            "$$1", // $ special
+        ],
+    },
+    "d3.1": {
+        "prefix": "d3.1",
+        "body": [
+            "\\$1", // $
+        ],
+    },
+    "d4.1": {
+        "prefix": "d4.1",
+        "body": [
+            "\\\\$1", // \$
+        ],
+    },
+    "d5.1": {
+        "prefix": "d5.1",
+        "body": [
+            "\\\\\\$1", // \$
+        ],
+    },
+    "any4": {
+        "prefix": "any4",
+        "body": [
+            "\\\\\\\\$$1", // \\
+        ],
+    },
+    "any5": {
+        "prefix": "any5",
+        "body": [
+            "\\\\\\\\\\$$1",
+        ],
+    },
+    "any6": {
+        "prefix": "any6",
+        "body": [
+            "\\\\\\\\\\\\$$1",
+        ],
+    },
+    "-1.0": {
+        "prefix": "n-1.0",
+        "body": [
+            "$$1", // $ and special
+        ],
+    },
+    "-1.1": {
+        "prefix": "n-1.1",
+        "body": [
+            "\\$$1",
+        ],
+    },
+    "-1.2": {
+        "prefix": "n-1.2",
+        "body": [
+            "\\\\$$1",
+        ],
+    },
+    "now": {
+        "prefix": "now",
+        "body": [
+            "(new Date()).getTime()",
+        ],
+    },
+    "s0": {
+        "prefix": "s0",
+        "body": [
+            "${}", // ${}
+        ],
+    },
+    "s0.1": {
+        "prefix": "s0.1",
+        "body": [
+            "${:}", // ${:}
+        ],
+    },
+    "s0.2": {
+        "prefix": "s0.2",
+        "body": [
+            "${:a}", // ${:a}
+        ],
+    },
+    "s1": {
+        "prefix": "s1",
+        "body": [
+            "${0:}", // special
+        ],
+    },
+    "s2": {
+        "prefix": "s2",
+        "body": [
+            "${0:\\}", // ${0:}
+        ],
+    },
+    "s3": {
+        "prefix": "s3",
+        "body": [
+            "${0:\\\\}", // \ and special
+        ],
+    },
+    "s4": {
+        "prefix": "s4",
+        "body": [
+            "${0:\\\\\\}", // ${0:\}
+        ],
+    },
+    "s5": {
+        "prefix": "s5",
+        "body": [
+            "${0:\\\\\\\\}", // \\ and special
+        ],
+    },
+    "s6": {
+        "prefix": "s6",
+        "body": [
+            "${0:\\\\\\\\a}", // => \\a and special
+        ],
+    },
+    "s7": {
+        "prefix": "s7",
+        "body": [
+            "${0:\\}\\\\\\a}", // => }\\a and special
+        ],
+    },
+    "s8": {
+        "prefix": "s8",
+        "body": [
+            "${0:\\\\}\\\\\\a}", // => \\\a} and first slash special
+        ],
+    },
+    "s9": {
+        "prefix": "s9",
+        "body": [
+            "${0:\\a}", // \a and special
+        ],
+    },
+    "s10": {
+        "prefix": "s10",
+        "body": [
+            "${0:\\\\a}", // \a and special
+        ],
+    },
+    "s11": {
+        "prefix": "s11",
+        "body": [
+            "${0:$}", // $
+        ],
+    },
+    "s12": {
+        "prefix": "s12",
+        "body": [
+            "${0:\\$}", // $
+        ],
+    },
+    "s13": {
+        "prefix": "s13",
+        "body": [
+            "${0:\\\\$}", // $
+        ],
+    },
+    "now0.0": {
+        "prefix": "now",
+        "body": [
+            "\\n", // => \n
+        ],
+    },
+    "now0.1": {
+        "prefix": "now",
+        "body": [
+            "\\\\n", // => \n
+        ],
+    },
+    "now0.2": {
+        "prefix": "now",
+        "body": [
+            "\\\\n", // => \n
+        ],
+    },
+    "now1.1": {
+        "prefix": "now",
+        "body": [
+            "\\$1", // => $1
+        ],
+    },
+    "now1.2": {
+        "prefix": "now",
+        "body": [
+            "\\\\$1", // => \
+        ],
+    },
+    "now5": {
+        "prefix": "now",
+        "body": [
+            "\\}",
+        ],
+    },
+    "deno_hashbang": {
+        "prefix": "deno_hashbang",
+        "body": [
+            "#!/usr/bin/env sh",
+            "\"\\\"\",`$$(echo --% ' |out-null)\" >$$null;function :{};function dv{<#$${/*'>/dev/null )` 2>/dev/null;dv() { #>",
+            "echo \"1.22.0\"; : --% ' |out-null <#';};v=\"$$(dv)\";d=\"$$HOME/.deno/$$v/bin/deno\";if [ -x \"$$d\" ];then exec \"$$d\" run -q -A \"$$0\" \"$$@\";elif [ -f \"$$d\" ];then chmod +x \"$$d\" && exec \"$$d\" run -q -A \"$$0\" \"$$@\";fi;bin_dir=\"$$HOME/.deno/$$v/bin\";exe=\"$$bin_dir/deno\";has() { command -v \"$$1\" >/dev/null; };if ! has unzip;then :;if ! has apt-get;then has brew && brew install unzip;else if [ \"$$(whoami)\" = \"root\" ];then apt-get install unzip -y;elif has sudo;then echo \"Can I install unzip for you? (its required for this command to work) \";read ANSWER;echo;if [ \"$$ANSWER\" =~ ^[Yy] ];then sudo apt-get install unzip -y;fi;elif has doas;then echo \"Can I install unzip for you? (its required for this command to work) \";read ANSWER;echo;if [ \"$$ANSWER\" =~ ^[Yy] ];then doas apt-get install unzip -y;fi;fi;fi;fi;if ! has unzip;then echo \"\";echo \"So I couldn't find an 'unzip' command\";echo \"And I tried to auto install it, but it seems that failed\";echo \"(This script needs unzip and either curl or wget)\";echo \"Please install the unzip command manually then re-run this script\";exit 1;fi;if [ \"$$OS\" = \"Windows_NT\" ];then target=\"x86_64-pc-windows-msvc\";else :; case $$(uname -sm) in \"Darwin x86_64\") target=\"x86_64-apple-darwin\" ;; \"Darwin arm64\") target=\"aarch64-apple-darwin\" ;; *) target=\"x86_64-unknown-linux-gnu\" ;; esac;fi;deno_uri=\"https://github.com/denoland/deno/releases/download/v$$v/deno-$$target.zip\";if [ ! -d \"$$bin_dir\" ];then mkdir -p \"$$bin_dir\";fi;if has curl;then curl --fail --location --progress-bar --output \"$$exe.zip\" \"$$deno_uri\";elif has wget;then wget --output-document=\"$$exe.zip\" \"$$deno_uri\";else echo \"Howdy! I looked for the 'curl' and for 'wget' commands but I didn't see either of them.\";echo \"Please install one of them\";echo \"Otherwise I have no way to install the missing deno version needed to run this code\";fi;unzip -d \"$$bin_dir\" -o \"$$exe.zip\";chmod +x \"$$exe\";rm \"$$exe.zip\";exec \"$$d\" run -q -A \"$$0\" \"$$@\"; #>};$$DenoInstall = \"$${HOME}\\.deno$$(dv)\";$$BinDir = \"$$DenoInstall\\bin\"; $$DenoExe = \"$$BinDir\\deno.exe\"; if (-not(Test-Path -Path \"$$DenoExe\" -PathType Leaf)) { $$DenoZip = \"$$BinDir\\deno.zip\";$$DenoUri = \"https://github.com/denoland/deno/releases/download/v$$(dv)/deno-x86_64-pc-windows-msvc.zip\";[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;if(!(Test-Path $$BinDir)){ New-Item $$BinDir -ItemType Directory |Out-Null;};curl.exe -Lo $$DenoZip $$DenoUri;tar.exe xf $$DenoZip -C $$BinDir; Remove-Item $$DenoZip;$$User = [EnvironmentVariableTarget]::User; $$Path = [Environment]::GetEnvironmentVariable('Path', $$User); if (!(\";$$Path;\".ToLower() -like \"*;$$BinDir;*\".ToLower())) { [Environment]::SetEnvironmentVariable('Path', \"$$Path;$$BinDir\", $$User); $$Env:Path += \";$$BinDir\"; } }; & \"$$DenoExe\" run -q -A \"$$PSCommandPath\" @args; Exit $$LastExitCode;# */0}`;",
+            "// */}`",
+        ],
+    },
+    "forof loop": {
+        "prefix": "forof",
+        "body": [
+            "for (let each of $0) {",
+            "    ",
+            "}"
+        ],
+        "description": "creates a for loop"
+    },
+    "forentries loop": {
+        "prefix": "forentries",
+        "body": [
+            "for (const [key, value] of Object.entries($0)) {",
+                "",
+            "}"
+        ],
+        "description": "creates a for loop"
+    },
+    "import lodash": {
+        "prefix": "import lodash",
+        "body": [
+            "const _ = (await import('https://cdn.skypack.dev/lodash'))",
+        ],
+    },
+    "import path": {
+        "prefix": "import path",
+        "body": [
+            "const Path = await import('https://deno.land/std@0.117.0/path/mod.ts')",
+        ],
+    },
+    "import itertools": {
+        "prefix": "import itertools",
+        "body": [
+            "const { enumerate, pairwise } = await import('https://deno.land/x/itertools@v1.0.2/mod.ts')",
+            "const { zip, unzip, flattenDeep: flatten, flatten: flattenOnce } = (await import('https://cdn.skypack.dev/lodash'))",
+        ],
+    },
+    "csv import": {
+        "prefix": "csv import",
+        "body": [
+            "const { readCSV } = await import('https://deno.land/x/csv@v0.5.1/mod.ts')",
+        ],
+    },
+    "dataframe import": {
+        "prefix": "dataframe import",
+        "body": [
+            "const { DataFrame } = (await import('https://cdn.skypack.dev/@!!!!!/polarbear@1.0.2')).default",
+        ],
+    },
+    "throw": {
+        "prefix": "throw",
+        "body": [
+            "throw Error(`$0`)",
+        ],
+        "description": "creates a for loop"
+    },
+    "forin loop": {
+        "prefix": "forin",
+        "body": [
+            "for (let each in $0) {",
+            "    ",
+            "}"
+        ],
+        "description": "creates a for loop"
+    },
+    "forawait loop": {
+        "prefix": "forawait",
+        "body": [
+            "for await (let each of $0) {",
+            "    ",
+            "}"
+        ],
+        "description": "creates a for await loop"
+    },
+    "async": {
+        "prefix": "async",
+        "body": [
+            ";((async ()=>{$0})())",
+        ],
+        "description": "creates a called async method"
+    },
+    "promise": {
+        "prefix": "Promise",
+        "body": [
+            "new Promise((resolve, reject)=>{",
+            "    $0",
+            "})"
+        ],
+        "description": "creates a promise"
+    },
+    "Deno": {
+        "prefix": "Deno",
+        "body": [
+            "Deno.",
+        ],
+    },
+    "jsdoc": {
+        "prefix": "jsdoc",
+        "body": [
+            "/**",
+            " * Function that does something",
+            " *",
+            " * @param {Object} parameter1 - which should be a",
+            " * @return {Boolean} the output is a",
+            " *",
+            " * @example",
+            " *     does something",
+            " */"
+        ],
+        "description": "creates documentation"
+    },
+    "override the function snippet": {
+        "prefix": "function",
+        "body": [
+            "function$0"
+        ],
+        "description": "just types function"
+    },
     "Print to console": {
         "prefix": "print",
         "body": [
-            "print(f'''$0''')"
+            "console.log(`$0`)"
         ],
-        "description": "print"
+        "description": "Log output to console"
     },
-    "@classmethod": {
-        "prefix": "@classmethod",
-        "body": [
-            "@classmethod",
-        ],
-        "description": "create a new @classmethod"
-    },
-    "Class": {
-        "prefix": "class",
-        "body": [
-            "class $1():",
-            "    def __init__(self, *args):",
-            "        $0",
-        ],
-        "description": "create a new class"
-    },
-    "output ": {
+    "output a var": {
         "prefix": "out",
         "body": [
-            "print(f'''$0 = {$0}''')"
+            "console.debug(`$0 is:`,$0)"
         ],
-        "description": "print a var"
+        "description": "Debug output to console"
     },
-    "FIXME debugging": {
-        "prefix": "fixme: debugging",
+    "Show some output": {
+        "prefix": "show",
         "body": [
-            "# FIXME: Debugging "
+            "show(`$0`)"
         ],
-        "description": "debugging fixme"
+        "description": "Log output using the (custom) show function"
     },
-    "raise": {
-        "prefix": "raise",
+    "glob": {
+        "prefix": "import glob",
         "body": [
-            "raise Exception(f'''$0''')"
+            "// npm install glob",
+            "// const glob = require(\"glob\")",
+            "result = glob.sync(\"**/*.js\", {dot:true,nodir:false, ignore:[]})"
         ],
-        "description": "Raise an exception"
+        "description": "Find groups of files"
     },
-    "lambda": {
-        "prefix": "lambda each",
+    "webassembly": {
+        "prefix": "import webassembly",
         "body": [
-            "lambda each: each$0"
-        ],
-        "description": "Create a lambda"
-    },
-    "decorator": {
-        "prefix": "decorator",
-        "body": [
-            "def ${1:decorator_name}(function_being_wrapped):",
-            "    def wrapper(*args, **kwargs):",
-            "        ${2:modify_args_somehow}",
-            "        output = function_being_wrapped(*args, **kwargs)",
-            "        ${3:modify_output_somehow}",
-            "        return output",
-            "    return wrapper",
-        ],
-        "description": "Create a lambda"
-    },
-    "reduce": {
-        "prefix": "reduce",
-        "body": [
-            "import functools",
-            "summed = functools.reduce(",
-            "    lambda each_new, existing: (each_new + existing),",
-            "    a_list,",
-            "    0, # inital existing value",
-            ")",
-        ],
-    },
-    "init": {
-        "prefix": "init",
-        "body": [
-            "def __init__(self, $0):",
-            "    pass"
-        ],
-        "description": "create the init of a class"
-    },
-    "try": {
-        "prefix": "try",
-        "body": [
-            "try:",
-            "    $0",
-            "except Exception as error:",
-            "    pass"
-        ],
-        "description": "exception"
-    },
-    "siphon": {
-        "prefix": "siphon",
-        "body": [
-            "@siphon(",
-            "    when=lambda arg1, *args, **kwargs: isinstance(arg1, (SomeType,)),",
-            "    is_true_for=to_tensor,",
-            ")",
-            "def then(*args, **kwargs):",
-            "    return None",
-        ],
-    },
-    "import defaultdict": {
-        "prefix": "import defaultdict",
-        "body": [
-            "from collections import defaultdict",
-        ],
-        "description": "import defaultdict"
-    },
-    
-    "from os": {
-        "prefix": "from os",
-        "body": [
-            "from os.path import isabs, isfile, isdir, join, dirname, basename, exists, splitext, relpath",
-            "from os import remove, getcwd, makedirs, listdir, rename, rmdir, system",
-        ],
-        "description": "import a bunch of file tools"
-    },
-    
-    "progress": {
-        "prefix": "progress",
-        "body": [
-            "def progress(percent=0, width=30):",
-            "    left = width * percent // 100",
-            "    right = width - left",
-            "    print(",
-            "        '\\r[', '#' * left, ' ' * right, ']',",
-            "        f' {percent:.0f}%',",
-            "        sep='',",
-            "        end='',",
-            "        flush=True",
-            "    )",
-        ],
-        "description": "display a progress loading bar in the console"
-    },
-    
-    "import random": {
-        "prefix": "import random",
-        "body": [
-            "from random import random, sample, choices",
-        ],
-        "description": "average"
-    },
-    
-    "lowercase": {
-        "prefix": "lowercase",
-        "body": [
-            "''.lower()",
-        ],
-        "description": "lowercase"
-    },
-    
-    "average": {
-        "prefix": "average",
-        "body": [
-            "from statistics import mean as average",
-        ],
-        "description": "average"
-    },
-    
-    "flatten": {
-        "prefix": "flatten",
-        "body": [
-            "flatten = lambda *m: (i for n in m for i in (flatten(*n) if isinstance(n, (tuple, list)) else (n,)))",
-            "# note: returns a generator, not a list",
-        ],
-        "description": "flatten any iterable"
-    },
-    
-    "args": {
-        "prefix": "args",
-        "body": [
-            "import sys",
-            "first_real_arg = sys.argv[1]",
-        ],
-        "description": "commandline args"
-    },
-    
-    "sqrt": {
-        "prefix": "sqrt",
-        "body": [
-            "import math",
-            "math.sqrt($0)",
-        ],
-        "description": "sqrt"
-    },
-    
-    "get function definition": {
-        "prefix": "get function definition",
-        "body": [
-            "import inspect",
-            "print(inspect.getsource(${1:function_name}))",
-        ],
-        "description": "get function definition"
-    },
-    
-    "weighted_random": {
-        "prefix": "weighted_random",
-        "body": [
-            "import random",
-            "random.choices(${1:things}, weights=${2:probability_of_each_thing})[0]",
-        ],
-        "description": "weighted_random"
-    },
-    
-    "forof": {
-        "prefix": "forof",
-        "body": [
-            "for each in ${1:var}:",
-            "    ${2:pass}"
-        ],
-        "description": "numbered iterate"
-    },
-    
-    "forin": {
-        "prefix": "forin",
-        "body": [
-            "for each_index, each_value in enumerate(${1:var}):",
-            "    ${2:pass}"
-        ],
-        "description": "numbered iterate"
-    },
-    
-    "fordict": {
-        "prefix": "fordict",
-        "body": [
-            "for each_key, each_value in ${1:var}.items():",
-            "    ${2:pass}"
-        ],
-        "description": "iterate over dict"
-    },
-    // just a javascript clone
-    "forentries": {
-        "prefix": "forentries",
-        "body": [
-            "for each_key, each_value in ${1:var}.items():",
-            "    ${2:pass}"
-        ],
-        "description": "iterate over dict"
-    },
-    
-    "count": {
-        "prefix": "count indefinitely",
-        "body": [
-            "import itertools",
-            "for index in itertools.count(0): # starting at 0",
-            "    ${0:pass}"
-        ],
-        "description": "iterate forever"
-    },
-    
-    "pairwise": {
-        "prefix": "pairwise",
-        "body": [
-            "# get pairwise elements",
-            "for prev, each in zip(a_string[0:-1], a_string[1:]):",
-            "    print('prev, each = ', prev, each)",
-        ],
-        "description": "iterate over sliding pairs"
-    },
-    
-    "read": {
-        "prefix": "read",
-        "body": [
-            "try:",
-            "    with open(filepath,'r') as f:",
-            "        output = f.read()",
-            "except:",
-            "    output = None"
-        ],
-        "description": "file read"
-    },
-    
-    "write": {
-        "prefix": "write",
-        "body": [
-            "with open(${1:file_path}, 'w') as the_file:",
-            "    the_file.write(str(${2:data}))",
-        ],
-        "description": "file write"
-    },
-    "download": {
-        "prefix": "download",
-        "body": [
-            "import requests",
-            "url = '${1:url}'",
-            "myfile = requests.get(url, allow_redirects=True)",
-            "open('./download', 'wb').write(myfile.content)",
-        ],
-        "description": "download a file"
-    },
-    "mkdirs": {
-        "prefix": "mkdirs",
-        "body": [
-            "import os",
-            "directory = os.path.dirname(${1:file})",
-            "if directory == '': directory = '.'",
-            "os.makedirs(directory, exist_ok=True)",
-        ],
-    },
-    "custom_with_as": {
-        "prefix": "with_as_class",
-        "body": [
-            "class WithObj(object):",
-            "    def __init__(self, *args, **kwargs):",
-            "        # with_as_arguments",
-            "        pass",
-            "    ",
-            "    def __enter__(self):",
-            "        with_as_value = 31415926535",
-            "        return with_as_value",
-            "    ",
-            "    def __exit__(self, _, error, traceback):",
-            "        # normal cleanup HERE",
-            "        ",
-            "        if error is not None:",
-            "            # error cleanup HERE",
-            "            raise error",
-        ],
-    },
-    "write_json": {
-        "prefix": "write_json",
-        "body": [
-            "import json",
-            "from os.path import join",
-            "with open(join(__dirname__, '$1data'), 'w') as outfile:",
-            "    json.dump($2result, outfile)",
-        ],
-        "description": "write a json file"
-    },
-    "read_json": {
-        "prefix": "read_json",
-        "body": [
-            "import json",
-            "from os.path import join",
-            "with open(join(__dirname__, '$1data'), 'r') as in_file:",
-            "    output = json.load(in_file)",
-        ],
-        "description": "read a json file"
-    },
-    "cut_video": {
-        "prefix": "cut_video",
-        "body": [
-            "from subprocess import call,run",
-            "from pathlib import Path",
-            "import os",
+            "const env = {",
+            "    memoryBase: 0,",
+            "    tableBase: 0,",
+            "    memory: new WebAssembly.Memory({",
+            "      initial: 256",
+            "    }),",
+            "    table: new WebAssembly.Table({",
+            "      initial: 0,",
+            "      element: 'anyfunc'",
+            "    })",
+            "  }",
             "",
-            "def cut_video(source, start, end, output_path, hide_errors=False, errors_to_ignore=None):",
-            "    '''",
-            "    Example:",
-            "        exit_code, stdout, stderr = cut_video(source='./myvid.mp4', start=30, end=60, output_path='./myvid_30to60.mp4')",
-            "    ",
-            "    Note:",
-            "        - this will not modify the existing video",
-            "        - this was tested with ffmpeg 4.3.1",
-            "    ",
-            "    Args:",
-            "        source: filepath to the video",
-            "        start: seconds (float or int)",
-            "        end: seconds (float or int)",
-            "        output_path: filepath to new clip",
-            "        hide_errors: print or dont print stderr",
-            "        errors_to_ignore: list of strings, if string is in the stderr the stderr wont be printed",
-            "        ",
-            "    Returns:",
-            "        (exit_code, stdout, stderr)",
-            "    ",
-            "    Raises:",
-            "        Exception: 'End time is before start time for '+source",
-            "        Exception: 'When calling cut_video() it seems ffmpeg is not installed (or not on the path). This was called with '+source",
-            "        Exception: 'When calling cut_video() it seems the video didn't exist as a file: '+source",
-            "    '''",
-            "    errors_to_ignore = [] if errors_to_ignore is None else errors_to_ignore",
-            "    duration = end - start",
-            "    # check start/end",
-            "    if duration <= 0:",
-            "        raise Exception('End time is before start time for '+source)",
-            "    # make sure ffmpeg exists (only check once per python process)",
-            "    if globals().get('__ffpeg_exists', False):",
-            "        command_output = run(['ffmpeg', '-version',], capture_output=True)",
-            "        stdout = str(command_output.stdout.decode('UTF-8'))",
-            "        if 'ffmpeg version' in stdout:",
-            "            globals()['__ffpeg_exists'] = True",
-            "        else:",
-            "            raise Exception('When calling cut_video() it seems ffmpeg is not installed (or not on the path). This was called with '+source)",
-            "    # make sure the video exists",
-            "    if not os.path.isfile(source):",
-            "        raise Exception('When calling cut_video() it seems the video didn't exist as a file: '+source)",
-            "        ",
-            "    # touch the original video so that the file system knows it has been used recently",
-            "    Path(source).touch()",
-            "    ",
-            "    # ",
-            "    # actually run the command",
-            "    # ",
-            "    command_output = run(['ffmpeg', '-i', str(source), '-ss', str(start), '-t', str(duration), '-async', '1', str(output_path), '-hide_banner', '-loglevel', 'panic'], capture_output=True)",
-            "    ",
-            "    # process the output",
-            "    exit_code = command_output.exit_code",
-            "    stdout = str(command_output.stdout.decode('UTF-8'))",
-            "    stderr = str(command_output.stderr.decode('UTF-8'))",
-            "    if not hide_errors and len(stderr) != 0:",
-            "        common_errors = [ common_error for common_error in errors_to_ignore if common_error in stderr ]",
-            "        if len(common_errors) == 0:",
-            "            print('ffmpeg inside cut_video(source='+str(source)+') produced some errors:')",
-            "            print(stderr)",
-            "    ",
-            "    return exit_code, stdout, stderr",
+            "WebAssembly.instantiate(typedArray, {",
+            "  env: env",
+            "}).then(result => {",
+            "  console.log(util.inspect(result, true, 0))",
+            "})",
         ],
-        "description": "use ffmpeg to cut a video"
+        "description": "setup a webassembly import"
+    },
+    "proxy": {
+        "prefix": "proxy",
+        "body": [
+            "const originalThing = ()=>{}",
+            "const proxySymbol = Symbol.for('Proxy')",
+            "const thisProxySymbol = Symbol('thisProxy')",
+            "// originalThing[Symbol.iterator]      // used by for..of loops and spread syntax.",
+            "// originalThing[Symbol.toPrimitive]",
+            "const proxyObject = new Proxy(originalThing, {",
+            "    // Object.keys",
+            "    ownKeys(target, ...args) { return Reflect.ownKeys(target, ...args) },",
+            "    // function call (original value needs to be a function)",
+            "    apply(original, context, ...args) { console.log(args) },",
+            "    // new operator (original value needs to be a class)",
+            "    construct(original, args, originalConstructor) {},",
+            "    get(original, key, ...args) {",
+            "        if (key == proxySymbol||key == thisProxySymbol) {return true}",
+            "        return Reflect.get(original, key, ...args)",
+            "    },",
+            "    set(original, key, ...args) {",
+            "        if (key == proxySymbol||key == thisProxySymbol) {return}",
+            "        return Reflect.set(original, key, ...args)",
+            "    },",
+            "    has: Reflect.has,",
+            "    deleteProperty: Reflect.deleteProperty,",
+            "    isExtensible: Reflect.isExtensible,",
+            "    preventExtensions: Reflect.preventExtensions,",
+            "    setPrototypeOf: Reflect.setPrototypeOf,",
+            "    defineProperty: Reflect.defineProperty,",
+            "    getPrototypeOf: Reflect.getPrototypeOf,",
+            "    getOwnPropertyDescriptor: Reflect.getOwnPropertyDescriptor,",
+            "})",
+        ],
     },
     
-    "import everything": {
-        "prefix": "import everything",
-        "body": [
-            "import sys",
-            "import os",
-            "from os.path import isabs, isfile, isdir, join, dirname, basename, exists, splitext, relpath",
-            "from os import remove, getcwd, makedirs, listdir, rename, rmdir, system",
-            "from shutil import move",
-            "import glob",
-            "import pickle",
-            "import random",
-            "import itertools",
-            "import time",
-            "import subprocess",
-            "import defaultdict",
-            "from pprint import pprint",
-            "from subprocess import call",
-            "from pathlib import Path",
-            "from os.path import join, dirname",
-            "from random import random, sample, choices",
-            "from statistics import mean as average",
-            "import numpy as np",
-            "import pandas as pd",
-            "import regex as re",
-        ],
-        "description": "import everything"
-    },
-    
-    "onehot max": {
-        "prefix": "onehot max",
-        "body": [
-            "onehot_argmax = lambda list_of_values: (lambda arg_max: [ 0 if index != arg_max else 1 for index,_ in enumerate(list_of_values) ])(max(range(len(list_of_values)), key=lambda each: list_of_values[each]))",
-        ],
-        "description": "give a list, get a list that has 1 at the maximum, 0 everywhere else"
-    },
-    
-    "dataclass": {
-        "prefix": "dataclass",
-        "body": [
-            "import dataclasses",
-            "@dataclasses.dataclass",
-            "class ${1:StructName}:",
-            "    duration: float",
-            "    protocol_type: str",
-            "    ",
-            "    # type coersion",
-            "    def __post_init__(self):",
-            "        for field in dataclasses.fields(self): setattr(self, field.name, field.type(getattr(self, field.name)))",
-        ],
-        "description": "a quick way to create attributes instead of dicts"
-    },
-    
-    "autoenum": {
-        "prefix": "autoenum",
-        "body": [
-            "class AutoEnum():",
-            "    count = 0",
-            "    converter = {}",
-            "    def __getitem__(self, key):",
-            "        if self.converter.get(key,None) is None:",
-            "            self.count += 1",
-            "            self.converter[key] = self.count",
-            "            self.converter[self.count] = key",
-            "        return self.converter[key]",
-        ],
-        "description": "enum that dynamically adds elements"
-    },
-    
-    "merge": {
-        "prefix": "merge",
-        "body": [
-            "def is_iterable(thing):",
-            "    try:",
-            "        iter(thing)",
-            "    except TypeError:",
-            "        return False",
-            "    else:",
-            "        return True",
-            "import collections.abc",
-            "def merge(old_value, new_value):",
-            "    # if not dict, see if it is iterable",
-            "    if not isinstance(new_value, collections.abc.Mapping):",
-            "        if is_iterable(new_value):",
-            "            new_value = { index: value for index, value in enumerate(new_value) }",
-            "    ",
-            "    # if still not a dict, then just return the current value",
-            "    if not isinstance(new_value, collections.abc.Mapping):",
-            "        return new_value",
-            "    # otherwise get recursive",
-            "    else:",
-            "        # if not dict, see if it is iterable",
-            "        if not isinstance(old_value, collections.abc.Mapping):",
-            "            if is_iterable(old_value):",
-            "                old_value = { index: value for index, value in enumerate(old_value) }",
-            "        # if still not a dict",
-            "        if not isinstance(old_value, collections.abc.Mapping):",
-            "            # force it to be one",
-            "            old_value = {}",
-            "        ",
-            "        # override each key recursively",
-            "        for key, updated_value in new_value.items():",
-            "            old_value[key] = merge(old_value.get(key, {}), updated_value)",
-            "        ",
-            "        return old_value",
-        ],
-        "description": "merge recursively"
-    },
-    "home": {
-        "prefix": "home",
-        "body": [
-            "from os.path import expanduser",
-            "home = expanduser('~')",
-        ],
-        "description": "home"
-    },
-    "block": {
-        "prefix": "block",
-        "body": [
-            "#%% ",
-            "if True:",
-            "    ",
-        ],
-        "description": "home"
-    },
-    "network": {
-        "prefix": "network",
-        "body": [
-            "from tools.all_tools import *",
-            "",
-            "from torchvision import datasets, transforms",
-            "from tools.basics import product",
-            "from tools.pytorch_tools import Network",
-            "",
-            "class ${1:NetworkName}(nn.Module):",
-            "    def __init__(self, **config):",
-            "        super(${1:NetworkName}, self).__init__()",
-            "        # ",
-            "        # options",
-            "        # ",
-            "        Network.default_setup(self, config)",
-            "        self.input_shape     = config.get('input_shape'    , (1, 28, 28))",
-            "        self.output_shape    = config.get('output_shape'   , (2,))",
-            "        self.lr              = config.get('lr'             , 0.01)",
-            "        self.momentum        = config.get('momentum'       , 0.5 )",
-            "        ",
-            "        # ",
-            "        # layers",
-            "        # ",
-            "        self.layers.add_module('conv1', nn.Conv2d(1, 10, kernel_size=5))",
-            "        self.layers.add_module('conv1_pool', nn.MaxPool2d(2))",
-            "        self.layers.add_module('conv1_activation', nn.ReLU())",
-            "        self.layers.add_module('conv2', nn.Conv2d(10, 10, kernel_size=5))",
-            "        self.layers.add_module('conv2_drop', nn.Dropout2d())",
-            "        self.layers.add_module('conv2_pool', nn.MaxPool2d(2))",
-            "        self.layers.add_module('conv2_activation', nn.ReLU())",
-            "        self.layers.add_module('flatten', nn.Flatten(1)) # 1 => skip the first dimension because thats the batch dimension",
-            "        self.layers.add_module('fc1', nn.Linear(self.size_of_last_layer, product(self.output_shape)))",
-            "        self.layers.add_module('fc1_activation', nn.LogSoftmax(dim=1))",
-            "        ",
-            "        # ",
-            "        # support (optimizer, loss)",
-            "        # ",
-            "        self.to(self.device)",
-            "        # create an optimizer",
-            "        self.optimizer = optim.SGD(self.parameters(), lr=self.lr, momentum=self.momentum)",
-            "    ",
-            "    @property",
-            "    def size_of_last_layer(self):",
-            "        return product(self.input_shape if len(self.layers) == 0 else layer_output_shapes(self.input_shape, self.layers)[-1])",
-            "        ",
-            "    def loss_function(self, model_output, ideal_output):",
-            "        # convert from one-hot into number, and send tensor to device",
-            "        ideal_output = from_onehot_batch(ideal_output).to(self.device)",
-            "        return F.nll_loss(model_output, ideal_output)",
-            "    ",
-            "    def correctness_function(self, model_batch_output, ideal_batch_output):",
-            "        return Network.onehot_correctness_function(self, model_batch_output, ideal_batch_output)",
-            "",
-            "    def forward(self, input_data):",
-            "        return Network.default_forward(self, input_data)",
-            "    ",
-            "    def update_weights(self, batch_of_inputs, batch_of_ideal_outputs, epoch_index, batch_index):",
-            "        return Network.default_update_weights(self, batch_of_inputs, batch_of_ideal_outputs, epoch_index, batch_index)",
-            "        ",
-            "    def fit(self, *, input_output_pairs=None, dataset=None, loader=None, number_of_epochs=3, batch_size=64, shuffle=True):",
-            "        return Network.default_fit(self, input_output_pairs=input_output_pairs, dataset=dataset, loader=loader, number_of_epochs=number_of_epochs, batch_size=batch_size, shuffle=shuffle,)",
-            "    ",
-            "    def test(self, loader, correctness_function=None):",
-            "        return Network.default_test(self, loader)",
-            "",
-            "# ",
-            "# perform test if run directly",
-            "# ",
-            "if __name__ == '__main__':",
-            "    from tools.dataset_tools import *",
-            "    from tools.basics import *",
-            "    ",
-            "    model = ${1:NetworkName}()",
-            "    # FIXME: dataset",
-            "    train_dataset, test_dataset, train_loader, test_loader = binary_mnist([9])",
-            "    model.fit(loader=train_loader, number_of_epochs=3)",
-            "    model.test(loader=test_loader)",
-            "    ",
-            "    # ",
-            "    # test inputs/outputs",
-            "    # ",
-            "    for each_index in range(100):",
-            "        input_data, correct_output = train_dataset[each_index]",
-            "        # train_dataset, test_dataset, train_loader, test_loader",
-            "        guess = [ round(each, ndigits=0) for each in to_pure(model.forward(input_data)) ]",
-            "        actual = to_pure(correct_output)",
-            "        index = max_index(guess)",
-            "        print(f'guess: {guess},\\t  index: {index},\\t actual: {actual}')",
-        ],
-        "description": "model"
-    },
-    "python_lightning_methods": {
-        "prefix": "python_lightning_methods",
-        "body": [
-            "['datamodule', 'example_input_array', 'on_gpu', 'current_epoch', 'global_step', 'global_rank', 'local_rank', 'logger', 'model_size', 'automatic_optimization', 'truncated_bptt_steps', 'loaded_optimizer_states_dict', 'device', 'dtype', 'hparams', 'hparams_initial', 'optimizers', 'lr_schedulers', '_apply_batch_transfer_handler', 'print', 'log', 'log_dict', '_LightningModule__check_not_nested', '_LightningModule__check_allowed', '_LightningModule__to_tensor', 'log_grad_norm', 'write_prediction', 'write_prediction_dict', '_LightningModule__auto_choose_log_on_step', '_LightningModule__auto_choose_log_on_epoch', 'all_gather', 'forward', 'training_step', 'training_step_end', 'training_epoch_end', 'validation_step', 'validation_step_end', 'validation_epoch_end', 'test_step', 'test_step_end', 'test_epoch_end', 'predict_step', 'configure_callbacks', 'configure_optimizers', 'manual_backward', 'backward', 'toggle_optimizer', 'untoggle_optimizer', 'optimizer_step', 'optimizer_zero_grad', 'tbptt_split_batch', 'summarize', 'freeze', 'unfreeze', 'get_progress_bar_dict', 'to_onnx', 'to_torchscript', 'add_to_queue', 'get_from_queue', 'trainer' ]",
-        ],
-        "description": "list of methods that can be used with pl.LightningModule"
-    },
-    
+    // 
+    // Deno
+    // 
+    // "Deno.chdir.1"               : { "prefix": "Deno-chdir(\"/home/userA\")",                                                                                        "body": "Deno.chdir(${1:\"/home/userA\"})",                                                                                        },
+    // "Deno.chdir.2"               : { "prefix": "Deno-chdir(\"../userB\")",                                                                                           "body": "Deno.chdir(${1:\"../userB\"})",                                                                                           },
+    // "Deno.chdir.3"               : { "prefix": "Deno-chdir(\"C:\\\\Program Files (x86)",                                                                             "body": "Deno.chdir(${1:\"C:\\\\Program Files (x86})",                                                                             },
+    // "Deno.chmod.4"               : { "prefix": "Deno-chmod(\"/path/to/file\", 0o666)",                                                                               "body": "Deno.chmod(${1:\"/path/to/file\", 0o666})",                                                                               },
+    // "Deno.chmodSync.5"           : { "prefix": "Deno-chmodSync(\"/path/to/file\", 0o666)",                                                                           "body": "Deno.chmodSync(${1:\"/path/to/file\", 0o666})",                                                                           },
+    // "Deno.chown.6"               : { "prefix": "Deno-chown(\"myFile.txt\", 1000, 1002)",                                                                             "body": "Deno.chown(${1:\"myFile.txt\", 1000, 1002})",                                                                             },
+    // "Deno.chownSync.7"           : { "prefix": "Deno-chownSync(\"myFile.txt\", 1000, 1002)",                                                                         "body": "Deno.chownSync(${1:\"myFile.txt\", 1000, 1002})",                                                                         },
+    // "Deno.open.8"                : { "prefix": "Deno-open(\"my_file.txt\")",                                                                                         "body": "Deno.open(${1:\"my_file.txt\"})",                                                                                         },
+    // "Deno.close.9"               : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.connect.10"            : { "prefix": "Deno-connect({ port: 80 })",                                                                                         "body": "Deno.connect(${1:{ port: 80 }})",                                                                                         },
+    // "Deno.connect.11"            : { "prefix": "Deno-connect({ hostname: \"192.0.2.1\", port: 80 })",                                                                "body": "Deno.connect(${1:{ hostname: \"192.0.2.1\", port: 80 }})",                                                                },
+    // "Deno.connect.12"            : { "prefix": "Deno-connect({ hostname: \"[2001:db8::1]\", port: 80 })",                                                            "body": "Deno.connect(${1:{ hostname: \"[2001:db8::1]\", port: 80 }})",                                                            },
+    // "Deno.connect.13"            : { "prefix": "Deno-connect({ hostname: \"golang.org\", port: 80, transport: \"tcp\" })",                                           "body": "Deno.connect(${1:{ hostname: \"golang.org\", port: 80, transport: \"tcp\" }})",                                           },
+    // "Deno.readTextFile.14"       : { "prefix": "Deno-readTextFile(\"./certs/my_custom_root_CA.pem\")",                                                               "body": "Deno.readTextFile(${1:\"./certs/my_custom_root_CA.pem\"})",                                                               },
+    // "Deno.connectTls.15"         : { "prefix": "Deno-connectTls({ port: 80 })",                                                                                      "body": "Deno.connectTls(${1:{ port: 80 }})",                                                                                      },
+    // "Deno.connectTls.16"         : { "prefix": "Deno-connectTls({ caCerts: [caCert], hostname: \"192.0.2.1\", port: 80 })",                                          "body": "Deno.connectTls(${1:{ caCerts: [caCert], hostname: \"192.0.2.1\", port: 80 }})",                                          },
+    // "Deno.connectTls.17"         : { "prefix": "Deno-connectTls({ hostname: \"[2001:db8::1]\", port: 80 })",                                                         "body": "Deno.connectTls(${1:{ hostname: \"[2001:db8::1]\", port: 80 }})",                                                         },
+    // "Deno.connectTls.18"         : { "prefix": "Deno-connectTls({ caCerts: [caCert], hostname: \"golang.org\", port: 80})",                                          "body": "Deno.connectTls(${1:{ caCerts: [caCert], hostname: \"golang.org\", port: 80}})",                                          },
+    // "Deno.open.19"               : { "prefix": "Deno-open(\"my_file.txt\")",                                                                                         "body": "Deno.open(${1:\"my_file.txt\"})",                                                                                         },
+    // "Deno.copy.20"               : { "prefix": "Deno-copy(source, Deno.stdout)",                                                                                     "body": "Deno.copy(${1:source, Deno.stdout})",                                                                                     },
+    // "Deno.create.21"             : { "prefix": "Deno-create(\"my_file_2.txt\")",                                                                                     "body": "Deno.create(${1:\"my_file_2.txt\"})",                                                                                     },
+    // "Deno.copy.22"               : { "prefix": "Deno-copy(source, destination)",                                                                                     "body": "Deno.copy(${1:source, destination})",                                                                                     },
+    // "Deno.copyFile.23"           : { "prefix": "Deno-copyFile(\"from.txt\", \"to.txt\")",                                                                            "body": "Deno.copyFile(${1:\"from.txt\", \"to.txt\"})",                                                                            },
+    // "Deno.copyFileSync.24"       : { "prefix": "Deno-copyFileSync(\"from.txt\", \"to.txt\")",                                                                        "body": "Deno.copyFileSync(${1:\"from.txt\", \"to.txt\"})",                                                                        },
+    // "Deno.create.25"             : { "prefix": "Deno-create(\"/foo/bar.txt\")",                                                                                      "body": "Deno.create(${1:\"/foo/bar.txt\"})",                                                                                      },
+    // "Deno.createSync.26"         : { "prefix": "Deno-createSync(\"/foo/bar.txt\")",                                                                                  "body": "Deno.createSync(${1:\"/foo/bar.txt\"})",                                                                                  },
+    // "Deno.execPath.27"           : { "prefix": "Deno-execPath())",                                                                                                   "body": "Deno.execPath(${1:)})",                                                                                                   },
+    // "Deno.exit.28"               : { "prefix": "Deno-exit(5)",                                                                                                       "body": "Deno.exit(${1:5})",                                                                                                       },
+    // "Deno.open.29"               : { "prefix": "Deno-open(\"my_file.txt\", { read: true, write: true, create: true })",                                              "body": "Deno.open(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                              },
+    // "Deno.write.30"              : { "prefix": "Deno-write(file.rid, new TextEncoder()",                                                                             "body": "Deno.write(${1:file.rid, new TextEncoder(})",                                                                             },
+    // "Deno.fdatasync.31"          : { "prefix": "Deno-fdatasync(file.rid)",                                                                                           "body": "Deno.fdatasync(${1:file.rid})",                                                                                           },
+    // "Deno.readFile.32"           : { "prefix": "Deno-readFile(\"my_file.txt\")",                                                                                     "body": "Deno.readFile(${1:\"my_file.txt\"})",                                                                                     },
+    // "Deno.open.33"               : { "prefix": "Deno-open(\"file.txt\", { read: true })",                                                                            "body": "Deno.open(${1:\"file.txt\", { read: true }})",                                                                            },
+    // "Deno.fstat.34"              : { "prefix": "Deno-fstat(file.rid)",                                                                                               "body": "Deno.fstat(${1:file.rid})",                                                                                               },
+    // "Deno.openSync.35"           : { "prefix": "Deno-openSync(\"file.txt\", { read: true })",                                                                        "body": "Deno.openSync(${1:\"file.txt\", { read: true }})",                                                                        },
+    // "Deno.fstatSync.36"          : { "prefix": "Deno-fstatSync(file.rid)",                                                                                           "body": "Deno.fstatSync(${1:file.rid})",                                                                                           },
+    // "Deno.open.37"               : { "prefix": "Deno-open(\"my_file.txt\", { read: true, write: true, create: true })",                                              "body": "Deno.open(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                              },
+    // "Deno.write.38"              : { "prefix": "Deno-write(file.rid, new TextEncoder()",                                                                             "body": "Deno.write(${1:file.rid, new TextEncoder(})",                                                                             },
+    // "Deno.ftruncate.39"          : { "prefix": "Deno-ftruncate(file.rid, 1)",                                                                                        "body": "Deno.ftruncate(${1:file.rid, 1})",                                                                                        },
+    // "Deno.fsync.40"              : { "prefix": "Deno-fsync(file.rid)",                                                                                               "body": "Deno.fsync(${1:file.rid})",                                                                                               },
+    // "Deno.readFile.41"           : { "prefix": "Deno-readFile(\"my_file.txt\")",                                                                                     "body": "Deno.readFile(${1:\"my_file.txt\"})",                                                                                     },
+    // "Deno.openSync.42"           : { "prefix": "Deno-openSync(\"my_file.txt\", { read: true, write: true, create: true })",                                          "body": "Deno.openSync(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                          },
+    // "Deno.writeSync.43"          : { "prefix": "Deno-writeSync(file.rid, new TextEncoder()",                                                                         "body": "Deno.writeSync(${1:file.rid, new TextEncoder(})",                                                                         },
+    // "Deno.ftruncateSync.44"      : { "prefix": "Deno-ftruncateSync(file.rid, 1)",                                                                                    "body": "Deno.ftruncateSync(${1:file.rid, 1})",                                                                                    },
+    // "Deno.fsyncSync.45"          : { "prefix": "Deno-fsyncSync(file.rid)",                                                                                           "body": "Deno.fsyncSync(${1:file.rid})",                                                                                           },
+    // "Deno.readFileSync.46"       : { "prefix": "Deno-readFileSync(\"my_file.txt\")",                                                                                 "body": "Deno.readFileSync(${1:\"my_file.txt\"})",                                                                                 },
+    // "Deno.open.47"               : { "prefix": "Deno-open(\"my_file.txt\", { read: true, write: true, create: true })",                                              "body": "Deno.open(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                              },
+    // "Deno.ftruncate.48"          : { "prefix": "Deno-ftruncate(file.rid)",                                                                                           "body": "Deno.ftruncate(${1:file.rid})",                                                                                           },
+    // "Deno.open.49"               : { "prefix": "Deno-open(\"my_file.txt\", { read: true, write: true, create: true })",                                              "body": "Deno.open(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                              },
+    // "Deno.write.50"              : { "prefix": "Deno-write(file.rid, new TextEncoder()",                                                                             "body": "Deno.write(${1:file.rid, new TextEncoder(})",                                                                             },
+    // "Deno.ftruncate.51"          : { "prefix": "Deno-ftruncate(file.rid, 7)",                                                                                        "body": "Deno.ftruncate(${1:file.rid, 7})",                                                                                        },
+    // "Deno.read.52"               : { "prefix": "Deno-read(file.rid, data)",                                                                                          "body": "Deno.read(${1:file.rid, data})",                                                                                          },
+    // "Deno.openSync.53"           : { "prefix": "Deno-openSync(\"my_file.txt\", { read: true, write: true, truncate: true, create: true })",                          "body": "Deno.openSync(${1:\"my_file.txt\", { read: true, write: true, truncate: true, create: true }})",                          },
+    // "Deno.ftruncateSync.54"      : { "prefix": "Deno-ftruncateSync(file.rid)",                                                                                       "body": "Deno.ftruncateSync(${1:file.rid})",                                                                                       },
+    // "Deno.openSync.55"           : { "prefix": "Deno-openSync(\"my_file.txt\", { read: true, write: true, create: true })",                                          "body": "Deno.openSync(${1:\"my_file.txt\", { read: true, write: true, create: true }})",                                          },
+    // "Deno.writeSync.56"          : { "prefix": "Deno-writeSync(file.rid, new TextEncoder()",                                                                         "body": "Deno.writeSync(${1:file.rid, new TextEncoder(})",                                                                         },
+    // "Deno.ftruncateSync.57"      : { "prefix": "Deno-ftruncateSync(file.rid, 7)",                                                                                    "body": "Deno.ftruncateSync(${1:file.rid, 7})",                                                                                    },
+    // "Deno.seekSync.58"           : { "prefix": "Deno-seekSync(file.rid, 0, Deno.SeekMode.Start)",                                                                    "body": "Deno.seekSync(${1:file.rid, 0, Deno.SeekMode.Start})",                                                                    },
+    // "Deno.readSync.59"           : { "prefix": "Deno-readSync(file.rid, data)",                                                                                      "body": "Deno.readSync(${1:file.rid, data})",                                                                                      },
+    // "Deno.inspect.60"            : { "prefix": "Deno-inspect(obj)",                                                                                                  "body": "Deno.inspect(${1:obj})",                                                                                                  },
+    // "Deno.inspect.61"            : { "prefix": "Deno-inspect(new A()",                                                                                               "body": "Deno.inspect(${1:new A(})",                                                                                               },
+    // "Deno.inspect.62"            : { "prefix": "Deno-inspect({a: {b: {c: {d: 'hello'}}}}, {depth: 2})",                                                              "body": "Deno.inspect(${1:{a: {b: {c: {d: 'hello'}}}}, {depth: 2}})",                                                              },
+    // "Deno.openSync.63"           : { "prefix": "Deno-openSync(\"my_file.txt\")",                                                                                     "body": "Deno.openSync(${1:\"my_file.txt\"})",                                                                                     },
+    // "Deno.openSync.64"           : { "prefix": "Deno-openSync(\"/dev/tty6\")",                                                                                       "body": "Deno.openSync(${1:\"/dev/tty6\"})",                                                                                       },
+    // "Deno.isatty.65"             : { "prefix": "Deno-isatty(nonTTYRid)",                                                                                             "body": "Deno.isatty(${1:nonTTYRid})",                                                                                             },
+    // "Deno.isatty.66"             : { "prefix": "Deno-isatty(ttyRid)",                                                                                                "body": "Deno.isatty(${1:ttyRid})",                                                                                                },
+    // "Deno.close.67"              : { "prefix": "Deno-close(nonTTYRid)",                                                                                              "body": "Deno.close(${1:nonTTYRid})",                                                                                              },
+    // "Deno.close.68"              : { "prefix": "Deno-close(ttyRid)",                                                                                                 "body": "Deno.close(${1:ttyRid})",                                                                                                 },
+    // "Deno.open.69"               : { "prefix": "Deno-open(\"/etc/passwd\")",                                                                                         "body": "Deno.open(${1:\"/etc/passwd\"})",                                                                                         },
+    // "Deno.iter.70"               : { "prefix": "Deno-iter(f)",                                                                                                       "body": "Deno.iter(${1:f})",                                                                                                       },
+    // "Deno.open.71"               : { "prefix": "Deno-open(\"/etc/passwd\")",                                                                                         "body": "Deno.open(${1:\"/etc/passwd\"})",                                                                                         },
+    // "Deno.iter.72"               : { "prefix": "Deno-iter(f, {\n  bufSize: 1024 * 1024\n})",                                                                         "body": "Deno.iter(${1:f, {\n  bufSize: 1024 * 1024\n}})",                                                                         },
+    // "Deno.openSync.73"           : { "prefix": "Deno-openSync(\"/etc/passwd\")",                                                                                     "body": "Deno.openSync(${1:\"/etc/passwd\"})",                                                                                     },
+    // "Deno.iterSync.74"           : { "prefix": "Deno-iterSync(f)",                                                                                                   "body": "Deno.iterSync(${1:f})",                                                                                                   },
+    // "Deno.open.75"               : { "prefix": "Deno-open(\"/etc/passwd\")",                                                                                         "body": "Deno.open(${1:\"/etc/passwd\"})",                                                                                         },
+    // "Deno.iterSync.76"           : { "prefix": "Deno-iterSync(f, {\n  bufSize: 1024 * 1024\n})",                                                                     "body": "Deno.iterSync(${1:f, {\n  bufSize: 1024 * 1024\n}})",                                                                     },
+    // "Deno.run.77"                : { "prefix": "Deno-run({\n   cmd: [\"sleep\", \"10000\"]\n })",                                                                    "body": "Deno.run(${1:{\n   cmd: [\"sleep\", \"10000\"]\n }})",                                                                    },
+    // "Deno.kill.78"               : { "prefix": "Deno-kill(p.pid, \"SIGINT\")",                                                                                       "body": "Deno.kill(${1:p.pid, \"SIGINT\"})",                                                                                       },
+    // "Deno.link.79"               : { "prefix": "Deno-link(\"old/name\", \"new/name\")",                                                                              "body": "Deno.link(${1:\"old/name\", \"new/name\"})",                                                                              },
+    // "Deno.linkSync.80"           : { "prefix": "Deno-linkSync(\"old/name\", \"new/name\")",                                                                          "body": "Deno.linkSync(${1:\"old/name\", \"new/name\"})",                                                                          },
+    // "Deno.listen.81"             : { "prefix": "Deno-listen({ port: 80 })",                                                                                          "body": "Deno.listen(${1:{ port: 80 }})",                                                                                          },
+    // "Deno.listen.82"             : { "prefix": "Deno-listen({ hostname: \"192.0.2.1\", port: 80 })",                                                                 "body": "Deno.listen(${1:{ hostname: \"192.0.2.1\", port: 80 }})",                                                                 },
+    // "Deno.listen.83"             : { "prefix": "Deno-listen({ hostname: \"[2001:db8::1]\", port: 80 })",                                                             "body": "Deno.listen(${1:{ hostname: \"[2001:db8::1]\", port: 80 }})",                                                             },
+    // "Deno.listen.84"             : { "prefix": "Deno-listen({ hostname: \"golang.org\", port: 80, transport: \"tcp\" })",                                            "body": "Deno.listen(${1:{ hostname: \"golang.org\", port: 80, transport: \"tcp\" }})",                                            },
+    // "Deno.listenTls.85"          : { "prefix": "Deno-listenTls({ port: 443, certFile: \"./server.crt\", keyFile: \"./server.key\" })",                               "body": "Deno.listenTls(${1:{ port: 443, certFile: \"./server.crt\", keyFile: \"./server.key\" }})",                               },
+    // "Deno.lstat.86"              : { "prefix": "Deno-lstat(\"hello.txt\")",                                                                                          "body": "Deno.lstat(${1:\"hello.txt\"})",                                                                                          },
+    // "Deno.lstatSync.87"          : { "prefix": "Deno-lstatSync(\"hello.txt\")",                                                                                      "body": "Deno.lstatSync(${1:\"hello.txt\"})",                                                                                      },
+    // "Deno.makeTempDir.88"        : { "prefix": "Deno-makeTempDir();  // e.g. /tmp/2894ea76\nconst tempDirName1 = await Deno.makeTempDir({ prefix: 'my_temp' })",     "body": "Deno.makeTempDir(${1:);  // e.g. /tmp/2894ea76\nconst tempDirName1 = await Deno.makeTempDir({ prefix: 'my_temp' }})",     },
+    // "Deno.makeTempDirSync.89"    : { "prefix": "Deno-makeTempDirSync();  // e.g. /tmp/2894ea76\nconst tempDirName1 = Deno.makeTempDirSync({ prefix: 'my_temp' })",   "body": "Deno.makeTempDirSync(${1:);  // e.g. /tmp/2894ea76\nconst tempDirName1 = Deno.makeTempDirSync({ prefix: 'my_temp' }})",   },
+    // "Deno.makeTempFile.90"       : { "prefix": "Deno-makeTempFile();  // e.g. /tmp/419e0bf2\nconst tmpFileName1 = await Deno.makeTempFile({ prefix: 'my_temp' })",   "body": "Deno.makeTempFile(${1:);  // e.g. /tmp/419e0bf2\nconst tmpFileName1 = await Deno.makeTempFile({ prefix: 'my_temp' }})",   },
+    // "Deno.makeTempFileSync.91"   : { "prefix": "Deno-makeTempFileSync(); // e.g. /tmp/419e0bf2\nconst tempFileName1 = Deno.makeTempFileSync({ prefix: 'my_temp' })", "body": "Deno.makeTempFileSync(${1:); // e.g. /tmp/419e0bf2\nconst tempFileName1 = Deno.makeTempFileSync({ prefix: 'my_temp' }})", },
+    // "Deno.metrics.92"            : { "prefix": "Deno-metrics())",                                                                                                    "body": "Deno.metrics(${1:)})",                                                                                                    },
+    // "Deno.mkdir.93"              : { "prefix": "Deno-mkdir(\"new_dir\")",                                                                                            "body": "Deno.mkdir(${1:\"new_dir\"})",                                                                                            },
+    // "Deno.mkdir.94"              : { "prefix": "Deno-mkdir(\"nested/directories\", { recursive: true })",                                                            "body": "Deno.mkdir(${1:\"nested/directories\", { recursive: true }})",                                                            },
+    // "Deno.mkdir.95"              : { "prefix": "Deno-mkdir(\"restricted_access_dir\", { mode: 0o700 })",                                                             "body": "Deno.mkdir(${1:\"restricted_access_dir\", { mode: 0o700 }})",                                                             },
+    // "Deno.mkdirSync.96"          : { "prefix": "Deno-mkdirSync(\"new_dir\")",                                                                                        "body": "Deno.mkdirSync(${1:\"new_dir\"})",                                                                                        },
+    // "Deno.mkdirSync.97"          : { "prefix": "Deno-mkdirSync(\"nested/directories\", { recursive: true })",                                                        "body": "Deno.mkdirSync(${1:\"nested/directories\", { recursive: true }})",                                                        },
+    // "Deno.mkdirSync.98"          : { "prefix": "Deno-mkdirSync(\"restricted_access_dir\", { mode: 0o700 })",                                                         "body": "Deno.mkdirSync(${1:\"restricted_access_dir\", { mode: 0o700 }})",                                                         },
+    // "Deno.open.99"               : { "prefix": "Deno-open(\"/foo/bar.txt\", { read: true, write: true })",                                                           "body": "Deno.open(${1:\"/foo/bar.txt\", { read: true, write: true }})",                                                           },
+    // "Deno.close.100"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.openSync.101"          : { "prefix": "Deno-openSync(\"/foo/bar.txt\", { read: true, write: true })",                                                       "body": "Deno.openSync(${1:\"/foo/bar.txt\", { read: true, write: true }})",                                                       },
+    // "Deno.close.102"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.open.103"              : { "prefix": "Deno-open(\"/foo/bar.txt\")",                                                                                        "body": "Deno.open(${1:\"/foo/bar.txt\"})",                                                                                        },
+    // "Deno.read.104"              : { "prefix": "Deno-read(file.rid, buf)",                                                                                           "body": "Deno.read(${1:file.rid, buf})",                                                                                           },
+    // "Deno.close.105"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.readAll.106"           : { "prefix": "Deno-readAll(Deno.stdin)",                                                                                           "body": "Deno.readAll(${1:Deno.stdin})",                                                                                           },
+    // "Deno.open.107"              : { "prefix": "Deno-open(\"my_file.txt\", {read: true})",                                                                           "body": "Deno.open(${1:\"my_file.txt\", {read: true}})",                                                                           },
+    // "Deno.readAll.108"           : { "prefix": "Deno-readAll(file)",                                                                                                 "body": "Deno.readAll(${1:file})",                                                                                                 },
+    // "Deno.close.109"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.Buffer.110"            : { "prefix": "Deno-Buffer(myData.buffer as ArrayBuffer)",                                                                          "body": "Deno.Buffer(${1:myData.buffer as ArrayBuffer})",                                                                          },
+    // "Deno.readAll.111"           : { "prefix": "Deno-readAll(reader)",                                                                                               "body": "Deno.readAll(${1:reader})",                                                                                               },
+    // "Deno.readAllSync.112"       : { "prefix": "Deno-readAllSync(Deno.stdin)",                                                                                       "body": "Deno.readAllSync(${1:Deno.stdin})",                                                                                       },
+    // "Deno.openSync.113"          : { "prefix": "Deno-openSync(\"my_file.txt\", {read: true})",                                                                       "body": "Deno.openSync(${1:\"my_file.txt\", {read: true}})",                                                                       },
+    // "Deno.readAllSync.114"       : { "prefix": "Deno-readAllSync(file)",                                                                                             "body": "Deno.readAllSync(${1:file})",                                                                                             },
+    // "Deno.close.115"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.Buffer.116"            : { "prefix": "Deno-Buffer(myData.buffer as ArrayBuffer)",                                                                          "body": "Deno.Buffer(${1:myData.buffer as ArrayBuffer})",                                                                          },
+    // "Deno.readAllSync.117"       : { "prefix": "Deno-readAllSync(reader)",                                                                                           "body": "Deno.readAllSync(${1:reader})",                                                                                           },
+    // "Deno.readDir.118"           : { "prefix": "Deno-readDir(\"/\")",                                                                                                "body": "Deno.readDir(${1:\"/\"})",                                                                                                },
+    // "Deno.readDirSync.119"       : { "prefix": "Deno-readDirSync(\"/\")",                                                                                            "body": "Deno.readDirSync(${1:\"/\"})",                                                                                            },
+    // "Deno.readFile.120"          : { "prefix": "Deno-readFile(\"hello.txt\")",                                                                                       "body": "Deno.readFile(${1:\"hello.txt\"})",                                                                                       },
+    // "Deno.readFileSync.121"      : { "prefix": "Deno-readFileSync(\"hello.txt\")",                                                                                   "body": "Deno.readFileSync(${1:\"hello.txt\"})",                                                                                   },
+    // "Deno.symlink.122"           : { "prefix": "Deno-symlink(\"./test.txt\", \"./test_link.txt\")",                                                                  "body": "Deno.symlink(${1:\"./test.txt\", \"./test_link.txt\"})",                                                                  },
+    // "Deno.readLink.123"          : { "prefix": "Deno-readLink(\"./test_link.txt\")",                                                                                 "body": "Deno.readLink(${1:\"./test_link.txt\"})",                                                                                 },
+    // "Deno.symlinkSync.124"       : { "prefix": "Deno-symlinkSync(\"./test.txt\", \"./test_link.txt\")",                                                              "body": "Deno.symlinkSync(${1:\"./test.txt\", \"./test_link.txt\"})",                                                              },
+    // "Deno.readLinkSync.125"      : { "prefix": "Deno-readLinkSync(\"./test_link.txt\")",                                                                             "body": "Deno.readLinkSync(${1:\"./test_link.txt\"})",                                                                             },
+    // "Deno.openSync.126"          : { "prefix": "Deno-openSync(\"/foo/bar.txt\")",                                                                                    "body": "Deno.openSync(${1:\"/foo/bar.txt\"})",                                                                                    },
+    // "Deno.readSync.127"          : { "prefix": "Deno-readSync(file.rid, buf)",                                                                                       "body": "Deno.readSync(${1:file.rid, buf})",                                                                                       },
+    // "Deno.close.128"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.readTextFile.129"      : { "prefix": "Deno-readTextFile(\"hello.txt\")",                                                                                   "body": "Deno.readTextFile(${1:\"hello.txt\"})",                                                                                   },
+    // "Deno.readTextFileSync.130"  : { "prefix": "Deno-readTextFileSync(\"hello.txt\")",                                                                               "body": "Deno.readTextFileSync(${1:\"hello.txt\"})",                                                                               },
+    // "Deno.symlink.131"           : { "prefix": "Deno-symlink(\"file.txt\", \"symlink_file.txt\")",                                                                   "body": "Deno.symlink(${1:\"file.txt\", \"symlink_file.txt\"})",                                                                   },
+    // "Deno.realPath.132"          : { "prefix": "Deno-realPath(\"./file.txt\")",                                                                                      "body": "Deno.realPath(${1:\"./file.txt\"})",                                                                                      },
+    // "Deno.realPath.133"          : { "prefix": "Deno-realPath(\"./symlink_file.txt\")",                                                                              "body": "Deno.realPath(${1:\"./symlink_file.txt\"})",                                                                              },
+    // "Deno.symlinkSync.134"       : { "prefix": "Deno-symlinkSync(\"file.txt\", \"symlink_file.txt\")",                                                               "body": "Deno.symlinkSync(${1:\"file.txt\", \"symlink_file.txt\"})",                                                               },
+    // "Deno.realPathSync.135"      : { "prefix": "Deno-realPathSync(\"./file.txt\")",                                                                                  "body": "Deno.realPathSync(${1:\"./file.txt\"})",                                                                                  },
+    // "Deno.realPathSync.136"      : { "prefix": "Deno-realPathSync(\"./symlink_file.txt\")",                                                                          "body": "Deno.realPathSync(${1:\"./symlink_file.txt\"})",                                                                          },
+    // "Deno.remove.137"            : { "prefix": "Deno-remove(\"/path/to/empty_dir/or/file\")",                                                                        "body": "Deno.remove(${1:\"/path/to/empty_dir/or/file\"})",                                                                        },
+    // "Deno.remove.138"            : { "prefix": "Deno-remove(\"/path/to/populated_dir/or/file\", { recursive: true })",                                               "body": "Deno.remove(${1:\"/path/to/populated_dir/or/file\", { recursive: true }})",                                               },
+    // "Deno.removeSync.139"        : { "prefix": "Deno-removeSync(\"/path/to/empty_dir/or/file\")",                                                                    "body": "Deno.removeSync(${1:\"/path/to/empty_dir/or/file\"})",                                                                    },
+    // "Deno.removeSync.140"        : { "prefix": "Deno-removeSync(\"/path/to/populated_dir/or/file\", { recursive: true })",                                           "body": "Deno.removeSync(${1:\"/path/to/populated_dir/or/file\", { recursive: true }})",                                           },
+    // "Deno.rename.141"            : { "prefix": "Deno-rename(\"old/path\", \"new/path\")",                                                                            "body": "Deno.rename(${1:\"old/path\", \"new/path\"})",                                                                            },
+    // "Deno.renameSync.142"        : { "prefix": "Deno-renameSync(\"old/path\", \"new/path\")",                                                                        "body": "Deno.renameSync(${1:\"old/path\", \"new/path\"})",                                                                        },
+    // "Deno.resources.143"         : { "prefix": "Deno-resources())",                                                                                                  "body": "Deno.resources(${1:)})",                                                                                                  },
+    // "Deno.openSync.144"          : { "prefix": "Deno-openSync('../test.file')",                                                                                      "body": "Deno.openSync(${1:'../test.file'})",                                                                                      },
+    // "Deno.resources.145"         : { "prefix": "Deno-resources())",                                                                                                  "body": "Deno.resources(${1:)})",                                                                                                  },
+    // "Deno.run.146"               : { "prefix": "Deno-run({\n  cmd: [\"echo\", \"hello\"],\n})",                                                                      "body": "Deno.run(${1:{\n  cmd: [\"echo\", \"hello\"],\n}})",                                                                      },
+    // "Deno.open.147"              : { "prefix": "Deno-open('hello.txt', {read: true, write: true, truncate: true, create: true})",                                    "body": "Deno.open(${1:'hello.txt', {read: true, write: true, truncate: true, create: true}})",                                    },
+    // "Deno.write.148"             : { "prefix": "Deno-write(file.rid, new TextEncoder()",                                                                             "body": "Deno.write(${1:file.rid, new TextEncoder(})",                                                                             },
+    // "Deno.seek.149"              : { "prefix": "Deno-seek(file.rid, 6, Deno.SeekMode.Start)",                                                                        "body": "Deno.seek(${1:file.rid, 6, Deno.SeekMode.Start})",                                                                        },
+    // "Deno.open.150"              : { "prefix": "Deno-open('hello.txt', {read: true, write: true, truncate: true, create: true})",                                    "body": "Deno.open(${1:'hello.txt', {read: true, write: true, truncate: true, create: true}})",                                    },
+    // "Deno.write.151"             : { "prefix": "Deno-write(file.rid, new TextEncoder()",                                                                             "body": "Deno.write(${1:file.rid, new TextEncoder(})",                                                                             },
+    // "Deno.seek.152"              : { "prefix": "Deno-seek(file.rid, 6, Deno.SeekMode.Start)",                                                                        "body": "Deno.seek(${1:file.rid, 6, Deno.SeekMode.Start})",                                                                        },
+    // "Deno.seek.153"              : { "prefix": "Deno-seek(file.rid, 2, Deno.SeekMode.Current)",                                                                      "body": "Deno.seek(${1:file.rid, 2, Deno.SeekMode.Current})",                                                                      },
+    // "Deno.seek.154"              : { "prefix": "Deno-seek(file.rid, -2, Deno.SeekMode.End)",                                                                         "body": "Deno.seek(${1:file.rid, -2, Deno.SeekMode.End})",                                                                         },
+    // "Deno.openSync.155"          : { "prefix": "Deno-openSync('hello.txt', {read: true, write: true, truncate: true, create: true})",                                "body": "Deno.openSync(${1:'hello.txt', {read: true, write: true, truncate: true, create: true}})",                                },
+    // "Deno.writeSync.156"         : { "prefix": "Deno-writeSync(file.rid, new TextEncoder()",                                                                         "body": "Deno.writeSync(${1:file.rid, new TextEncoder(})",                                                                         },
+    // "Deno.seekSync.157"          : { "prefix": "Deno-seekSync(file.rid, 6, Deno.SeekMode.Start)",                                                                    "body": "Deno.seekSync(${1:file.rid, 6, Deno.SeekMode.Start})",                                                                    },
+    // "Deno.openSync.158"          : { "prefix": "Deno-openSync('hello.txt', {read: true, write: true, truncate: true, create: true})",                                "body": "Deno.openSync(${1:'hello.txt', {read: true, write: true, truncate: true, create: true}})",                                },
+    // "Deno.writeSync.159"         : { "prefix": "Deno-writeSync(file.rid, new TextEncoder()",                                                                         "body": "Deno.writeSync(${1:file.rid, new TextEncoder(})",                                                                         },
+    // "Deno.seekSync.160"          : { "prefix": "Deno-seekSync(file.rid, 6, Deno.SeekMode.Start)",                                                                    "body": "Deno.seekSync(${1:file.rid, 6, Deno.SeekMode.Start})",                                                                    },
+    // "Deno.seekSync.161"          : { "prefix": "Deno-seekSync(file.rid, 2, Deno.SeekMode.Current)",                                                                  "body": "Deno.seekSync(${1:file.rid, 2, Deno.SeekMode.Current})",                                                                  },
+    // "Deno.seekSync.162"          : { "prefix": "Deno-seekSync(file.rid, -2, Deno.SeekMode.End)",                                                                     "body": "Deno.seekSync(${1:file.rid, -2, Deno.SeekMode.End})",                                                                     },
+    // "Deno.listen.163"            : { "prefix": "Deno-listen({ port: 80 })",                                                                                          "body": "Deno.listen(${1:{ port: 80 }})",                                                                                          },
+    // "Deno.serveHttp.164"         : { "prefix": "Deno-serveHttp(await conn.accept()",                                                                                 "body": "Deno.serveHttp(${1:await conn.accept(})",                                                                                 },
+    // "Deno.serveHttp.165"         : { "prefix": "Deno-serveHttp(conn)",                                                                                               "body": "Deno.serveHttp(${1:conn})",                                                                                               },
+    // "Deno.listen.166"            : { "prefix": "Deno-listen({ port: 80 })",                                                                                          "body": "Deno.listen(${1:{ port: 80 }})",                                                                                          },
+    // "Deno.listen.167"            : { "prefix": "Deno-listen({ port: 80 })",                                                                                          "body": "Deno.listen(${1:{ port: 80 }})",                                                                                          },
+    // "Deno.shutdown.168"          : { "prefix": "Deno-shutdown(conn.rid)",                                                                                            "body": "Deno.shutdown(${1:conn.rid})",                                                                                            },
+    // "Deno.connect.169"           : { "prefix": "Deno-connect({ port: 80, hostname: \"127.0.0.1\" })",                                                                "body": "Deno.connect(${1:{ port: 80, hostname: \"127.0.0.1\" }})",                                                                },
+    // "Deno.readTextFile.170"      : { "prefix": "Deno-readTextFile(\"./certs/my_custom_root_CA.pem\")",                                                               "body": "Deno.readTextFile(${1:\"./certs/my_custom_root_CA.pem\"})",                                                               },
+    // "Deno.startTls.171"          : { "prefix": "Deno-startTls(conn, { caCerts: [caCert], hostname: \"localhost\" })",                                                "body": "Deno.startTls(${1:conn, { caCerts: [caCert], hostname: \"localhost\" }})",                                                },
+    // "Deno.stat.172"              : { "prefix": "Deno-stat(\"hello.txt\")",                                                                                           "body": "Deno.stat(${1:\"hello.txt\"})",                                                                                           },
+    // "Deno.statSync.173"          : { "prefix": "Deno-statSync(\"hello.txt\")",                                                                                       "body": "Deno.statSync(${1:\"hello.txt\"})",                                                                                       },
+    // "Deno.symlink.174"           : { "prefix": "Deno-symlink(\"old/name\", \"new/name\")",                                                                           "body": "Deno.symlink(${1:\"old/name\", \"new/name\"})",                                                                           },
+    // "Deno.symlinkSync.175"       : { "prefix": "Deno-symlinkSync(\"old/name\", \"new/name\")",                                                                       "body": "Deno.symlinkSync(${1:\"old/name\", \"new/name\"})",                                                                       },
+    // "Deno.test.176"              : { "prefix": "Deno-test({\n  name: \"example test\",\n  fn()",                                                                     "body": "Deno.test(${1:{\n  name: \"example test\",\n  fn(})",                                                                     },
+    // "Deno.test.177"              : { "prefix": "Deno-test({\n  name: \"example ignored test\",\n  ignore: Deno.build.os === \"windows\",\n  fn()",                   "body": "Deno.test(${1:{\n  name: \"example ignored test\",\n  ignore: Deno.build.os === \"windows\",\n  fn(})",                   },
+    // "Deno.test.178"              : { "prefix": "Deno-test({\n  name: \"example async test\",\n  async fn()",                                                         "body": "Deno.test(${1:{\n  name: \"example async test\",\n  async fn(})",                                                         },
+    // "Deno.readFile.179"          : { "prefix": "Deno-readFile(\"hello_world.txt\")",                                                                                 "body": "Deno.readFile(${1:\"hello_world.txt\"})",                                                                                 },
+    // "Deno.truncate.180"          : { "prefix": "Deno-truncate(\"my_file.txt\")",                                                                                     "body": "Deno.truncate(${1:\"my_file.txt\"})",                                                                                     },
+    // "Deno.makeTempFile.181"      : { "prefix": "Deno-makeTempFile();\nawait Deno.writeFile(file, new TextEncoder()",                                                 "body": "Deno.makeTempFile(${1:);\nawait Deno.writeFile(file, new TextEncoder(})",                                                 },
+    // "Deno.truncate.182"          : { "prefix": "Deno-truncate(file, 7)",                                                                                             "body": "Deno.truncate(${1:file, 7})",                                                                                             },
+    // "Deno.readFile.183"          : { "prefix": "Deno-readFile(file)",                                                                                                "body": "Deno.readFile(${1:file})",                                                                                                },
+    // "Deno.truncateSync.184"      : { "prefix": "Deno-truncateSync(\"my_file.txt\")",                                                                                 "body": "Deno.truncateSync(${1:\"my_file.txt\"})",                                                                                 },
+    // "Deno.makeTempFileSync.185"  : { "prefix": "Deno-makeTempFileSync();\nDeno.writeFileSync(file, new TextEncoder()",                                               "body": "Deno.makeTempFileSync(${1:);\nDeno.writeFileSync(file, new TextEncoder(})",                                               },
+    // "Deno.truncateSync.186"      : { "prefix": "Deno-truncateSync(file, 7)",                                                                                         "body": "Deno.truncateSync(${1:file, 7})",                                                                                         },
+    // "Deno.readFileSync.187"      : { "prefix": "Deno-readFileSync(file)",                                                                                            "body": "Deno.readFileSync(${1:file})",                                                                                            },
+    // "Deno.listen.188"            : { "prefix": "Deno-listen({ port: 80 })",                                                                                          "body": "Deno.listen(${1:{ port: 80 }})",                                                                                          },
+    // "Deno.serveHttp.189"         : { "prefix": "Deno-serveHttp(await conn.accept()",                                                                                 "body": "Deno.serveHttp(${1:await conn.accept(})",                                                                                 },
+    // "Deno.upgradeWebSocket.190"  : { "prefix": "Deno-upgradeWebSocket(e.request)",                                                                                   "body": "Deno.upgradeWebSocket(${1:e.request})",                                                                                   },
+    // "Deno.watchFs.191"           : { "prefix": "Deno-watchFs(\"/\")",                                                                                                "body": "Deno.watchFs(${1:\"/\"})",                                                                                                },
+    // "Deno.watchFs.192"           : { "prefix": "Deno-watchFs(\"/\")",                                                                                                "body": "Deno.watchFs(${1:\"/\"})",                                                                                                },
+    // "Deno.open.193"              : { "prefix": "Deno-open(\"/foo/bar.txt\", { write: true })",                                                                       "body": "Deno.open(${1:\"/foo/bar.txt\", { write: true }})",                                                                       },
+    // "Deno.write.194"             : { "prefix": "Deno-write(file.rid, data)",                                                                                         "body": "Deno.write(${1:file.rid, data})",                                                                                         },
+    // "Deno.close.195"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.writeAll.196"          : { "prefix": "Deno-writeAll(Deno.stdout, contentBytes)",                                                                           "body": "Deno.writeAll(${1:Deno.stdout, contentBytes})",                                                                           },
+    // "Deno.open.197"              : { "prefix": "Deno-open('test.file', {write: true})",                                                                              "body": "Deno.open(${1:'test.file', {write: true}})",                                                                              },
+    // "Deno.writeAll.198"          : { "prefix": "Deno-writeAll(file, contentBytes)",                                                                                  "body": "Deno.writeAll(${1:file, contentBytes})",                                                                                  },
+    // "Deno.close.199"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.Buffer.200"            : { "prefix": "Deno-Buffer();\nawait Deno.writeAll(writer, contentBytes)",                                                          "body": "Deno.Buffer(${1:);\nawait Deno.writeAll(writer, contentBytes})",                                                          },
+    // "Deno.writeAllSync.201"      : { "prefix": "Deno-writeAllSync(Deno.stdout, contentBytes)",                                                                       "body": "Deno.writeAllSync(${1:Deno.stdout, contentBytes})",                                                                       },
+    // "Deno.openSync.202"          : { "prefix": "Deno-openSync('test.file', {write: true})",                                                                          "body": "Deno.openSync(${1:'test.file', {write: true}})",                                                                          },
+    // "Deno.writeAllSync.203"      : { "prefix": "Deno-writeAllSync(file, contentBytes)",                                                                              "body": "Deno.writeAllSync(${1:file, contentBytes})",                                                                              },
+    // "Deno.close.204"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.Buffer.205"            : { "prefix": "Deno-Buffer();\nDeno.writeAllSync(writer, contentBytes)",                                                            "body": "Deno.Buffer(${1:);\nDeno.writeAllSync(writer, contentBytes})",                                                            },
+    // "Deno.writeFile.206"         : { "prefix": "Deno-writeFile(\"hello1.txt\", data)",                                                                               "body": "Deno.writeFile(${1:\"hello1.txt\", data})",                                                                               },
+    // "Deno.writeFile.207"         : { "prefix": "Deno-writeFile(\"hello2.txt\", data, {create: false})",                                                              "body": "Deno.writeFile(${1:\"hello2.txt\", data, {create: false}})",                                                              },
+    // "Deno.writeFile.208"         : { "prefix": "Deno-writeFile(\"hello3.txt\", data, {mode: 0o777})",                                                                "body": "Deno.writeFile(${1:\"hello3.txt\", data, {mode: 0o777}})",                                                                },
+    // "Deno.writeFile.209"         : { "prefix": "Deno-writeFile(\"hello4.txt\", data, {append: true})",                                                               "body": "Deno.writeFile(${1:\"hello4.txt\", data, {append: true}})",                                                               },
+    // "Deno.writeFileSync.210"     : { "prefix": "Deno-writeFileSync(\"hello1.txt\", data)",                                                                           "body": "Deno.writeFileSync(${1:\"hello1.txt\", data})",                                                                           },
+    // "Deno.writeFileSync.211"     : { "prefix": "Deno-writeFileSync(\"hello2.txt\", data, {create: false})",                                                          "body": "Deno.writeFileSync(${1:\"hello2.txt\", data, {create: false}})",                                                          },
+    // "Deno.writeFileSync.212"     : { "prefix": "Deno-writeFileSync(\"hello3.txt\", data, {mode: 0o777})",                                                            "body": "Deno.writeFileSync(${1:\"hello3.txt\", data, {mode: 0o777}})",                                                            },
+    // "Deno.writeFileSync.213"     : { "prefix": "Deno-writeFileSync(\"hello4.txt\", data, {append: true})",                                                           "body": "Deno.writeFileSync(${1:\"hello4.txt\", data, {append: true}})",                                                           },
+    // "Deno.openSync.214"          : { "prefix": "Deno-openSync(\"/foo/bar.txt\", {write: true})",                                                                     "body": "Deno.openSync(${1:\"/foo/bar.txt\", {write: true}})",                                                                     },
+    // "Deno.writeSync.215"         : { "prefix": "Deno-writeSync(file.rid, data)",                                                                                     "body": "Deno.writeSync(${1:file.rid, data})",                                                                                     },
+    // "Deno.close.216"             : { "prefix": "Deno-close(file.rid)",                                                                                               "body": "Deno.close(${1:file.rid})",                                                                                               },
+    // "Deno.writeTextFile.217"     : { "prefix": "Deno-writeTextFile(\"hello1.txt\", \"Hello world\\n\")",                                                             "body": "Deno.writeTextFile(${1:\"hello1.txt\", \"Hello world\\n\"})",                                                             },
+    // "Deno.writeTextFileSync.218" : { "prefix": "Deno-writeTextFileSync(\"hello1.txt\", \"Hello world\\n\")",                                                         "body": "Deno.writeTextFileSync(${1:\"hello1.txt\", \"Hello world\\n\"})",                                                         },
+    // // 
+    // // html/jsx
+    // // 
+    // "style_attribute": {  "prefix": "style", "body": [ "style=\"$0\"" ], },
+    // "class_attribute": {  "prefix": "class", "body": [ "class=\"$0\"" ], },
+    // // 
+    // // HTML tags
+    // // 
+    // "a": {  "prefix": "a", "body": [ "<a>$0</a>" ], },
+    // "abbr": {  "prefix": "abbr", "body": [ "<abbr>$0</abbr>" ], },
+    // "acronym": {  "prefix": "acronym", "body": [ "<acronym>$0</acronym>" ], },
+    // "address": {  "prefix": "address", "body": [ "<address>$0</address>" ], },
+    // "applet": {  "prefix": "applet", "body": [ "<applet>$0</applet>" ], },
+    // "area": {  "prefix": "area", "body": [ "<area>$0</area>" ], },
+    // "article": {  "prefix": "article", "body": [ "<article>$0</article>" ], },
+    // "aside": {  "prefix": "aside", "body": [ "<aside>$0</aside>" ], },
+    // "audio": {  "prefix": "audio", "body": [ "<audio>$0</audio>" ], },
+    // "b": {  "prefix": "b", "body": [ "<b>$0</b>" ], },
+    // "base": {  "prefix": "base", "body": [ "<base>$0</base>" ], },
+    // "basefont": {  "prefix": "basefont", "body": [ "<basefont>$0</basefont>" ], },
+    // "bdi": {  "prefix": "bdi", "body": [ "<bdi>$0</bdi>" ], },
+    // "bdo": {  "prefix": "bdo", "body": [ "<bdo>$0</bdo>" ], },
+    // "big": {  "prefix": "big", "body": [ "<big>$0</big>" ], },
+    // "blockquote": {  "prefix": "blockquote", "body": [ "<blockquote>$0</blockquote>" ], },
+    // "body": {  "prefix": "body", "body": [ "<body>$0</body>" ], },
+    // "br": {  "prefix": "br", "body": [ "<br>$0</br>" ], },
+    // "button": {  "prefix": "button", "body": [ "<button>$0</button>" ], },
+    // "canvas": {  "prefix": "canvas", "body": [ "<canvas>$0</canvas>" ], },
+    // "caption": {  "prefix": "caption", "body": [ "<caption>$0</caption>" ], },
+    // "center": {  "prefix": "center", "body": [ "<center>$0</center>" ], },
+    // "cite": {  "prefix": "cite", "body": [ "<cite>$0</cite>" ], },
+    // "code": {  "prefix": "code", "body": [ "<code>$0</code>" ], },
+    // "col": {  "prefix": "col", "body": [ "<col>$0</col>" ], },
+    // "colgroup": {  "prefix": "colgroup", "body": [ "<colgroup>$0</colgroup>" ], },
+    // "data": {  "prefix": "data", "body": [ "<data>$0</data>" ], },
+    // "datalist": {  "prefix": "datalist", "body": [ "<datalist>$0</datalist>" ], },
+    // "dd": {  "prefix": "dd", "body": [ "<dd>$0</dd>" ], },
+    // "del": {  "prefix": "del", "body": [ "<del>$0</del>" ], },
+    // "details": {  "prefix": "details", "body": [ "<details>$0</details>" ], },
+    // "dfn": {  "prefix": "dfn", "body": [ "<dfn>$0</dfn>" ], },
+    // "dialog": {  "prefix": "dialog", "body": [ "<dialog>$0</dialog>" ], },
+    // "dir": {  "prefix": "dir", "body": [ "<dir>$0</dir>" ], },
+    // "div": {  "prefix": "div", "body": [ "<div>$0</div>" ], },
+    // "dl": {  "prefix": "dl", "body": [ "<dl>$0</dl>" ], },
+    // "dt": {  "prefix": "dt", "body": [ "<dt>$0</dt>" ], },
+    // "em": {  "prefix": "em", "body": [ "<em>$0</em>" ], },
+    // "embed": {  "prefix": "embed", "body": [ "<embed>$0</embed>" ], },
+    // "fieldset": {  "prefix": "fieldset", "body": [ "<fieldset>$0</fieldset>" ], },
+    // "figcaption": {  "prefix": "figcaption", "body": [ "<figcaption>$0</figcaption>" ], },
+    // "figure": {  "prefix": "figure", "body": [ "<figure>$0</figure>" ], },
+    // "font": {  "prefix": "font", "body": [ "<font>$0</font>" ], },
+    // "footer": {  "prefix": "footer", "body": [ "<footer>$0</footer>" ], },
+    // "form": {  "prefix": "form", "body": [ "<form>$0</form>" ], },
+    // "frame": {  "prefix": "frame", "body": [ "<frame>$0</frame>" ], },
+    // "frameset": {  "prefix": "frameset", "body": [ "<frameset>$0</frameset>" ], },
+    // "h1": {  "prefix": "h1", "body": [ "<h1>$0</h1>" ], },
+    // "h2": {  "prefix": "h2", "body": [ "<h2>$0</h2>" ], },
+    // "h3": {  "prefix": "h3", "body": [ "<h3>$0</h3>" ], },
+    // "h4": {  "prefix": "h4", "body": [ "<h4>$0</h4>" ], },
+    // "h5": {  "prefix": "h5", "body": [ "<h5>$0</h5>" ], },
+    // "h6": {  "prefix": "h6", "body": [ "<h6>$0</h6>" ], },
+    // "head": {  "prefix": "head", "body": [ "<head>$0</head>" ], },
+    // "header": {  "prefix": "header", "body": [ "<header>$0</header>" ], },
+    // "hr": {  "prefix": "hr", "body": [ "<hr>$0</hr>" ], },
+    // "html": {  "prefix": "html", "body": [ "<html>$0</html>" ], },
+    // "i": {  "prefix": "i", "body": [ "<i>$0</i>" ], },
+    // "iframe": {  "prefix": "iframe", "body": [ "<iframe>$0</iframe>" ], },
+    // "img": {  "prefix": "img", "body": [ "<img>$0</img>" ], },
+    // "input": {  "prefix": "input", "body": [ "<input>$0</input>" ], },
+    // "ins": {  "prefix": "ins", "body": [ "<ins>$0</ins>" ], },
+    // "kbd": {  "prefix": "kbd", "body": [ "<kbd>$0</kbd>" ], },
+    // "label": {  "prefix": "label", "body": [ "<label>$0</label>" ], },
+    // "legend": {  "prefix": "legend", "body": [ "<legend>$0</legend>" ], },
+    // "li": {  "prefix": "li", "body": [ "<li>$0</li>" ], },
+    // "link": {  "prefix": "link", "body": [ "<link>$0</link>" ], },
+    // "main": {  "prefix": "main", "body": [ "<main>$0</main>" ], },
+    // "map": {  "prefix": "map", "body": [ "<map>$0</map>" ], },
+    // "mark": {  "prefix": "mark", "body": [ "<mark>$0</mark>" ], },
+    // "meta": {  "prefix": "meta", "body": [ "<meta>$0</meta>" ], },
+    // "meter": {  "prefix": "meter", "body": [ "<meter>$0</meter>" ], },
+    // "nav": {  "prefix": "nav", "body": [ "<nav>$0</nav>" ], },
+    // "noframes": {  "prefix": "noframes", "body": [ "<noframes>$0</noframes>" ], },
+    // "noscript": {  "prefix": "noscript", "body": [ "<noscript>$0</noscript>" ], },
+    // "object": {  "prefix": "object", "body": [ "<object>$0</object>" ], },
+    // "ol": {  "prefix": "ol", "body": [ "<ol>$0</ol>" ], },
+    // "optgroup": {  "prefix": "optgroup", "body": [ "<optgroup>$0</optgroup>" ], },
+    // "option": {  "prefix": "option", "body": [ "<option>$0</option>" ], },
+    // "output": {  "prefix": "output", "body": [ "<output>$0</output>" ], },
+    // "p": {  "prefix": "p", "body": [ "<p>$0</p>" ], },
+    // "param": {  "prefix": "param", "body": [ "<param>$0</param>" ], },
+    // "picture": {  "prefix": "picture", "body": [ "<picture>$0</picture>" ], },
+    // "pre": {  "prefix": "pre", "body": [ "<pre>$0</pre>" ], },
+    // "progress": {  "prefix": "progress", "body": [ "<progress>$0</progress>" ], },
+    // "q": {  "prefix": "q", "body": [ "<q>$0</q>" ], },
+    // "rp": {  "prefix": "rp", "body": [ "<rp>$0</rp>" ], },
+    // "rt": {  "prefix": "rt", "body": [ "<rt>$0</rt>" ], },
+    // "ruby": {  "prefix": "ruby", "body": [ "<ruby>$0</ruby>" ], },
+    // "s": {  "prefix": "s", "body": [ "<s>$0</s>" ], },
+    // "samp": {  "prefix": "samp", "body": [ "<samp>$0</samp>" ], },
+    // "script": {  "prefix": "script", "body": [ "<script>$0</script>" ], },
+    // "section": {  "prefix": "section", "body": [ "<section>$0</section>" ], },
+    // "select": {  "prefix": "select", "body": [ "<select>$0</select>" ], },
+    // "small": {  "prefix": "small", "body": [ "<small>$0</small>" ], },
+    // "source": {  "prefix": "source", "body": [ "<source>$0</source>" ], },
+    // "span": {  "prefix": "span", "body": [ "<span>$0</span>" ], },
+    // "strike": {  "prefix": "strike", "body": [ "<strike>$0</strike>" ], },
+    // "strong": {  "prefix": "strong", "body": [ "<strong>$0</strong>" ], },
+    // // "style": {  "prefix": "style", "body": [ "<style>$0</style>" ], },
+    // "sub": {  "prefix": "sub", "body": [ "<sub>$0</sub>" ], },
+    // "summary": {  "prefix": "summary", "body": [ "<summary>$0</summary>" ], },
+    // "sup": {  "prefix": "sup", "body": [ "<sup>$0</sup>" ], },
+    // "table": {  "prefix": "table", "body": [ "<table>$0</table>" ], },
+    // "tbody": {  "prefix": "tbody", "body": [ "<tbody>$0</tbody>" ], },
+    // "td": {  "prefix": "td", "body": [ "<td>$0</td>" ], },
+    // "template": {  "prefix": "template", "body": [ "<template>$0</template>" ], },
+    // "textarea": {  "prefix": "textarea", "body": [ "<textarea>$0</textarea>" ], },
+    // "tfoot": {  "prefix": "tfoot", "body": [ "<tfoot>$0</tfoot>" ], },
+    // "th": {  "prefix": "th", "body": [ "<th>$0</th>" ], },
+    // "thead": {  "prefix": "thead", "body": [ "<thead>$0</thead>" ], },
+    // "time": {  "prefix": "time", "body": [ "<time>$0</time>" ], },
+    // "title": {  "prefix": "title", "body": [ "<title>$0</title>" ], },
+    // "tr": {  "prefix": "tr", "body": [ "<tr>$0</tr>" ], },
+    // "track": {  "prefix": "track", "body": [ "<track>$0</track>" ], },
+    // "tt": {  "prefix": "tt", "body": [ "<tt>$0</tt>" ], },
+    // "u": {  "prefix": "u", "body": [ "<u>$0</u>" ], },
+    // "ul": {  "prefix": "ul", "body": [ "<ul>$0</ul>" ], },
+    // "var": {  "prefix": "var", "body": [ "<var>$0</var>" ], },
+    // "video": {  "prefix": "video", "body": [ "<video>$0</video>" ], },
+    // "wbr": {  "prefix": "wbr", "body": [ "<wbr>$0</wbr>" ], },
+    // // svg
+    // "svg":                 {  "prefix": "svg", "body": [ "<svg>$0</svg>"] },
+    // "animate":             {  "prefix": "animate", "body": [ "<animate>$0</animate>"] },
+    // "animateMotion":       {  "prefix": "animateMotion", "body": [ "<animateMotion>$0</animateMotion>"] },
+    // "animateTransform":    {  "prefix": "animateTransform", "body": [ "<animateTransform>$0</animateTransform>"] },
+    // "circle":              {  "prefix": "circle", "body": [ "<circle>$0</circle>"] },
+    // "clipPath":            {  "prefix": "clipPath", "body": [ "<clipPath>$0</clipPath>"] },
+    // "defs":                {  "prefix": "defs", "body": [ "<defs>$0</defs>"] },
+    // "desc":                {  "prefix": "desc", "body": [ "<desc>$0</desc>"] },
+    // "discard":             {  "prefix": "discard", "body": [ "<discard>$0</discard>"] },
+    // "ellipse":             {  "prefix": "ellipse", "body": [ "<ellipse>$0</ellipse>"] },
+    // "feBlend":             {  "prefix": "feBlend", "body": [ "<feBlend>$0</feBlend>"] },
+    // "feColorMatrix":       {  "prefix": "feColorMatrix", "body": [ "<feColorMatrix>$0</feColorMatrix>"] },
+    // "feComponentTransfer": {  "prefix": "feComponentTransfer", "body": [ "<feComponentTransfer>$0</feComponentTransfer>"] },
+    // "feComposite":         {  "prefix": "feComposite", "body": [ "<feComposite>$0</feComposite>"] },
+    // "feConvolveMatrix":    {  "prefix": "feConvolveMatrix", "body": [ "<feConvolveMatrix>$0</feConvolveMatrix>"] },
+    // "feDiffuseLighting":   {  "prefix": "feDiffuseLighting", "body": [ "<feDiffuseLighting>$0</feDiffuseLighting>"] },
+    // "feDisplacementMap":   {  "prefix": "feDisplacementMap", "body": [ "<feDisplacementMap>$0</feDisplacementMap>"] },
+    // "feDistantLight":      {  "prefix": "feDistantLight", "body": [ "<feDistantLight>$0</feDistantLight>"] },
+    // "feDropShadow":        {  "prefix": "feDropShadow", "body": [ "<feDropShadow>$0</feDropShadow>"] },
+    // "feFlood":             {  "prefix": "feFlood", "body": [ "<feFlood>$0</feFlood>"] },
+    // "feFuncA":             {  "prefix": "feFuncA", "body": [ "<feFuncA>$0</feFuncA>"] },
+    // "feFuncB":             {  "prefix": "feFuncB", "body": [ "<feFuncB>$0</feFuncB>"] },
+    // "feFuncG":             {  "prefix": "feFuncG", "body": [ "<feFuncG>$0</feFuncG>"] },
+    // "feFuncR":             {  "prefix": "feFuncR", "body": [ "<feFuncR>$0</feFuncR>"] },
+    // "feGaussianBlur":      {  "prefix": "feGaussianBlur", "body": [ "<feGaussianBlur>$0</feGaussianBlur>"] },
+    // "feImage":             {  "prefix": "feImage", "body": [ "<feImage>$0</feImage>"] },
+    // "feMerge":             {  "prefix": "feMerge", "body": [ "<feMerge>$0</feMerge>"] },
+    // "feMergeNode":         {  "prefix": "feMergeNode", "body": [ "<feMergeNode>$0</feMergeNode>"] },
+    // "feMorphology":        {  "prefix": "feMorphology", "body": [ "<feMorphology>$0</feMorphology>"] },
+    // "feOffset":            {  "prefix": "feOffset", "body": [ "<feOffset>$0</feOffset>"] },
+    // "fePointLight":        {  "prefix": "fePointLight", "body": [ "<fePointLight>$0</fePointLight>"] },
+    // "feSpecularLighting":  {  "prefix": "feSpecularLighting", "body": [ "<feSpecularLighting>$0</feSpecularLighting>"] },
+    // "feSpotLight":         {  "prefix": "feSpotLight", "body": [ "<feSpotLight>$0</feSpotLight>"] },
+    // "feTile":              {  "prefix": "feTile", "body": [ "<feTile>$0</feTile>"] },
+    // "feTurbulence":        {  "prefix": "feTurbulence", "body": [ "<feTurbulence>$0</feTurbulence>"] },
+    // "filter":              {  "prefix": "filter", "body": [ "<filter>$0</filter>"] },
+    // "foreignObject":       {  "prefix": "foreignObject", "body": [ "<foreignObject>$0</foreignObject>"] },
+    // "g":                   {  "prefix": "g", "body": [ "<g>$0</g>"] },
+    // "hatch":               {  "prefix": "hatch", "body": [ "<hatch>$0</hatch>"] },
+    // "hatchpath":           {  "prefix": "hatchpath", "body": [ "<hatchpath>$0</hatchpath>"] },
+    // "image":               {  "prefix": "image", "body": [ "<image>$0</image>"] },
+    // "line":                {  "prefix": "line", "body": [ "<line>$0</line>"] },
+    // "linearGradient":      {  "prefix": "linearGradient", "body": [ "<linearGradient>$0</linearGradient>"] },
+    // "marker":              {  "prefix": "marker", "body": [ "<marker>$0</marker>"] },
+    // "mask":                {  "prefix": "mask", "body": [ "<mask>$0</mask>"] },
+    // "mesh":                {  "prefix": "mesh", "body": [ "<mesh>$0</mesh>"] },
+    // "meshgradient":        {  "prefix": "meshgradient", "body": [ "<meshgradient>$0</meshgradient>"] },
+    // "meshpatch":           {  "prefix": "meshpatch", "body": [ "<meshpatch>$0</meshpatch>"] },
+    // "meshrow":             {  "prefix": "meshrow", "body": [ "<meshrow>$0</meshrow>"] },
+    // "metadata":            {  "prefix": "metadata", "body": [ "<metadata>$0</metadata>"] },
+    // "mpath":               {  "prefix": "mpath", "body": [ "<mpath>$0</mpath>"] },
+    // "path":                {  "prefix": "path", "body": [ "<path>$0</path>"] },
+    // "pattern":             {  "prefix": "pattern", "body": [ "<pattern>$0</pattern>"] },
+    // "polygon":             {  "prefix": "polygon", "body": [ "<polygon>$0</polygon>"] },
+    // "polyline":            {  "prefix": "polyline", "body": [ "<polyline>$0</polyline>"] },
+    // "radialGradient":      {  "prefix": "radialGradient", "body": [ "<radialGradient>$0</radialGradient>"] },
+    // "rect":                {  "prefix": "rect", "body": [ "<rect>$0</rect>"] },
+    // "set":                 {  "prefix": "set", "body": [ "<set>$0</set>"] },
+    // "stop":                {  "prefix": "stop", "body": [ "<stop>$0</stop>"] },
+    // "switch":              {  "prefix": "switch", "body": [ "<switch>$0</switch>"] },
+    // "symbol":              {  "prefix": "symbol", "body": [ "<symbol>$0</symbol>"] },
+    // "text":                {  "prefix": "text", "body": [ "<text>$0</text>"] },
+    // "textPath":            {  "prefix": "textPath", "body": [ "<textPath>$0</textPath>"] },
+    // "tspan":               {  "prefix": "tspan", "body": [ "<tspan>$0</tspan>"] },
+    // "unknown":             {  "prefix": "unknown", "body": [ "<unknown>$0</unknown>"] },
+    // "use":                 {  "prefix": "use", "body": [ "<use>$0</use>"] },
+    // "view":                {  "prefix": "view", "body": [ "<view>$0</view>"] },
 }
-
