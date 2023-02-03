@@ -38,5 +38,8 @@
         "oniguruma": "^7.2.0",
         "ovsx": "^0.5.1",
         "textmate-tester": "^1.1.9"
+    },
+    "dependencies": {
+        "vsce": "^2.15.0"
     }
 }
