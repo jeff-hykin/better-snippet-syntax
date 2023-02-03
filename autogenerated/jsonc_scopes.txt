@@ -4,6 +4,7 @@ comment.line.double-slash.js
 constant.character.escape.json.comments
 constant.language.json.comments
 constant.numeric.json.comments
+constant.other.option.json.comments
 invalid.illegal.expected-array-separator.json.comments
 invalid.illegal.expected-dictionary-separator.json.comments
 invalid.illegal.unrecognized-string-escape.json.comments
@@ -22,6 +23,7 @@ punctuation.section.insertion.escape.escapee.json.comments
 punctuation.section.insertion.escape.escaper.json.comments
 punctuation.section.insertion.json.comments
 punctuation.separator.array.json.comments
+punctuation.separator.choice.json.comments
 punctuation.separator.dictionary.key-value.json.comments
 punctuation.separator.dictionary.pair.json.comments
 punctuation.support.type.property-name.begin.json.comments

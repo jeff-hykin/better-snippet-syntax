@@ -145,13 +145,50 @@ grammar.scope_name = "source.json.comments"
         Pattern.new(
             reference: "naive_insertion",
             match: Pattern.new(
+                # 
+                # $1, $howdy
+                # 
                 Pattern.new(
                     tag_as: insertion_tag,
                     should_fully_match: [ "$1", "$2", "$howdeee" ],
                     match: Pattern.new("$").oneOf([
                         /\d+/,
-                        /[a-zA-Z_]+/, # FIXME: this probably should include more characters, maybe numbers
+                        /[a-zA-Z0-9_]+/, # FIXME: this might should include more characters
                     ]),
+                # 
+                # ${1|one,two,three|}
+                # 
+                ).or(
+                    Pattern.new(
+                        tag_as: insertion_tag,
+                        should_fully_match: [ "${1|one,two,three|}", ],
+                        match: Pattern.new(
+                            Pattern.new(
+                                match: "$",
+                            ).then(
+                                tag_as: "punctuation.section.insertion",
+                                match: "{",
+                            ).then(
+                                match: /\d+/,
+                            ).then(
+                                tag_as: "punctuation.separator.choice",
+                                match: "|",
+                            ).then(
+                                match: /.+?\|/,
+                                includes: [
+                                    Pattern.new(
+                                        tag_as: "constant.other.option",
+                                        match: Pattern.new(
+                                            /.+?/
+                                        ).lookAheadFor(/,|\|/)
+                                    )
+                                ],
+                            ).then(
+                                tag_as: "punctuation.section.insertion",
+                                match: "}",
+                            )
+                        )
+                    )
                 ).or(
                     # key question is: what results in an inert/unmatched ${}
                         # "${}"               => ${}
