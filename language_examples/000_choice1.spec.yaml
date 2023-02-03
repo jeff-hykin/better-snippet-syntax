@@ -113,119 +113,52 @@
     - punctuation.definition.string.begin.json.comments
 - source: $
   scopesBegin:
+    - meta.insertion.json.comments
     - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
+    - meta.insertion.json.comments
   scopes:
     - punctuation.section.insertion.dollar.json.comments
     - support.class.insertion.json.comments
 - source: '{'
   scopes:
     - punctuation.section.insertion.json.comments
-- source: TM_FILENAME
-- source: /
-  scopesBegin:
-    - string.regexp.json.comments
+  scopesEnd:
+    - meta.insertion.json.comments
+- source: '1'
+- source: '|'
   scopes:
-    - punctuation.section.regexp.json.comments
-- source: (.*)\\..+$
-- source: /
-  scopes:
-    - punctuation.section.regexp.json.comments
+    - meta.insertion.json.comments
+    - punctuation.separator.choice.json.comments
   scopesEnd:
     - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-    - string.regexp.json.comments
-- source: $1
+- source: a
   scopes:
-    - variable.language.capture.json.comments
-- source: /
-  scopesBegin:
-    - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-  scopes:
-    - string.regexp.json.comments
-    - punctuation.section.regexp.json.comments
-- source: '}'
-  scopes:
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-- source: '"'
-  scopes:
-    - punctuation.definition.string.end.json.comments
-  scopesEnd:
-    - string.quoted.double.json.comments
+    - constant.other.option.json.comments
 - source: ','
   scopes:
-    - punctuation.separator.array.json.comments
-- source: '"'
-  scopesBegin:
-    - string.quoted.double.json.comments
+    - punctuation.separator.comma.json.comments
+- source: b
   scopes:
-    - punctuation.definition.string.begin.json.comments
-- source: a
-  scopesBegin:
-    - string.quoted.double.json.comments
-- source: d
-- source: f
-- source: a
-- source: s
-- source: d
-- source: f
-- source: a
-- source: d
-  scopesEnd:
-    - string.quoted.double.json.comments
-- source: $
+    - constant.other.option.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.comma.json.comments
+- source: c
+  scopes:
+    - constant.other.option.json.comments
+- source: '|'
   scopesBegin:
     - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
+    - meta.insertion.json.comments
   scopes:
-    - punctuation.section.insertion.dollar.json.comments
-    - support.class.insertion.json.comments
-- source: '{'
-  scopes:
-    - punctuation.section.insertion.json.comments
-- source: TM_FILENAME
-- source: /
-  scopesBegin:
-    - string.regexp.json.comments
-  scopes:
-    - punctuation.section.regexp.json.comments
-- source: (.*)\\..+$
-- source: /
-  scopes:
-    - punctuation.section.regexp.json.comments
-  scopesEnd:
-    - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-    - string.regexp.json.comments
-- source: $1
-  scopes:
-    - variable.language.capture.json.comments
-- source: /
-  scopesBegin:
-    - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-  scopes:
-    - string.regexp.json.comments
-    - punctuation.section.regexp.json.comments
+    - punctuation.separator.choice.json.comments
 - source: '}'
   scopes:
     - punctuation.section.insertion.json.comments
   scopesEnd:
+    - meta.insertion.json.comments
     - support.class.insertion.json.comments
-    - meta.variable-transform.json.comments
-- source: a
-  scopesBegin:
-    - string.quoted.double.json.comments
-- source: s
-- source: d
-- source: f
-- source: s
-  scopesEnd:
-    - string.quoted.double.json.comments
+    - meta.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments

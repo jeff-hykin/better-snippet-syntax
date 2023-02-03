@@ -148,7 +148,7 @@ grammar.scope_name = "source.json.comments"
             # $1, $howdy
             #
             match: Pattern.new(
-                    tag_as: insertion_tag,
+                    tag_as: "meta.insertion " + insertion_tag,
                     should_fully_match: [ "$1", "$2", "$howdeee" ],
                     match: Pattern.new("$").oneOf([
                         /\d+/,
@@ -159,36 +159,45 @@ grammar.scope_name = "source.json.comments"
                 # 
                 ).or(
                     Pattern.new(
-                        tag_as: insertion_tag,
+                        tag_as: "meta.insertion " + insertion_tag,
                         should_fully_match: [ "${1|one,two,three|}", ],
                         match: Pattern.new(
                             Pattern.new(
                                 match: "$",
-                                tag_as: "punctuation.section.insertion.dollar #{insertion_tag}",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion.dollar #{insertion_tag}",
                             ).then(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: "{",
                             ).then(
                                 match: /\d+/,
                             ).then(
-                                tag_as: "punctuation.separator.choice",
+                                tag_as: "meta.insertion " + "punctuation.separator.choice",
                                 match: "|",
                             ).then(
-                                match: /.+?\|/,
+                                match: /.+?/,
                                 includes: [
                                     Pattern.new(
-                                        tag_as: "constant.other.option",
-                                        match: Pattern.new(
-                                            /.+?/
-                                        ).lookAheadFor(/,|\|/)
+                                        tag_as: "meta.insertion " + "punctuation.separator.comma",
+                                        match: ","
                                     ),
                                     Pattern.new(
-                                        tag_as: "punctuation.separator.comma",
-                                        match: ","
+                                        tag_as: "meta.insertion " + "constant.other.option",
+                                        match: Pattern.new(
+                                            /.+?/
+                                        ).lookAheadFor(/,/)
+                                    ),
+                                    Pattern.new(
+                                        tag_as: "meta.insertion " + "constant.other.option",
+                                        match: Pattern.new(
+                                            /.+?\z/
+                                        )
                                     ),
                                 ],
                             ).then(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.separator.choice",
+                                match: "|",
+                            ).then(
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: "}",
                             )
                         )
@@ -198,46 +207,46 @@ grammar.scope_name = "source.json.comments"
                 # 
                 ).or(
                     Pattern.new(
-                        tag_as: insertion_tag+" meta.variable-transform",
+                        tag_as: "meta.insertion " + insertion_tag+" meta.variable-transform",
                         should_fully_match: [ "${TM_FILENAME/(.*)\\..+$/$1/}", ],
                         match: Pattern.new(
                             Pattern.new(
                                 match: "$",
-                                tag_as: "punctuation.section.insertion.dollar #{insertion_tag}",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion.dollar #{insertion_tag}",
                             ).then(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: "{",
                             ).then(
                                 match: /\w+/,
                             ).then(
-                                tag_as: "string.regexp",
+                                tag_as: "meta.insertion " + "string.regexp",
                                 # FIXME: this is very incomplete pattern, breakages will happen when escaped /'s are in the regex
                                 #        there is also a possible problem with the the bracket, e.g. [\/}] would cause a breakage
                                 match: Pattern.new(
                                     Pattern.new(
                                         match: "/",
-                                        tag_as: "punctuation.section.regexp",
+                                        tag_as: "meta.insertion " + "punctuation.section.regexp",
                                     ).then(/.+?/).then(
                                         match: "/",
-                                        tag_as: "punctuation.section.regexp",
+                                        tag_as: "meta.insertion " + "punctuation.section.regexp",
                                     ).then(
                                         match: /.+/,
                                         includes: [
                                             Pattern.new(
-                                                tag_as: "variable.language.capture",
+                                                tag_as: "meta.insertion " + "variable.language.capture",
                                                 match: /\$\d+/,
                                             ),
                                         ]
                                     ).then(
                                         match: "/",
-                                        tag_as: "punctuation.section.regexp",
+                                        tag_as: "meta.insertion " + "punctuation.section.regexp",
                                     ).then(
-                                        tag_as: "keyword.other.flag",
+                                        tag_as: "meta.insertion " + "keyword.other.flag",
                                         match: /[igmyu]{0,5}/,
                                     ).lookAheadFor("}")
                                 )
                             ).then(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: "}",
                             )
                         )
@@ -260,15 +269,15 @@ grammar.scope_name = "source.json.comments"
                         # "${0:\\\\}\\\\\\a}" => \\\a} and first slash special
                         # "${0:$}"            => $ and first slash special(
                     Pattern.new(
-                        tag_as: insertion_tag,
+                        tag_as: "meta.insertion " + insertion_tag,
                         match: Pattern.new(
                             Pattern.new(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: /\$\{/,
                             ).then(
                                 match: /\d+/,
                             ).then(
-                                tag_as: "punctuation.section.insertion",
+                                tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: /:/,
                             )
                         ),
@@ -288,7 +297,7 @@ grammar.scope_name = "source.json.comments"
                             ],
                         )
                     ).then(
-                        tag_as: insertion_tag + " punctuation.section.insertion",
+                        tag_as: "meta.insertion " + insertion_tag + " punctuation.section.insertion",
                         match: "}",
                     )
                 ),
