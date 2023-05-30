@@ -59,6 +59,7 @@
             "\t${1:panic(${2:err})}",
             "${TM_FILENAME/(.*)\\..+$/$1/}",
             "adfasdfad ${TM_FILENAME/(.*)\\..+$/$1/}  asdfs",
+            "adfasdfad ${TM_FILENAME/(.*)\\..+$/$1/}_______________",
             
             "${TM_FILENAME/[\\.]/_/}"
             "adfasd${TM_FILENAME/[\\.-]/_/g}"

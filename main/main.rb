@@ -239,9 +239,9 @@ grammar.scope_name = "source.json.comments"
         )
         grammar[:text]   = Pattern.new(
             tag_as: "text.$match",
-            match: maybe(grammar[:simple_escape_context].or(/[^\n\r]/)).zeroOrMoreOf(
+            match: maybe(grammar[:simple_escape_context]).zeroOrMoreOf(
                 as_few_as_possible?: true,
-                match: grammar[:simple_escape_context].or(/[^\n\r]/),
+                match: grammar[:simple_escape_context],
             ),
             includes: [
                 :special_insertions,
@@ -267,11 +267,12 @@ grammar.scope_name = "source.json.comments"
                     tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
                     match: "|",
                 ).then(
+                    
                     # NOTE: functionally VS Code allows choice_option to recursively include more insertions
                     #       however that functionality goes against its own extended Backus-Naur form specification
                     #       this highligher doesn't support the functionality
-                    grammar[:choice_option].then(
-                        match: zeroOrMoreOf(
+                    match: grammar[:choice_option].then(
+                        zeroOrMoreOf(
                             as_few_as_possible?: true,
                             match: Pattern.new(
                                 Pattern.new(
@@ -281,14 +282,14 @@ grammar.scope_name = "source.json.comments"
                                 )
                             ),
                         ),
-                        includes: [
-                            :choice_option,
-                            Pattern.new(
-                                tag_as: "punctuation.separator.comma",
-                                match: ","
-                            ),
-                        ]
-                    )
+                    ),
+                    includes: [
+                         Pattern.new(
+                            tag_as: "punctuation.separator.comma",
+                            match: ","
+                        ),
+                        :choice_option,
+                    ]
                 ).then(
                     tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
                     match: "|",
@@ -309,7 +310,7 @@ grammar.scope_name = "source.json.comments"
             # case 1: '$' int
             # 
             grammar[:special_insertions].or(
-                tag_as: "meta.insertion.simple",
+                tag_as: "meta.insertion.format.simple",
                 should_fully_match: [ "$1", "$2", ],
                 match: Pattern.new(
                     Pattern.new(
@@ -323,7 +324,7 @@ grammar.scope_name = "source.json.comments"
             # case 2: '${' int ':' '/upcase' | '/downcase' | '/capitalize' | '/camelcase' | '/pascalcase' '}'
             # 
             ).or(
-                tag_as: "meta.insertion.transform",
+                tag_as: "meta.insertion.format.transform",
                 match: Pattern.new(
                     grammar[:bracket_insertion_starter].then(
                         grammar[:int]
@@ -332,7 +333,7 @@ grammar.scope_name = "source.json.comments"
                     ).then(
                         Pattern.new(
                             tag_as: "punctuation.section.regexp support.type.built-in variable.language.special",
-                            match: //,
+                            match: /\//,
                         ).then(
                             tag_as: "support.type.built-in variable.language.special",
                             match: /upcase|downcase|capitalize|camelcase|pascalcase/,
@@ -345,7 +346,7 @@ grammar.scope_name = "source.json.comments"
             # case 3: '${' int ':+' text '}'
             # 
             ).or(
-                tag_as: "meta.insertion.transform",
+                tag_as: "meta.insertion.format.plus",
                 match: Pattern.new(
                     grammar[:bracket_insertion_starter].then(
                         grammar[:int]
@@ -364,7 +365,7 @@ grammar.scope_name = "source.json.comments"
             # case 4: '${' int ':?' text ':' text '}'
             # 
             ).or(
-                tag_as: "meta.insertion.transform",
+                tag_as: "meta.insertion.format.conditional",
                 match: Pattern.new(
                     grammar[:bracket_insertion_starter].then(
                         grammar[:int]
@@ -388,7 +389,7 @@ grammar.scope_name = "source.json.comments"
             # case 5: '${' int ':-' text '}'
             # 
             ).or(
-                tag_as: "meta.insertion.transform",
+                tag_as: "meta.insertion.format.remove",
                 match: Pattern.new(
                     grammar[:bracket_insertion_starter].then(
                         grammar[:int]
@@ -407,7 +408,7 @@ grammar.scope_name = "source.json.comments"
             # case 6: '${' int ':' text '}'
             # 
             ).or(
-                tag_as: "meta.insertion.transform",
+                tag_as: "meta.insertion.format.default",
                 match: Pattern.new(
                     grammar[:bracket_insertion_starter].then(
                         grammar[:int]
@@ -426,7 +427,7 @@ grammar.scope_name = "source.json.comments"
             # 
             # finding: /THIS/WHOLE THING/
             # 
-            tag_as: "string.regexp",
+            tag_as: "meta.insertion.transform string.regexp",
             # FIXME: this is an unconfirmed pattern that is probably incomplete
             #        generally when something is wrong/broken VS Code will fallback to just treating it as a string
             #        so this pattern needs to literally fully parse everything including all possible invalid cases
@@ -468,7 +469,16 @@ grammar.scope_name = "source.json.comments"
                         # regex escape or anything thats not a slash
                         match: grammar[:format].or(
                             grammar[:regex_backslash_escape].or(
-                                grammar[:text]
+                                Pattern.new(
+                                    tag_as: "text.$match",
+                                    match: zeroOrMoreOf(
+                                        match: grammar[:simple_escape_context].or(/[^\n\r]/),
+                                    ),
+                                    includes: [
+                                        :special_insertions,
+                                        :simple_escape_context,
+                                    ]
+                                )
                             ),
                         ),
                         # dont_back_track?: false,
@@ -478,19 +488,18 @@ grammar.scope_name = "source.json.comments"
                             tag_as: "variable.language.capture",
                             match: /\$\d+/,
                         ),
-                        :basic_escape,
-                        :simple_escape_context,
+                        :format,
+                        :regex_backslash_escape,
+                        :text,
                         # TODO: should also include other escape sequences
                     ]
                 ).then(
                     match: "/",
                     tag_as: "punctuation.section.regexp",
-                ).maybe(
-                    @spaces
                 ).then(
                     tag_as: "keyword.other.flag",
                     match: /[igmyu]{0,5}/,
-                ).lookAheadFor("}")
+                )
             )
         )
         # tabstop     ::= '$' int
@@ -533,7 +542,8 @@ grammar.scope_name = "source.json.comments"
                         grammar[:bracket_insertion_starter].then(
                             grammar[:int]
                         ).then(
-                            grammar[:transform]
+                            tag_as: "meta.insertion",
+                            match: grammar[:transform],
                         ).then(
                             grammar[:bracket_insertion_ender]
                         )
@@ -571,14 +581,21 @@ grammar.scope_name = "source.json.comments"
                                 grammar[:bracket_insertion_starter].then(
                                     grammar[:int]
                                 ).then(
-                                    match: recursivelyMatch("any"),
+                                    grammar[:colon_separator]
+                                ).then(
+                                    match: oneOrMoreOf(
+                                        recursivelyMatch("any")
+                                    ),
                                     includes: [
                                         :any,
                                     ]
                                 ).then(
                                     grammar[:bracket_insertion_ender]
                                 )
-                            )
+                            ),
+                            includes: [
+                                :any,
+                            ]
                         )
                     # 
                     # variable
@@ -624,7 +641,7 @@ grammar.scope_name = "source.json.comments"
                                         ).then(
                                             grammar[:colon_separator]
                                         ).then(
-                                            match: recursivelyMatch("any"),
+                                            match: oneOrMoreOf(recursivelyMatch("any")),
                                             includes: [
                                                 :any,
                                             ]
@@ -641,7 +658,13 @@ grammar.scope_name = "source.json.comments"
                                         grammar[:bracket_insertion_starter].then(
                                             grammar[:var]
                                         ).then(
-                                            grammar[:transform]
+                                            tag_as: "meta.insertion.variable", # repeated because VS Code's thing is broken
+                                            match: Pattern.new(/\/.+\/.*\/[igmyu]{0,5}/).or(grammar[:transform]),
+                                            includes: [
+                                                :transform,
+                                                # grammar[:transform]
+                                            ],
+                                            # match: grammar[:transform],
                                         ).then(
                                             grammar[:bracket_insertion_ender]
                                         )
@@ -659,321 +682,6 @@ grammar.scope_name = "source.json.comments"
                 )
             )
         )
-    
-    # assuming there is no prior escape
-    grammar[:naive_insertion_area] = Pattern.new(
-        Pattern.new(
-            should_fully_match: [
-                "$1",
-                "$2",
-                "$howdeee",
-                "${TM_FILENAME/(.*)/${1:/upcase}/}",
-            ],
-            reference: "naive_insertion",
-            match: Pattern.new(
-                # 
-                # $1, $howdy
-                #
-                grammar[:special_insertions].or(
-                    
-                    tag_as: "meta.insertion.simple",
-                    should_fully_match: [ "$1", "$2", "$howdeee" ],
-                    match: Pattern.new(
-                        Pattern.new(
-                            match:"$",
-                            tag_as: "punctuation.section.insertion.dollar.connected #{insertion_tag}",
-                        ).then(
-                            Pattern.new(
-                                tag_as: numeric_variable_tag + " #{insertion_tag}",
-                                match: /\d+\b/,
-                            ).or(
-                                tag_as: named_variable_tag + " #{insertion_tag}",
-                                match: /[a-zA-Z0-9_]+/, # FIXME: this might should include more characters
-                            )
-                        )
-                    )
-                # 
-                # ${1|one,two,three|}
-                # 
-                ).or(
-                    Pattern.new(
-                        tag_as: "meta.insertion.choice",
-                        should_fully_match: [ "${1|one,two,three|}", ],
-                        match: Pattern.new(
-                            Pattern.new(
-                                match: "$",
-                                tag_as: "punctuation.section.insertion.dollar.interpolated #{insertion_tag}",
-                            ).then(
-                                tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
-                                match: "{",
-                            ).then(
-                                match: /\d+/,
-                                tag_as: numeric_variable_tag + " #{insertion_tag}",
-                            ).then(
-                                tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
-                                match: "|",
-                            ).then(
-                                match: /.+?/,
-                                includes: [
-                                    Pattern.new(
-                                        tag_as: "punctuation.separator.comma",
-                                        match: ","
-                                    ),
-                                    Pattern.new(
-                                        tag_as: "constant.other.option",
-                                        match: Pattern.new(
-                                            /.+?/
-                                        ).lookAheadFor(/,/)
-                                    ),
-                                    Pattern.new(
-                                        tag_as: "constant.other.option",
-                                        match: Pattern.new(
-                                            /.+?\z/
-                                        )
-                                    ),
-                                ],
-                            ).then(
-                                tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
-                                match: "|",
-                            ).then(
-                                tag_as: "punctuation.section.insertion.bracket"+ " #{insertion_tag}",
-                                match: "}",
-                            )
-                        )
-                    )
-                # 
-                # Variable transforms: ${TM_FILENAME/(.*)\\..+$/$1/}
-                # 
-                ).or(
-                    Pattern.new(
-                        tag_as: "meta.insertion.variable-transform",
-                        should_fully_match: [
-                            "${TM_FILENAME/(.*)\\..+$/$1/}", 
-                            "${TM_FILENAME/[\\\\.]/_/}",
-                            "${TM_FILENAME/[\\\\.-]/_/g}",
-                            "${TM_FILENAME/[^0-9^a-z]//gi}",
-                            # "${A1:/upcase}",
-                            # NOTE: the following case should also work BUT not as a unit test
-                            # because there is a recursive reference to a parent pattern
-                            # but parent patterns don't exist for unit tests (otherwise they wouldn't be a unit test)
-                            #    "${TM_FILENAME/(.*)/${1:/upcase}/}"
-                        ],
-                        match: Pattern.new(
-                            Pattern.new(
-                                tag_as: "punctuation.section.insertion.dollar.interpolated #{insertion_tag}",
-                                match: "$",
-                            ).then(
-                                tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
-                                match: "{",
-                            ).then(
-                                tag_as: named_variable_tag + " #{insertion_tag}",
-                                match: variable,
-                            ).then(
-                                # 
-                                # finding: /THIS/WHOLE THING/
-                                # 
-                                tag_as: "string.regexp",
-                                # FIXME: this is an unconfirmed pattern that is probably incomplete
-                                #        generally when something is wrong/broken VS Code will fallback to just treating it as a string
-                                #        so this pattern needs to literally fully parse everything including all possible invalid cases
-                                #        and know when a case will be invalid before hand, all in pure regex
-                                #        Right now it does not do that, and instead focuses on the valid case
-                                # 
-                                #        concerns: escaping the \} from ${} while also escaping it for JSON and for regex
-                                match: Pattern.new(
-                                    # 
-                                    # edgecases
-                                    # 
-                                    Pattern.new(
-                                        Pattern.new(
-                                            tag_as: "punctuation.section.regexp support.type.built-in variable.language.special",
-                                            match: //,
-                                        ).then(
-                                            tag_as: "support.type.built-in variable.language.special",
-                                            match: /upcase|downcase|capitalize|camelcase|pascalcase/,
-                                            reference: "builtin_replacement_name",
-                                        ).then(/\b/)
-                                    # 
-                                    # normal case
-                                    # 
-                                    ).or(
-                                        Pattern.new(
-                                            match: "/",
-                                            tag_as: "punctuation.section.regexp",
-                                        ).then(
-                                            # 
-                                            # finding: /BEGINING_PART//
-                                            # 
-                                            match: oneOrMoreOf(
-                                                # regex escape or anything thats not a slash
-                                                match: grammar[:regex_backslash_escape].or(/[^\/\n]/),
-                                                # dont_back_track?: false,
-                                            ),
-                                            includes: [
-                                                grammar[:regex_backslash_escape],
-                                                # TODO: this is where to add regex highlighting similar to https://github.com/RedCMD/TmLanguage-Syntax-Highlighter
-                                                #       maybe could just embed his
-                                                # FIXME: the escapes for regex are probably slightly different 
-                                                #        for example escaping a $ compared to escaping the $ for ${1:stuff}
-                                                #        on top of also escaping a [ or {
-                                                #        currently the code does not account for any of that
-                                                :simple_escape_context,
-                                            ],
-                                        ).then(
-                                            match: "/",
-                                            tag_as: "punctuation.section.regexp",
-                                        ).then(
-                                            # 
-                                            # finding: //ENDING_PART/
-                                            # 
-                                            match: zeroOrMoreOf(
-                                                # regex escape or anything thats not a slash
-                                                match: recursivelyMatch("naive_insertion").or(
-                                                    grammar[:regex_backslash_escape].or(
-                                                        /[^\/\n]/
-                                                    ),
-                                                ),
-                                                # dont_back_track?: false,
-                                            ),
-                                            includes: [
-                                                Pattern.new(
-                                                    tag_as: "variable.language.capture",
-                                                    match: /\$\d+/,
-                                                ),
-                                                :basic_escape,
-                                                :naive_insertion_area,
-                                                # TODO: should also include other escape sequences
-                                            ]
-                                        ).then(
-                                            match: "/",
-                                            tag_as: "punctuation.section.regexp",
-                                        ).then(
-                                            tag_as: "keyword.other.flag",
-                                            match: /[igmyu]{0,5}/,
-                                        ).lookAheadFor("}")
-                                    ),
-                                )
-                            ).then(
-                                tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
-                                match: "}",
-                            )
-                        )
-                    )
-                ).or(
-                    # 
-                    # ${thing:default}
-                    # 
-                    Pattern.new(
-                        tag_as: "meta.insertion.default",
-                        match: Pattern.new(
-                            # key question is: what results in an inert/unmatched ${}
-                                # "${}"               => ${}
-                                # "${:}"              => ${:}
-                                # "${:a}"             => ${:a}
-                                # "${0:}"             => special
-                                # "${0:\\}"           => ${0:}
-                                # "${0:\\a}"          => \a and special
-                                # "${0:\\\\}"         => \ and special
-                                # "${0:\\\\a}"        => \a and special
-                                # "${0:\\\\\\}"       => ${0:\}
-                                # "${0:\\\\\\\\}"     => \\ and special
-                                # "${0:\\\\\\\\a}"    => \\a and special
-                                # "${0:\\}\\\\\\a}"   => }\\a and special
-                                # "${0:\\}\\\\\\a}"   => }\\a and special
-                                # "${0:\\\\}\\\\\\a}" => \\\a} and first slash special
-                                # "${0:$}"            => $ and first slash special(
-                            Pattern.new(
-                                Pattern.new(
-                                    tag_as: "punctuation.section.insertion.dollar.interpolated #{insertion_tag}",
-                                    match: /\$/,
-                                ).then(
-                                    tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
-                                    match: /\{/,
-                                ).then(
-                                    tag_as: numeric_variable_tag + " #{insertion_tag}",
-                                    match: /\d+/,
-                                ).then(
-                                    tag_as: "punctuation.section.insertion #{insertion_tag}",
-                                    match: /:/,
-                                )
-                            ).then(
-                                match: zeroOrMoreOf(
-                                    match: oneOf([
-                                        recursivelyMatch("naive_insertion"),
-                                        grammar[:bracket_escape], 
-                                        /[^\\\n\}"]/,             # a primitive character, including $
-                                        /(?:\\\\\\\\)++/,         # a quadruple backslash (ends up as a slash)
-                                        /\\\\[^\\\n\}]/,          # a double-backslash escaped normal thing
-                                        grammar[:basic_escape].lookBehindToAvoid(/\\/),   # a normal json escape, that is not a \\ escape
-                                    ]),
-                                    includes: [
-                                        :naive_insertion_area,
-                                        :simple_escape_context,
-                                    ],
-                                )
-                            ).then(
-                                tag_as: " punctuation.section.insertion.bracket #{insertion_tag}",
-                                match: "}",
-                            )
-                        )
-                    )
-                ),
-            )
-        )
-    )
-    # every possible match or failed-match of insertion area
-    grammar[:any_potential_insertion] = Pattern.new(
-        Pattern.new(
-            # given the $ would be active (if no backslashes given)
-                # "$1"               => 1 is special
-                # "\\$1"             => $1
-                # "\\\\$1"           => \ and 1 is special
-                # "\\\\\\$1"         => \$1
-            # logic
-                # all quad slashes means the $ is 
-            match: oneOf([
-                grammar[:naive_insertion_area],
-                # exclusively quad backslashes, meaning the insertion area is still active
-                Pattern.new(
-                    match: zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(grammar[:naive_insertion_area]),
-                    includes: [
-                        grammar[:naive_insertion_area],
-                        :quad_backslash_match,
-                    ]
-                ),
-                # double backslash, then quad backslashes, meaning the insertion area is NOT active
-                Pattern.new(
-                    match: Pattern.new(/\\\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(grammar[:naive_insertion_area]),
-                    includes: [
-                        :simple_escape_context,
-                    ]
-                ),
-            ]),
-        ).or(
-        # given the $ after the slashes would be inert
-            # 
-            # "$"                => $
-            # "$$"               => $$
-            # "\\$"              => $
-            # "\\\\$"            => \$
-            # "\\\\\\$"          => \$
-            # "\\\\\\\\$$ 1"     => \\$$ 1
-            # "$$1"              => $ and 1 is special
-            # "\\\\\\$$1"        => \$ and 1 is special
-            # "\\\\$$abra 1"     => \$ and abra is special
-            # "\\\\\\$$abra 1"   => \$ and abra is special
-            # "\\\\\\\\$$abra 1" => \\$ and abra is special
-            match: zeroOrMoreOf(match:/\\\\/, no_backtrack: true).then("$"),
-            includes: [
-                :simple_escape_context, # includes $ escape
-                # unpaired } without escapes
-                Pattern.new(
-                    tag_as: normal_string_charater_tag,
-                    match: "}",
-                ),
-            ],
-        )
-    )
     
     grammar[:special_object_key] = PatternRange.new(
         start_pattern: Pattern.new(
