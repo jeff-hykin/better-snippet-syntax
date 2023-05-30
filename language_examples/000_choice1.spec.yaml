@@ -124,27 +124,14 @@
 - source: '1'
   scopes:
     - variable.other.normal.numeric.json.comments
-    - support.class.insertion.json.comments
 - source: '|'
   scopes:
     - punctuation.separator.choice.json.comments
+    - support.class.insertion.json.comments
+- source: 'a,b,'
   scopesEnd:
     - meta.insertion.choice.json.comments
-- source: a
-  scopes:
-    - constant.other.option.json.comments
-- source: ','
-  scopes:
-    - punctuation.separator.comma.json.comments
-- source: b
-  scopes:
-    - constant.other.option.json.comments
-- source: ','
-  scopes:
-    - punctuation.separator.comma.json.comments
 - source: c
-  scopes:
-    - constant.other.option.json.comments
 - source: '|'
   scopesBegin:
     - meta.insertion.choice.json.comments
