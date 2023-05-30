@@ -41,3 +41,4 @@ string.regexp.json.comments
 support.class.insertion.json.comments
 support.type.property-name.json.comments
 variable.language.capture.json.comments
+variable.other.normal.json.comments

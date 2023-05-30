@@ -141,6 +141,31 @@ grammar.scope_name = "source.json.comments"
     ]
     # assuming there is no prior escape
     insertion_tag = "support.class.insertion"
+    numeric_variable_tag = ""
+    grammar[:regex_backslash_escape] = oneOf([
+        # single escape
+        Pattern.new(
+            # \\/
+            Pattern.new(
+                match: /\\/,
+                tag_as: double_escaper_tag,
+            ).then(
+                match: /\\\//,
+                tag_as: double_escapee_tag,
+            )
+        ),
+        # double escape
+        Pattern.new(
+            # \\\\/
+            Pattern.new(
+                match: /\\\\\\/,
+                tag_as: double_escaper_tag,
+            ).then(
+                match: /\\\//,
+                tag_as: double_escapee_tag,
+            )
+        )
+    ])
     grammar[:naive_insertion_area] = Pattern.new(
         Pattern.new(
             reference: "naive_insertion",
@@ -148,6 +173,7 @@ grammar.scope_name = "source.json.comments"
             # $1, $howdy
             #
             match: Pattern.new(
+                Pattern.new(
                     tag_as: "meta.insertion " + insertion_tag,
                     should_fully_match: [ "$1", "$2", "$howdeee" ],
                     match: Pattern.new("$").oneOf([
@@ -170,6 +196,7 @@ grammar.scope_name = "source.json.comments"
                                 match: "{",
                             ).then(
                                 match: /\d+/,
+                                tag_as: numeric_variable_tag,
                             ).then(
                                 tag_as: "meta.insertion " + "punctuation.separator.choice",
                                 match: "|",
@@ -218,24 +245,52 @@ grammar.scope_name = "source.json.comments"
                                 match: "{",
                             ).then(
                                 match: /\w+/,
+                                tag_as: "variable.other.normal",
                             ).then(
                                 tag_as: "meta.insertion " + "string.regexp",
-                                # FIXME: this is very incomplete pattern, breakages will happen when escaped /'s are in the regex
-                                #        there is also a possible problem with the the bracket, e.g. [\/}] would cause a breakage
+                                # FIXME: this is an incomplete pattern,
+                                #        generally when something is wrong/broken VS Code will fallback to just treating it as a string
+                                #        so this pattern needs to literally fully parse everything including all possible invalid cases
+                                #        and know when a case will be invalid before hand, all in pure regex
+                                #        Right now it does not do that, and instead focuses on the valid case
+                                # 
+                                #        known caveats: escaping the \} from ${} while also escaping it for JSON and for regex
                                 match: Pattern.new(
                                     Pattern.new(
                                         match: "/",
                                         tag_as: "meta.insertion " + "punctuation.section.regexp",
-                                    ).then(/.+?/).then(
+                                    ).then(
+                                        match: oneOrMoreOf(
+                                            # regex escape or anything thats not a slash
+                                            match: grammar[:regex_backslash_escape].or(/[^\/\n]/),
+                                            # dont_back_track?: false,
+                                        ),
+                                        includes: [
+                                            grammar[:regex_backslash_escape],
+                                            # TODO: this is where to add regex highlighting similar to https://github.com/RedCMD/TmLanguage-Syntax-Highlighter
+                                            #       maybe could just embed his
+                                            # FIXME: the escapes for regex are probably slightly different 
+                                            #        for example escaping a $ compared to escaping the $ for ${1:stuff}
+                                            #        on top of also escaping a [ or {
+                                            #        currently the code does not account for any of that
+                                            *simple_escape_context,
+                                        ],
+                                    ).then(
                                         match: "/",
                                         tag_as: "meta.insertion " + "punctuation.section.regexp",
                                     ).then(
-                                        match: /.+/,
+                                        match: oneOrMoreOf(
+                                            # regex escape or anything thats not a slash
+                                            match: grammar[:regex_backslash_escape].or(/[^\/\n]/),
+                                            # dont_back_track?: false,
+                                        ),
                                         includes: [
                                             Pattern.new(
                                                 tag_as: "meta.insertion " + "variable.language.capture",
                                                 match: /\$\d+/,
                                             ),
+                                            :basic_escape,
+                                            # TODO: should also include other escape sequences
                                         ]
                                     ).then(
                                         match: "/",
@@ -275,6 +330,7 @@ grammar.scope_name = "source.json.comments"
                                 tag_as: "meta.insertion " + "punctuation.section.insertion",
                                 match: /\$\{/,
                             ).then(
+                                tag_as: numeric_variable_tag,
                                 match: /\d+/,
                             ).then(
                                 tag_as: "meta.insertion " + "punctuation.section.insertion",
@@ -301,6 +357,7 @@ grammar.scope_name = "source.json.comments"
                         match: "}",
                     )
                 ),
+            )
         )
     )
     # every possible match or failed-match of insertion area

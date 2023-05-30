@@ -18,7 +18,7 @@
   ],
   "repository": {
     "any_potential_insertion": {
-      "match": "(?:(?:((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)\\d+(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)\\w+((\\/).+?(\\/)(.+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)\\d+(:))((?:\\g<55>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))|((?:\\\\\\\\\\\\\\\\)*((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)\\d+(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)\\w+((\\/).+?(\\/)(.+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)\\d+(:))((?:\\g<55>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\}))))|(\\\\\\\\(?:\\\\\\\\\\\\\\\\)*((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)\\d+(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)\\w+((\\/).+?(\\/)(.+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)\\d+(:))((?:\\g<55>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))))|((?:\\\\\\\\)*\\$))",
+      "match": "(?:(?:((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)(\\d+)(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)(\\w+)((\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)(\\d+)(:))((?:\\g<79>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))|((?:\\\\\\\\\\\\\\\\)*((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)(\\d+)(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)(\\w+)((\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)(\\d+)(:))((?:\\g<79>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\}))))|(\\\\\\\\(?:\\\\\\\\\\\\\\\\)*((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)(\\d+)(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)(\\w+)((\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)(\\d+)(:))((?:\\g<79>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))))|((?:\\\\\\\\)*\\$))",
       "captures": {
         "1": {
         },
@@ -35,9 +35,12 @@
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "6": {
-          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+          "name": ""
         },
         "7": {
+          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+        },
+        "8": {
           "patterns": [
             {
               "match": ",",
@@ -53,57 +56,132 @@
             }
           ]
         },
-        "8": {
+        "9": {
           "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
-        "9": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-        },
         "10": {
-          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "11": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
+          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
         },
         "12": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
         },
         "13": {
-          "name": "meta.insertion.json.comments string.regexp.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "14": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+          "name": "variable.other.normal.json.comments"
         },
         "15": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+          "name": "meta.insertion.json.comments string.regexp.json.comments"
         },
         "16": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "17": {
+          "patterns": [
+            {
+              "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+              "captures": {
+                "1": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "2": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "3": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "4": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                }
+              }
+            },
+            {
+              "include": "#null_quad_backslash"
+            },
+            {
+              "include": "#dollar_sign_escape"
+            },
+            {
+              "include": "#bracket_escape"
+            },
+            {
+              "include": "#quad_backslash_match"
+            },
+            {
+              "include": "#basic_escape"
+            },
+            {
+              "include": "#invalid_escape"
+            },
+            {
+              "include": "#normal_characters"
+            }
+          ]
+        },
+        "18": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "19": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "20": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "21": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "22": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "23": {
           "patterns": [
             {
               "match": "\\$\\d+",
               "name": "meta.insertion.json.comments variable.language.capture.json.comments"
+            },
+            {
+              "include": "#basic_escape"
             }
           ]
         },
-        "17": {
+        "24": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "25": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "26": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "27": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "28": {
           "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
         },
-        "18": {
+        "29": {
           "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
         },
-        "19": {
+        "30": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "20": {
+        "31": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "21": {
+        "32": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "22": {
+        "33": {
+          "name": ""
+        },
+        "34": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "23": {
+        "35": {
           "patterns": [
             {
               "include": "#naive_insertion_area"
@@ -131,7 +209,7 @@
             }
           ]
         },
-        "24": {
+        "36": {
           "patterns": [
             {
               "include": "#quad_backslash_match"
@@ -147,16 +225,16 @@
             }
           ]
         },
-        "25": {
+        "37": {
           "name": "constant.character.escape.json.comments"
         },
-        "26": {
+        "38": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "27": {
+        "39": {
           "patterns": [
             {
-              "match": "((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)\\d+(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)\\w+((\\/).+?(\\/)(.+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)\\d+(:))((?:\\g<1>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))",
+              "match": "((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)(\\d+)(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)(\\w+)((\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)(\\d+)(:))((?:\\g<1>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))",
               "captures": {
                 "1": {
                 },
@@ -173,9 +251,12 @@
                   "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
                 "6": {
-                  "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+                  "name": ""
                 },
                 "7": {
+                  "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+                },
+                "8": {
                   "patterns": [
                     {
                       "match": ",",
@@ -191,57 +272,132 @@
                     }
                   ]
                 },
-                "8": {
+                "9": {
                   "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
                 },
-                "9": {
-                  "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-                },
                 "10": {
-                  "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
+                  "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
                 "11": {
-                  "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
+                  "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
                 },
                 "12": {
-                  "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+                  "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
                 },
                 "13": {
-                  "name": "meta.insertion.json.comments string.regexp.json.comments"
+                  "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
                 "14": {
-                  "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+                  "name": "variable.other.normal.json.comments"
                 },
                 "15": {
-                  "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+                  "name": "meta.insertion.json.comments string.regexp.json.comments"
                 },
                 "16": {
+                  "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+                },
+                "17": {
+                  "patterns": [
+                    {
+                      "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+                      "captures": {
+                        "1": {
+                          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                        },
+                        "2": {
+                          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                        },
+                        "3": {
+                          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                        },
+                        "4": {
+                          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                        }
+                      }
+                    },
+                    {
+                      "include": "#null_quad_backslash"
+                    },
+                    {
+                      "include": "#dollar_sign_escape"
+                    },
+                    {
+                      "include": "#bracket_escape"
+                    },
+                    {
+                      "include": "#quad_backslash_match"
+                    },
+                    {
+                      "include": "#basic_escape"
+                    },
+                    {
+                      "include": "#invalid_escape"
+                    },
+                    {
+                      "include": "#normal_characters"
+                    }
+                  ]
+                },
+                "18": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "19": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "20": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "21": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "22": {
+                  "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+                },
+                "23": {
                   "patterns": [
                     {
                       "match": "\\$\\d+",
                       "name": "meta.insertion.json.comments variable.language.capture.json.comments"
+                    },
+                    {
+                      "include": "#basic_escape"
                     }
                   ]
                 },
-                "17": {
+                "24": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "25": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "26": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "27": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "28": {
                   "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
                 },
-                "18": {
+                "29": {
                   "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
                 },
-                "19": {
+                "30": {
                   "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
-                "20": {
+                "31": {
                   "name": "meta.insertion.json.comments support.class.insertion.json.comments"
                 },
-                "21": {
+                "32": {
                   "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
-                "22": {
+                "33": {
+                  "name": ""
+                },
+                "34": {
                   "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
                 },
-                "23": {
+                "35": {
                   "patterns": [
                     {
                       "include": "#naive_insertion_area"
@@ -269,7 +425,7 @@
                     }
                   ]
                 },
-                "24": {
+                "36": {
                   "patterns": [
                     {
                       "include": "#quad_backslash_match"
@@ -285,10 +441,10 @@
                     }
                   ]
                 },
-                "25": {
+                "37": {
                   "name": "constant.character.escape.json.comments"
                 },
-                "26": {
+                "38": {
                   "name": "meta.insertion.json.comments support.class.insertion.json.comments punctuation.section.insertion.json.comments"
                 }
               }
@@ -298,24 +454,27 @@
             }
           ]
         },
-        "28": {
+        "40": {
         },
-        "29": {
+        "41": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "30": {
+        "42": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "31": {
+        "43": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
         },
-        "32": {
+        "44": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "33": {
+        "45": {
+          "name": ""
+        },
+        "46": {
           "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
-        "34": {
+        "47": {
           "patterns": [
             {
               "match": ",",
@@ -331,57 +490,132 @@
             }
           ]
         },
-        "35": {
-          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
-        },
-        "36": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-        },
-        "37": {
-          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
-        },
-        "38": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
-        },
-        "39": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-        },
-        "40": {
-          "name": "meta.insertion.json.comments string.regexp.json.comments"
-        },
-        "41": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
-        },
-        "42": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
-        },
-        "43": {
-          "patterns": [
-            {
-              "match": "\\$\\d+",
-              "name": "meta.insertion.json.comments variable.language.capture.json.comments"
-            }
-          ]
-        },
-        "44": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
-        },
-        "45": {
-          "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
-        },
-        "46": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-        },
-        "47": {
-          "name": "meta.insertion.json.comments support.class.insertion.json.comments"
-        },
         "48": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
         "49": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "50": {
+          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
+        },
+        "51": {
+          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
+        },
+        "52": {
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+        },
+        "53": {
+          "name": "variable.other.normal.json.comments"
+        },
+        "54": {
+          "name": "meta.insertion.json.comments string.regexp.json.comments"
+        },
+        "55": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "56": {
+          "patterns": [
+            {
+              "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+              "captures": {
+                "1": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "2": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "3": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "4": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                }
+              }
+            },
+            {
+              "include": "#null_quad_backslash"
+            },
+            {
+              "include": "#dollar_sign_escape"
+            },
+            {
+              "include": "#bracket_escape"
+            },
+            {
+              "include": "#quad_backslash_match"
+            },
+            {
+              "include": "#basic_escape"
+            },
+            {
+              "include": "#invalid_escape"
+            },
+            {
+              "include": "#normal_characters"
+            }
+          ]
+        },
+        "57": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "58": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "59": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "60": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "61": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "62": {
+          "patterns": [
+            {
+              "match": "\\$\\d+",
+              "name": "meta.insertion.json.comments variable.language.capture.json.comments"
+            },
+            {
+              "include": "#basic_escape"
+            }
+          ]
+        },
+        "63": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "64": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "65": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "66": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "67": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "68": {
+          "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
+        },
+        "69": {
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+        },
+        "70": {
+          "name": "meta.insertion.json.comments support.class.insertion.json.comments"
+        },
+        "71": {
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+        },
+        "72": {
+          "name": ""
+        },
+        "73": {
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+        },
+        "74": {
           "patterns": [
             {
               "include": "#naive_insertion_area"
@@ -409,7 +643,7 @@
             }
           ]
         },
-        "51": {
+        "75": {
           "patterns": [
             {
               "include": "#quad_backslash_match"
@@ -425,13 +659,13 @@
             }
           ]
         },
-        "52": {
+        "76": {
           "name": "constant.character.escape.json.comments"
         },
-        "53": {
+        "77": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "54": {
+        "78": {
           "patterns": [
             {
               "include": "#null_quad_backslash"
@@ -456,24 +690,27 @@
             }
           ]
         },
-        "55": {
+        "79": {
         },
-        "56": {
+        "80": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "57": {
+        "81": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "58": {
+        "82": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
         },
-        "59": {
+        "83": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "60": {
+        "84": {
+          "name": ""
+        },
+        "85": {
           "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
-        "61": {
+        "86": {
           "patterns": [
             {
               "match": ",",
@@ -489,57 +726,132 @@
             }
           ]
         },
-        "62": {
+        "87": {
           "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
-        "63": {
+        "88": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "64": {
+        "89": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
         },
-        "65": {
+        "90": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
         },
-        "66": {
+        "91": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "67": {
+        "92": {
+          "name": "variable.other.normal.json.comments"
+        },
+        "93": {
           "name": "meta.insertion.json.comments string.regexp.json.comments"
         },
-        "68": {
+        "94": {
           "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
         },
-        "69": {
+        "95": {
+          "patterns": [
+            {
+              "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+              "captures": {
+                "1": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "2": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "3": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "4": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                }
+              }
+            },
+            {
+              "include": "#null_quad_backslash"
+            },
+            {
+              "include": "#dollar_sign_escape"
+            },
+            {
+              "include": "#bracket_escape"
+            },
+            {
+              "include": "#quad_backslash_match"
+            },
+            {
+              "include": "#basic_escape"
+            },
+            {
+              "include": "#invalid_escape"
+            },
+            {
+              "include": "#normal_characters"
+            }
+          ]
+        },
+        "96": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "97": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "98": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "99": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "100": {
           "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
         },
-        "70": {
+        "101": {
           "patterns": [
             {
               "match": "\\$\\d+",
               "name": "meta.insertion.json.comments variable.language.capture.json.comments"
+            },
+            {
+              "include": "#basic_escape"
             }
           ]
         },
-        "71": {
+        "102": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "103": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "104": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "105": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "106": {
           "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
         },
-        "72": {
+        "107": {
           "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
         },
-        "73": {
+        "108": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "74": {
+        "109": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "75": {
+        "110": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "76": {
+        "111": {
+          "name": ""
+        },
+        "112": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "77": {
+        "113": {
           "patterns": [
             {
               "include": "#naive_insertion_area"
@@ -567,7 +879,7 @@
             }
           ]
         },
-        "78": {
+        "114": {
           "patterns": [
             {
               "include": "#quad_backslash_match"
@@ -583,13 +895,13 @@
             }
           ]
         },
-        "79": {
+        "115": {
           "name": "constant.character.escape.json.comments"
         },
-        "80": {
+        "116": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "81": {
+        "117": {
           "patterns": [
             {
               "include": "#null_quad_backslash"
@@ -952,7 +1264,7 @@
       "name": "invalid.illegal.unrecognized-string-escape.json.comments"
     },
     "naive_insertion_area": {
-      "match": "((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)\\d+(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)\\w+((\\/).+?(\\/)(.+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)\\d+(:))((?:\\g<1>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))",
+      "match": "((?:(?:(?:(\\$(?:(?:\\d+)|(?:[a-zA-Z0-9_]+)))|((\\$)(\\{)(\\d+)(\\|)(.+?)(\\|)(\\})))|((\\$)(\\{)(\\w+)((\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)((?:(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))|[^\\/\\n])+)(\\/)([igmyu]{0,5})(?=\\}))(\\})))|((\\$\\{)(\\d+)(:))((?:\\g<1>|((?<!\\\\)(?:\\\\\\\\\\\\\\\\)*\\\\\\\\\\})|[^\\\\\\n\\}\"]|(?:(?:\\\\\\\\\\\\\\\\)++)|(?:\\\\\\\\[^\\\\\\n\\}])|(?:(\\\\(?:[\"\\\\\\/bfnrt]|u[0-9a-fA-F]{4}))(?<!\\\\)))*)(\\})))",
       "captures": {
         "1": {
         },
@@ -969,9 +1281,12 @@
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "6": {
-          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+          "name": ""
         },
         "7": {
+          "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
+        },
+        "8": {
           "patterns": [
             {
               "match": ",",
@@ -987,57 +1302,132 @@
             }
           ]
         },
-        "8": {
+        "9": {
           "name": "meta.insertion.json.comments punctuation.separator.choice.json.comments"
         },
-        "9": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
-        },
         "10": {
-          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "11": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
+          "name": "meta.insertion.json.comments support.class.insertion.json.comments meta.variable-transform.json.comments"
         },
         "12": {
-          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.dollar.json.comments support.class.insertion.json.comments"
         },
         "13": {
-          "name": "meta.insertion.json.comments string.regexp.json.comments"
+          "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
         "14": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+          "name": "variable.other.normal.json.comments"
         },
         "15": {
-          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+          "name": "meta.insertion.json.comments string.regexp.json.comments"
         },
         "16": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "17": {
+          "patterns": [
+            {
+              "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+              "captures": {
+                "1": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "2": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                },
+                "3": {
+                  "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+                },
+                "4": {
+                  "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+                }
+              }
+            },
+            {
+              "include": "#null_quad_backslash"
+            },
+            {
+              "include": "#dollar_sign_escape"
+            },
+            {
+              "include": "#bracket_escape"
+            },
+            {
+              "include": "#quad_backslash_match"
+            },
+            {
+              "include": "#basic_escape"
+            },
+            {
+              "include": "#invalid_escape"
+            },
+            {
+              "include": "#normal_characters"
+            }
+          ]
+        },
+        "18": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "19": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "20": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "21": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "22": {
+          "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
+        },
+        "23": {
           "patterns": [
             {
               "match": "\\$\\d+",
               "name": "meta.insertion.json.comments variable.language.capture.json.comments"
+            },
+            {
+              "include": "#basic_escape"
             }
           ]
         },
-        "17": {
+        "24": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "25": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "26": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "27": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "28": {
           "name": "meta.insertion.json.comments punctuation.section.regexp.json.comments"
         },
-        "18": {
+        "29": {
           "name": "meta.insertion.json.comments keyword.other.flag.json.comments"
         },
-        "19": {
+        "30": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "20": {
+        "31": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments"
         },
-        "21": {
+        "32": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "22": {
+        "33": {
+          "name": ""
+        },
+        "34": {
           "name": "meta.insertion.json.comments punctuation.section.insertion.json.comments"
         },
-        "23": {
+        "35": {
           "patterns": [
             {
               "include": "#naive_insertion_area"
@@ -1065,7 +1455,7 @@
             }
           ]
         },
-        "24": {
+        "36": {
           "patterns": [
             {
               "include": "#quad_backslash_match"
@@ -1081,10 +1471,10 @@
             }
           ]
         },
-        "25": {
+        "37": {
           "name": "constant.character.escape.json.comments"
         },
-        "26": {
+        "38": {
           "name": "meta.insertion.json.comments support.class.insertion.json.comments punctuation.section.insertion.json.comments"
         }
       }
@@ -1209,6 +1599,23 @@
         },
         "2": {
           "name": "constant.character.escape.json.comments"
+        }
+      }
+    },
+    "regex_backslash_escape": {
+      "match": "(?:(?:(\\\\)(\\\\\\/))|(?:(\\\\\\\\\\\\)(\\\\\\/)))",
+      "captures": {
+        "1": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "2": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
+        },
+        "3": {
+          "name": "punctuation.section.insertion.escape.escaper.json.comments comment.block.json.comments punctuation.definition.comment.insertion.escape.json.comments"
+        },
+        "4": {
+          "name": "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
         }
       }
     },
