@@ -400,10 +400,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $abra
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: abra
+  scopes:
+    - variable.other.normal.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '1'
   scopes:
     - string.quoted.double.json.comments
@@ -547,10 +555,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $abra
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: abra
+  scopes:
+    - variable.other.normal.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '1'
   scopes:
     - string.quoted.double.json.comments
@@ -675,21 +691,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -700,9 +721,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -839,21 +860,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - constant.character.escape.json.comments
@@ -862,9 +888,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -1643,10 +1669,18 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -1771,10 +1805,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2040,10 +2082,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2328,10 +2378,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2481,10 +2539,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2625,10 +2691,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2745,10 +2819,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -2882,10 +2964,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -3010,10 +3100,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -3652,23 +3750,28 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.interpolated.json.comments
     - support.class.insertion.json.comments
+- source: '{'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
-  scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '}'
-  scopes:
-    - punctuation.section.insertion.json.comments
   scopesEnd:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
 - source: '"'
   scopes:
@@ -3932,21 +4035,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -3957,9 +4065,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -4230,21 +4338,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -4263,9 +4376,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -4387,21 +4500,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -4423,9 +4541,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -4547,21 +4665,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopesBegin:
     - punctuation.section.insertion.escape.escapee.json.comments
@@ -4590,9 +4713,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -4714,21 +4837,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -4742,9 +4870,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -4866,29 +4994,34 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: $
   scopes:
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -5010,21 +5143,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopesBegin:
     - punctuation.section.insertion.escape.escapee.json.comments
@@ -5039,9 +5177,9 @@
     - string.regexp.insertion.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -5163,21 +5301,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -5191,9 +5334,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -5850,10 +5993,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -7035,10 +7186,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -7320,10 +7479,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -7613,10 +7780,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -7742,10 +7917,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -7878,10 +8061,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -8023,10 +8214,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -8159,10 +8358,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $abra
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: abra
+  scopes:
+    - variable.other.normal.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '1'
   scopes:
     - string.quoted.double.json.comments
@@ -8307,10 +8514,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $abra
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: abra
+  scopes:
+    - variable.other.normal.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '1'
   scopes:
     - string.quoted.double.json.comments
@@ -8454,10 +8669,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $abra
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: abra
+  scopes:
+    - variable.other.normal.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '1'
   scopes:
     - string.quoted.double.json.comments
@@ -9383,10 +9606,18 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -9511,10 +9742,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -9780,10 +10019,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10068,10 +10315,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10221,10 +10476,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10365,10 +10628,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10485,10 +10756,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10622,10 +10901,18 @@
   scopesEnd:
     - punctuation.section.insertion.escape.escapee.json.comments
     - string.regexp.insertion.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -10750,10 +11037,18 @@
 - source: $
   scopes:
     - string.quoted.double.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -11392,23 +11687,28 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.interpolated.json.comments
     - support.class.insertion.json.comments
+- source: '{'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
-  scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '}'
-  scopes:
-    - punctuation.section.insertion.json.comments
   scopesEnd:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
 - source: '"'
   scopes:
@@ -11672,21 +11972,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -11697,9 +12002,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -11970,21 +12275,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -12003,9 +12313,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -12127,21 +12437,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -12163,9 +12478,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -12287,21 +12602,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopesBegin:
     - punctuation.section.insertion.escape.escapee.json.comments
@@ -12330,9 +12650,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -12454,21 +12774,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -12479,9 +12804,9 @@
     - constant.character.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -12618,21 +12943,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - constant.character.escape.json.comments
@@ -12641,9 +12971,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -12765,21 +13095,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -12793,9 +13128,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -12917,29 +13252,34 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: $
   scopes:
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -13061,21 +13401,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopesBegin:
     - punctuation.section.insertion.escape.escapee.json.comments
@@ -13090,9 +13435,9 @@
     - string.regexp.insertion.escape.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -13214,21 +13559,26 @@
     - string.quoted.double.json.comments
   scopes:
     - punctuation.definition.string.begin.json.comments
-- source: '${'
+- source: $
   scopesBegin:
-    - meta.insertion.json.comments
-    - support.class.insertion.json.comments
+    - meta.insertion.default.json.comments
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
+    - punctuation.section.insertion.dollar.interpolated.json.comments
+    - support.class.insertion.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - support.class.insertion.json.comments
 - source: '0'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
 - source: ':'
   scopes:
-    - meta.insertion.json.comments
-    - punctuation.section.insertion.json.comments
-  scopesEnd:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.default.json.comments
 - source: \\
   scopes:
     - punctuation.section.insertion.escape.escaper.json.comments
@@ -13242,9 +13592,9 @@
     - string.quoted.double.json.comments
 - source: '}'
   scopes:
-    - meta.insertion.json.comments
+    - meta.insertion.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
-    - punctuation.section.insertion.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments
@@ -13901,10 +14251,18 @@
 - source: \\
   scopes:
     - constant.character.escape.json.comments
-- source: $1
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.json.comments
   scopes:
-    - meta.insertion.json.comments
+    - punctuation.section.insertion.dollar.connected.json.comments
     - support.class.insertion.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.numeric.json.comments
+    - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.simple.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments

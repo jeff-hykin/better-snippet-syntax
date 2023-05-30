@@ -19,6 +19,24 @@ NOTE: The default VS Code theme does not color much. Switch to the Dark+ theme (
 ## How do I use it?
 Just install the VS Code extension and the changes will automatically be applied to all relevent files.
 
+# Notes to themers and customizers
+
+- `support.class.insertion` will color `$`, `${}`, and `THING` in `$THING`, `${THING:}`
+- `variable.language.this` will color the builtin/special `$VAR` things
+- for level-2 customization:
+    - for just varible names: `variable.other.normal support.class.insertion`
+    - for just `$`'s: `punctuation.section.insertion.dollar support.class.insertion`
+    - for just `{}`'s: `punctuation.section.insertion.dollar punctuation.section.insertion.bracket`
+- for level-3 customization:
+    - for numeric variables e.g. `1` in `$1` `variable.other.normal.numeric support.class.insertion`
+    - for `$` in `$VAR` but not `${VAR:}` use `punctuation.section.insertion.dollar.connected support.class.insertion`
+    - for `$` in `${VAR:}` but not `$VAR` use `punctuation.section.insertion.dollar.interpolated support.class.insertion`
+    - do to things for specific insertions use:
+        - `meta.insertion.simple` for `$1`
+        - `meta.insertion.default` for `${1:default}`
+        - `meta.insertion.choice` for `${name|a,b,c|}`
+        - `meta.insertion.variable-transform` for `${VAR/find/replace/g}`
+
 # Before and After (XD Theme)
 
 Before                     | After 

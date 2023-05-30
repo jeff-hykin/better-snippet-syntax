@@ -19,6 +19,11 @@
         "body": [
             "${TM_FILENAME/(.*)\\..+$/$1/}",
             "adfasdfad ${TM_FILENAME/(.*)\\..+$/$1/}  asdfs",
+            
+            "${TM_FILENAME/[\\.]/_/}"
+            "${TM_FILENAME/[\\.-]/_/g}"
+            "${TM_FILENAME/(.*)/${1:/upcase}/}"
+            "${TM_FILENAME/[^0-9^a-z]/a/gi}"
         ],
     },
 }
