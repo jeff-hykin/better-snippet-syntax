@@ -157,8 +157,9 @@ grammar.scope_name = "source.json.comments"
             match: "}",
         )
     )
+    choice_meta_tag = "meta.insertion.choice"
     grammar[:choice_option] = Pattern.new(
-        tag_as: "constant.other.option",
+        tag_as: "#{choice_meta_tag} constant.other.option", # NOTE: shouldn't need this choice_meta_tag (redundant) but textmate engine seems to have a problem and this is a workaround
         reference: "choice_text",
         match: oneOrMoreOf(
             grammar[:quad_backslash_match].or(
@@ -238,7 +239,6 @@ grammar.scope_name = "source.json.comments"
             match: /[0-9]+/,
         )
         grammar[:text]   = Pattern.new(
-            tag_as: "text.$match",
             match: maybe(grammar[:simple_escape_context]).zeroOrMoreOf(
                 as_few_as_possible?: true,
                 match: grammar[:simple_escape_context],
@@ -285,7 +285,7 @@ grammar.scope_name = "source.json.comments"
                     ),
                     includes: [
                          Pattern.new(
-                            tag_as: "punctuation.separator.comma",
+                            tag_as: "#{choice_meta_tag} punctuation.separator.comma", # NOTE: shouldn't need this choice_meta_tag (redundant) but textmate engine seems to have a problem and this is a workaround
                             match: ","
                         ),
                         :choice_option,
@@ -586,14 +586,18 @@ grammar.scope_name = "source.json.comments"
                                     match: oneOrMoreOf(
                                         recursivelyMatch("any")
                                     ),
-                                    includes: [
-                                        :any,
-                                    ]
                                 ).then(
                                     grammar[:bracket_insertion_ender]
                                 )
                             ),
                             includes: [
+                                # must do these includes because the textmate engine seems broken (fails to highlight `${` of outer-most start)
+                                grammar[:bracket_insertion_starter].then(
+                                    grammar[:int]
+                                ).then(
+                                    grammar[:colon_separator]
+                                ),
+                                :bracket_insertion_ender,
                                 :any,
                             ]
                         )

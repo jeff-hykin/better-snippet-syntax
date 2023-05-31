@@ -59,14 +59,7 @@ string.regexp.json.comments
 support.class.insertion.json.comments
 support.type.built-in.json.comments
 support.type.property-name.json.comments
-text.$0.json.comments
-text.$109.json.comments
 text.$131.json.comments
-text.$20.json.comments
-text.$44.json.comments
-text.$62.json.comments
-text.$80.json.comments
-text.$86.json.comments
 variable.language.capture.json.comments
 variable.language.special.json.comments
 variable.language.this.json.comments
