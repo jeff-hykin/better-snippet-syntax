@@ -1047,6 +1047,7 @@
     - punctuation.definition.string.begin.json.comments
 - source: \$
   scopes:
+    - constant.character.escape.json.comments
     - invalid.illegal.unrecognized-string-escape.json.comments
 - source: '"'
   scopes:
@@ -1071,6 +1072,7 @@
     - punctuation.definition.string.begin.json.comments
 - source: \a
   scopes:
+    - constant.character.escape.json.comments
     - invalid.illegal.unrecognized-string-escape.json.comments
 - source: '"'
   scopes:

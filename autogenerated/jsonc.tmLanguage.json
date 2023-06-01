@@ -294,7 +294,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "27": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "28": {
                   "name": "string.quoted.double.json.comments"
@@ -366,7 +366,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "35": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "36": {
                   "name": "string.quoted.double.json.comments"
@@ -469,7 +469,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "51": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "52": {
                   "name": "string.quoted.double.json.comments"
@@ -541,7 +541,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "59": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "60": {
                   "name": "string.quoted.double.json.comments"
@@ -626,7 +626,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "69": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "70": {
                   "name": "string.quoted.double.json.comments"
@@ -698,7 +698,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "77": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "78": {
                   "name": "string.quoted.double.json.comments"
@@ -801,7 +801,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "93": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "94": {
                   "name": "string.quoted.double.json.comments"
@@ -873,7 +873,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "101": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "102": {
                   "name": "string.quoted.double.json.comments"
@@ -973,7 +973,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "116": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "117": {
                   "name": "string.quoted.double.json.comments"
@@ -1045,7 +1045,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "124": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "125": {
                   "name": "string.quoted.double.json.comments"
@@ -1143,7 +1143,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "138": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "139": {
                   "name": "string.quoted.double.json.comments"
@@ -1593,7 +1593,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "27": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "28": {
                   "name": "string.quoted.double.json.comments"
@@ -1665,7 +1665,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "35": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "36": {
                   "name": "string.quoted.double.json.comments"
@@ -1768,7 +1768,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "51": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "52": {
                   "name": "string.quoted.double.json.comments"
@@ -1840,7 +1840,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "59": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "60": {
                   "name": "string.quoted.double.json.comments"
@@ -1925,7 +1925,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "69": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "70": {
                   "name": "string.quoted.double.json.comments"
@@ -1997,7 +1997,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "77": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "78": {
                   "name": "string.quoted.double.json.comments"
@@ -2100,7 +2100,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "93": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "94": {
                   "name": "string.quoted.double.json.comments"
@@ -2172,7 +2172,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "101": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "102": {
                   "name": "string.quoted.double.json.comments"
@@ -2272,7 +2272,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "116": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "117": {
                   "name": "string.quoted.double.json.comments"
@@ -2344,7 +2344,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "124": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "125": {
                   "name": "string.quoted.double.json.comments"
@@ -2442,7 +2442,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "138": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "139": {
                   "name": "string.quoted.double.json.comments"
@@ -2540,7 +2540,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "94": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "95": {
           "name": "string.quoted.double.json.comments"
@@ -2612,7 +2612,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "102": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "103": {
           "name": "string.quoted.double.json.comments"
@@ -2863,7 +2863,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "27": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "28": {
           "name": "string.quoted.double.json.comments"
@@ -2935,7 +2935,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "35": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "36": {
           "name": "string.quoted.double.json.comments"
@@ -3038,7 +3038,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "51": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "52": {
           "name": "string.quoted.double.json.comments"
@@ -3110,7 +3110,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "59": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "60": {
           "name": "string.quoted.double.json.comments"
@@ -3195,7 +3195,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "69": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "70": {
           "name": "string.quoted.double.json.comments"
@@ -3267,7 +3267,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "77": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "78": {
           "name": "string.quoted.double.json.comments"
@@ -3370,7 +3370,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "93": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "94": {
           "name": "string.quoted.double.json.comments"
@@ -3442,7 +3442,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "101": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "102": {
           "name": "string.quoted.double.json.comments"
@@ -3542,7 +3542,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "116": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "117": {
           "name": "string.quoted.double.json.comments"
@@ -3614,7 +3614,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "124": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "125": {
           "name": "string.quoted.double.json.comments"
@@ -3875,7 +3875,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "27": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "28": {
                   "name": "string.quoted.double.json.comments"
@@ -3947,7 +3947,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "35": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "36": {
                   "name": "string.quoted.double.json.comments"
@@ -4050,7 +4050,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "51": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "52": {
                   "name": "string.quoted.double.json.comments"
@@ -4122,7 +4122,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "59": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "60": {
                   "name": "string.quoted.double.json.comments"
@@ -4207,7 +4207,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "69": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "70": {
                   "name": "string.quoted.double.json.comments"
@@ -4279,7 +4279,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "77": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "78": {
                   "name": "string.quoted.double.json.comments"
@@ -4382,7 +4382,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "93": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "94": {
                   "name": "string.quoted.double.json.comments"
@@ -4454,7 +4454,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "101": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "102": {
                   "name": "string.quoted.double.json.comments"
@@ -4554,7 +4554,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "116": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "117": {
                   "name": "string.quoted.double.json.comments"
@@ -4626,7 +4626,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "124": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "125": {
                   "name": "string.quoted.double.json.comments"
@@ -4724,7 +4724,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "138": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "139": {
                   "name": "string.quoted.double.json.comments"
@@ -4824,7 +4824,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "7": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "8": {
           "name": "string.quoted.double.json.comments"
@@ -4896,7 +4896,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "15": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "16": {
           "name": "string.quoted.double.json.comments"
@@ -5107,7 +5107,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "27": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "28": {
                   "name": "string.quoted.double.json.comments"
@@ -5179,7 +5179,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "35": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "36": {
                   "name": "string.quoted.double.json.comments"
@@ -5282,7 +5282,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "51": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "52": {
                   "name": "string.quoted.double.json.comments"
@@ -5354,7 +5354,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "59": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "60": {
                   "name": "string.quoted.double.json.comments"
@@ -5439,7 +5439,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "69": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "70": {
                   "name": "string.quoted.double.json.comments"
@@ -5511,7 +5511,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "77": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "78": {
                   "name": "string.quoted.double.json.comments"
@@ -5614,7 +5614,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "93": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "94": {
                   "name": "string.quoted.double.json.comments"
@@ -5686,7 +5686,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "101": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "102": {
                   "name": "string.quoted.double.json.comments"
@@ -5786,7 +5786,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "116": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "117": {
                   "name": "string.quoted.double.json.comments"
@@ -5858,7 +5858,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "124": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "125": {
                   "name": "string.quoted.double.json.comments"
@@ -5956,7 +5956,7 @@
                   "name": "constant.character.escape.json.comments"
                 },
                 "138": {
-                  "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+                  "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
                 },
                 "139": {
                   "name": "string.quoted.double.json.comments"
@@ -6379,7 +6379,7 @@
     },
     "invalid_escape": {
       "match": "\\\\.",
-      "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+      "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
     },
     "normal_characters": {
       "match": "[^\\\\\\n\\}\"]",
@@ -6591,7 +6591,7 @@
           "name": "constant.character.escape.json.comments"
         },
         "7": {
-          "name": "invalid.illegal.unrecognized-string-escape.json.comments"
+          "name": "constant.character.escape.json.comments invalid.illegal.unrecognized-string-escape.json.comments"
         },
         "8": {
           "name": "string.quoted.double.json.comments"
