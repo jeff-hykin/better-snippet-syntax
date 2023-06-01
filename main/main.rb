@@ -77,7 +77,7 @@ grammar.scope_name = "source.json.comments"
                 ),
             )
             grammar[:invalid_escape] = Pattern.new(
-                tag_as: "invalid.illegal.unrecognized-string-escape",
+                tag_as: "#{normal_escape_tag} invalid.illegal.unrecognized-string-escape",
                 match: Pattern.new(/\\./),
             )
             grammar[:quad_backslash_match] = Pattern.new(
