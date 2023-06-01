@@ -50,14 +50,13 @@ grammar.scope_name = "source.json.comments"
 # patterns
 # 
     # overwrite the stringcontent
-    normal_escape_tag = "constant.character.escape.json.comments"
-    outputs_just_a_backslash_tag = "entity.name.escape.backslash.insertion.json.comments"
-    double_escaper_tag = "punctuation.section.insertion.escape.escaper.json.comments comment.block punctuation.definition.comment.insertion.escape.json.comments"
-    double_escapee_tag = "punctuation.section.insertion.escape.escapee.json.comments string.regexp.insertion.escape.json.comments"
-    normal_string_charater_tag = "string.quoted.double.json.comments"
-    insertion_tag = "support.class.insertion"
-    numeric_variable_tag = "variable.other.normal.numeric"
-    named_variable_tag = "variable.other.normal"
+    normal_escape_tag            = "constant.character.escape"
+    double_escaper_tag           = "punctuation.section.insertion.escape.escaper comment.block punctuation.definition.comment.insertion.escape"
+    double_escapee_tag           = "punctuation.section.insertion.escape.escapee string.regexp.insertion.escape string.quoted.double"
+    normal_string_character_tag  = "string.quoted.double"
+    insertion_tag                = "keyword.operator.insertion"
+    numeric_variable_tag         = "custom.variable.other.normal.numeric"
+    named_variable_tag           = "custom.variable.other.normal.named"
     
     simple_insertion_tag  = "meta.insertion.simple"
     bracket_insertion_tag = "meta.insertion.brackets"
@@ -78,8 +77,8 @@ grammar.scope_name = "source.json.comments"
                 ),
             )
             grammar[:invalid_escape] = Pattern.new(
-                tag_as: "invalid.illegal.unrecognized-string-escape.json.comments",
-                match: Pattern.new(/\\\\./),
+                tag_as: "invalid.illegal.unrecognized-string-escape",
+                match: Pattern.new(/\\./),
             )
             grammar[:quad_backslash_match] = Pattern.new(
                 Pattern.new(
@@ -113,8 +112,12 @@ grammar.scope_name = "source.json.comments"
                 )
             )
             grammar[:dollar_sign_escape] = Pattern.new(
-                match: lookBehindToAvoid(/\\/).zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
-                    Pattern.new(/\\\\/).then("$")
+                match: lookBehindToAvoid(/\\/).then(
+                    Pattern.new(
+                        zeroOrMoreOf(match: /\\\\\\\\/, no_backtrack: true).then(
+                            Pattern.new(/\\\\/).then("$")
+                        )
+                    ).or("\\$")
                 ),
                 includes: [
                     :quad_backslash_match,
@@ -125,6 +128,7 @@ grammar.scope_name = "source.json.comments"
                             match: /\\\\/,
                         ).then("$")
                     ),
+                    :invalid_escape,
                 ]
             )
             grammar[:bracket_escape] = Pattern.new(
@@ -143,7 +147,7 @@ grammar.scope_name = "source.json.comments"
                 ]
             )
             grammar[:normal_characters] = Pattern.new(
-                tag_as: normal_string_charater_tag,
+                tag_as: normal_string_character_tag,
                 match: /[^\\\n\}"]/, # normal characters
             )
             grammar[:simple_escape_context] = oneOf([
@@ -193,21 +197,21 @@ grammar.scope_name = "source.json.comments"
         # 
             grammar[:bracket_insertion_starter] = Pattern.new(
                 Pattern.new(
-                    tag_as: "punctuation.section.insertion.dollar.interpolated #{insertion_tag}",
+                    tag_as: "punctuation.section.insertion.dollar.brackets #{insertion_tag} custom.punctuation.section.insertion.dollar.brackets",
                     match: "$",
                 ).then(
-                    tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
+                    tag_as: "punctuation.section.insertion.bracket #{insertion_tag} custom.punctuation.section.insertion.bracket",
                     match: "{",
                 )
             )
             grammar[:bracket_insertion_ender] = Pattern.new(
                 Pattern.new(
-                    tag_as: "punctuation.section.insertion.bracket #{insertion_tag}",
+                    tag_as: "punctuation.section.insertion.bracket #{insertion_tag} custom.punctuation.section.insertion.bracket",
                     match: "}",
                 )
             )
             grammar[:colon_separator] = Pattern.new(
-                tag_as: "punctuation.section.insertion punctuation.separator.colon #{insertion_tag}",
+                tag_as: "punctuation.section.insertion punctuation.separator.colon #{insertion_tag} custom.punctuation.separator.colon",
                 match: ":",
             )
         # 
@@ -232,10 +236,10 @@ grammar.scope_name = "source.json.comments"
         # see: https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
         grammar[:special_variables] = Pattern.new(
             Pattern.new(
-                tag_as: "punctuation.section.insertion.dollar.connected #{insertion_tag} variable.language.this",
+                tag_as: "#{simple_insertion_tag} punctuation.section.insertion.dollar.simple #{insertion_tag} variable.language.this",
                 match: "$",
             ).then(
-                tag_as: "#{insertion_tag} variable.language.this",
+                tag_as: "#{simple_insertion_tag} #{insertion_tag} variable.language.this",
                 match: variableBounds[/TM_SELECTED_TEXT|TM_CURRENT_LINE|TM_CURRENT_WORD|TM_LINE_INDEX|TM_LINE_NUMBER|TM_FILENAME|TM_FILENAME_BASE|TM_DIRECTORY|TM_FILEPATH|RELATIVE_FILEPATH|CLIPBOARD|WORKSPACE_NAME|WORKSPACE_FOLDER|CURSOR_INDEX|CURSOR_NUMBER|CURRENT_YEAR|CURRENT_YEAR_SHORT|CURRENT_MONTH|CURRENT_MONTH_NAME|CURRENT_MONTH_NAME_SHORT|CURRENT_DATE|CURRENT_DAY_NAME|CURRENT_DAY_NAME_SHORT|CURRENT_HOUR|CURRENT_MINUTE|CURRENT_SECOND|CURRENT_SECONDS_UNIX|CURRENT_TIMEZONE_OFFSET|RANDOM|RANDOM_HEX|UUID|BLOCK_COMMENT_START|BLOCK_COMMENT_END|LINE_COMMENT/],
             )
         )
@@ -298,20 +302,20 @@ grammar.scope_name = "source.json.comments"
         
         # int         ::= /[0-9]+/
         grammar[:bnf_int]    = Pattern.new(
-            tag_as: numeric_variable_tag,
+            tag_as: "variable.other.normal #{numeric_variable_tag}",
             match: /[0-9]+/,
         )
         grammar[:bnf_int_simple]    = Pattern.new(
-            tag_as: numeric_variable_tag + " #{insertion_tag}",
+            tag_as: "variable.other.normal #{insertion_tag} #{numeric_variable_tag}",
             match: /[0-9]+/,
         )
         # var         ::= /[_a-zA-Z][_a-zA-Z0-9]*/
         grammar[:bnf_var]    = Pattern.new(
-            tag_as: named_variable_tag,
+            tag_as: "variable.other.normal #{named_variable_tag}",
             match: variableBounds[/[_a-zA-Z][_a-zA-Z0-9]*/],
         )
         grammar[:bnf_var_simple]    = Pattern.new(
-            tag_as: named_variable_tag + " #{insertion_tag}",
+            tag_as: "variable.other.normal #{insertion_tag} #{named_variable_tag}",
             match: variableBounds[/[_a-zA-Z][_a-zA-Z0-9]*/],
         )
         # text        ::= /.?.+?/
@@ -327,12 +331,12 @@ grammar.scope_name = "source.json.comments"
         )
         # choice ::= '${' int '|' text (',' text)* '|}'
         grammar[:bnf_choice] = Pattern.new(
-            tag_as: "#{bracket_insertion_tag} meta.insertion.choice",
+            tag_as: "#{bracket_insertion_tag} #{choice_meta_tag}",
             match: Pattern.new(
                 grammar[:bracket_insertion_starter].then(
                     grammar[:bnf_int]
                 ).then(
-                    tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
+                    tag_as: "punctuation.separator.choice #{insertion_tag} custom.punctuation.separator.choice",
                     match: "|",
                 ).then(
                     # TODO: this could be cleaned up by making a :bnf_text_choice pattern that included choice-exclusive escapes
@@ -359,7 +363,7 @@ grammar.scope_name = "source.json.comments"
                         :choice_option,
                     ]
                 ).then(
-                    tag_as: "punctuation.separator.choice" + " #{insertion_tag}",
+                    tag_as: "punctuation.separator.choice #{insertion_tag} custom.punctuation.separator.choice",
                     match: "|",
                 ).then(
                     grammar[:bracket_insertion_ender]
@@ -378,12 +382,12 @@ grammar.scope_name = "source.json.comments"
             # case 1: '$' int
             # 
             grammar[:special_variables].or(
-                tag_as: "#{simple_insertion_tag} meta.insertion.format.simple",
+                tag_as: "#{simple_insertion_tag}.numeric meta.insertion.format.simple",
                 should_fully_match: [ "$1", "$2", ],
                 match: Pattern.new(
                     Pattern.new(
                         match:"$",
-                        tag_as: "punctuation.section.insertion.dollar.connected #{insertion_tag}",
+                        tag_as: "punctuation.section.insertion.dollar.simple #{insertion_tag} custom.punctuation.section.insertion.dollar.simple",
                     ).then(
                         grammar[:bnf_int_simple]
                     )
@@ -400,10 +404,10 @@ grammar.scope_name = "source.json.comments"
                         grammar[:colon_separator]
                     ).then(
                         Pattern.new(
-                            tag_as: "punctuation.section.regexp support.type.built-in variable.language.special",
+                            tag_as: "punctuation.section.regexp support.type.built-in variable.language.special.transform",
                             match: /\//,
                         ).then(
-                            tag_as: "support.type.built-in variable.language.special",
+                            tag_as: "support.type.built-in variable.language.special.transform",
                             match: /upcase|downcase|capitalize|camelcase|pascalcase/,
                         )
                     ).then(
@@ -574,12 +578,12 @@ grammar.scope_name = "source.json.comments"
             # case 1: '$' int
             # 
             Pattern.new(
-                tag_as: "#{simple_insertion_tag} meta.insertion.tabstop.simple",
+                tag_as: "#{simple_insertion_tag}.numeric meta.insertion.tabstop.simple",
                 should_fully_match: [ "$1", "$2", ],
                 match: Pattern.new(
                     Pattern.new(
                         match:"$",
-                        tag_as: "punctuation.section.insertion.dollar.connected #{insertion_tag}",
+                        tag_as: "punctuation.section.insertion.dollar.simple #{insertion_tag} custom.punctuation.section.insertion.dollar.simple",
                     ).then(
                         grammar[:bnf_int_simple]
                     )
@@ -686,7 +690,7 @@ grammar.scope_name = "source.json.comments"
                                 match: Pattern.new(
                                     Pattern.new(
                                         match:"$",
-                                        tag_as: "punctuation.section.insertion.dollar.connected #{insertion_tag}",
+                                        tag_as: "punctuation.section.insertion.dollar.simple #{insertion_tag} custom.punctuation.section.insertion.dollar.simple",
                                     ).then(
                                         grammar[:bnf_var_simple]
                                     )
@@ -798,35 +802,35 @@ grammar.scope_name = "source.json.comments"
             start_pattern: Pattern.new(
                 Pattern.new(
                     match: '"',
-                    tag_as: "string.json.comments support.type.property-name.json.comments punctuation.support.type.property-name.begin.json.comments",
+                    tag_as: "string support.type.property-name punctuation.support.type.property-name.begin",
                 ).then(
                     match: 'body',
-                    tag_as: "string.json.comments support.type.property-name.json.comments",
+                    tag_as: "string support.type.property-name",
                 ).then(
                     match: '"',
-                    tag_as: "string.json.comments support.type.property-name.json.comments punctuation.support.type.property-name.begin.json.comments",
+                    tag_as: "string support.type.property-name punctuation.support.type.property-name.begin",
                 )
             ),
             end_pattern: lookBehindFor(/,/).or(lookAheadFor("}")),
             includes: [
                 PatternRange.new(
-                    tag_as: "meta.structure.dictionary.value.json.comments",
+                    tag_as: "meta.structure.dictionary.value",
                     start_pattern: Pattern.new(
                         Pattern.new(
                             match: ':',
-                            tag_as: "punctuation.separator.dictionary.key-value.json.comments"
+                            tag_as: "punctuation.separator.dictionary.key-value"
                         )
                     ),
                     end_pattern: Pattern.new(
                         Pattern.new(
-                            tag_as: "punctuation.separator.dictionary.pair.json.comments",
+                            tag_as: "punctuation.separator.dictionary.pair",
                             match: /,/,
                         ).or(lookAheadFor(/\}/))
                     ),
                     includes: [
                         :body_value,
                         Pattern.new(
-                            tag_as: "invalid.illegal.expected-dictionary-separator.json.comments",
+                            tag_as: "invalid.illegal.expected-dictionary-separator",
                             match: /[^\s,]/,
                         ),
                     ],
@@ -839,7 +843,8 @@ grammar.scope_name = "source.json.comments"
                 # match till end of string to bound the text area
                 match: /(?:\\\\|\\"|[^"])++/,
                 includes: [
-                    :bnf_any
+                    :bnf_any,
+                    :basic_escape,
                 ]
             ),
             # :bnf_any_potential_insertion,

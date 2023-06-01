@@ -116,19 +116,23 @@
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
   scopes:
-    - punctuation.section.insertion.dollar.interpolated.json.comments
-    - support.class.insertion.json.comments
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
 - source: '{'
   scopes:
     - punctuation.section.insertion.bracket.json.comments
-    - support.class.insertion.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
 - source: '1'
   scopes:
-    - variable.other.normal.numeric.json.comments
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
 - source: '|'
   scopes:
     - punctuation.separator.choice.json.comments
-    - support.class.insertion.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.choice.json.comments
   scopesEnd:
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
@@ -157,11 +161,13 @@
     - meta.insertion.choice.json.comments
   scopes:
     - punctuation.separator.choice.json.comments
-    - support.class.insertion.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.choice.json.comments
 - source: '}'
   scopes:
     - punctuation.section.insertion.bracket.json.comments
-    - support.class.insertion.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
   scopesEnd:
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
