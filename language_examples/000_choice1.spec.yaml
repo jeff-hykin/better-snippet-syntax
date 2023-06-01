@@ -113,6 +113,7 @@
     - punctuation.definition.string.begin.json.comments
 - source: $
   scopesBegin:
+    - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
   scopes:
     - punctuation.section.insertion.dollar.interpolated.json.comments
@@ -128,7 +129,12 @@
   scopes:
     - punctuation.separator.choice.json.comments
     - support.class.insertion.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.choice.json.comments
 - source: a
+  scopesBegin:
+    - meta.insertion.choice.json.comments
   scopes:
     - constant.other.option.json.comments
 - source: ','
@@ -143,7 +149,12 @@
 - source: c
   scopes:
     - constant.other.option.json.comments
+  scopesEnd:
+    - meta.insertion.choice.json.comments
 - source: '|'
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.choice.json.comments
   scopes:
     - punctuation.separator.choice.json.comments
     - support.class.insertion.json.comments
@@ -152,6 +163,7 @@
     - punctuation.section.insertion.bracket.json.comments
     - support.class.insertion.json.comments
   scopesEnd:
+    - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
 - source: '"'
   scopes:

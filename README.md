@@ -21,7 +21,7 @@ Just install the VS Code extension and the changes will automatically be applied
 
 # Notes to themers and customizers
 
-- `support.class.insertion` will color `$`, `${}`, and `THING` in `$THING`, `${THING:}`
+- `support.class.insertion` will color `$`, `${:}`, `$THING`
 - `variable.language.this` will color the builtin/special `$VAR` things
 - for level-2 customization:
     - for just varible names: `variable.other.normal support.class.insertion`
