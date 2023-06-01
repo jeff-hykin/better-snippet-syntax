@@ -736,11 +736,35 @@ grammar.scope_name = "source.json.comments"
                                         #              this pattern should just be "grammar[:bnf_transform]"
                                         #              however this either causes time-complexity runtime problems
                                         #              or hits a bug in the VS Code textmate engine that causes it to fail
-                                        #              this is a workaround/approximation that first tries to find the regex area
-                                        #              then internally matches it properly
+                                        #              below is a workaround/approximation that first tries to find the regex area
+                                        #              then lets bnf_transform do the highlighting within that area
                                         #              this pattern could fail when the regex replacement contains something complicated,
                                         #              like another regex replacement
-                                        match: Pattern.new(/\/.+\/.*\/[igmyu]{0,5}/).or(grammar[:bnf_transform]),
+                                        match: Pattern.new(
+                                            Pattern.new(
+                                                Pattern.new(
+                                                    "/"
+                                                ).then(
+                                                    oneOrMoreOf(
+                                                        Pattern.new(
+                                                            grammar[:regex_backslash_escape]
+                                                        ).or(
+                                                            /[^\/]/
+                                                        )
+                                                    )
+                                                ).then(
+                                                    "/"
+                                                ).then(
+                                                    /.*/
+                                                ).then(
+                                                    "/"
+                                                ).then(
+                                                    /[igmyu]{0,5}/
+                                                ),
+                                            ).or(
+                                                grammar[:bnf_transform]
+                                            )
+                                        ),
                                         includes: [
                                             :bnf_transform,
                                         ],
