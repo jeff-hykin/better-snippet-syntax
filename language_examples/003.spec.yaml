@@ -113,6 +113,7 @@
     - punctuation.definition.string.begin.json.comments
 - source: $
   scopesBegin:
+    - meta.any.json.comments
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
   scopes:
@@ -223,8 +224,624 @@
     - keyword.operator.insertion.json.comments
     - custom.punctuation.section.insertion.bracket.json.comments
   scopesEnd:
+    - meta.any.json.comments
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end.json.comments
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.array.json.comments
+- source: '"'
+  scopesBegin:
+    - string.quoted.double.json.comments
+  scopes:
+    - punctuation.definition.string.begin.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: TM_FILENAME
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.named.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+- source: /
+  scopesBegin:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: .
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: (
+- source: .
+- source: )
+- source: (
+- source: .
+- source: (
+- source: .
+- source: )
+- source: )
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: '${1}'
+  scopes:
+    - variable.language.capture.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+  scopesEnd:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+- source: '}'
+  scopes:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+  scopesEnd:
+    - meta.any.json.comments
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end.json.comments
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.array.json.comments
+- source: '"'
+  scopesBegin:
+    - string.quoted.double.json.comments
+  scopes:
+    - punctuation.definition.string.begin.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: TM_FILENAME
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.named.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+- source: /
+  scopesBegin:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: .
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: (
+- source: .
+- source: )
+- source: (
+- source: .
+- source: (
+- source: .
+- source: )
+- source: )
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: $
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.format.default.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.format.default.json.comments
+- source: f
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: a
+- source: l
+- source: l
+- source: b
+- source: a
+- source: c
+- source: k
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: '}'
+  scopes:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.format.default.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+  scopesEnd:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+- source: '}'
+  scopes:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+  scopesEnd:
+    - meta.any.json.comments
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end.json.comments
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.array.json.comments
+- source: '"'
+  scopesBegin:
+    - string.quoted.double.json.comments
+  scopes:
+    - punctuation.definition.string.begin.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: TM_FILENAME
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.named.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+- source: /
+  scopesBegin:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: (
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: .
+- source: '*'
+- source: )
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: $1
+  scopes:
+    - variable.language.capture.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+  scopesEnd:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+- source: '}'
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: $
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: TM_FILENAME
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.named.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+- source: /
+  scopesBegin:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: (
+  scopesBegin:
+    - string.quoted.double.json.comments
+- source: .
+- source: '*'
+- source: )
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+- source: $1
+  scopes:
+    - variable.language.capture.json.comments
+- source: /
+  scopes:
+    - punctuation.section.regexp.json.comments
+  scopesEnd:
+    - meta.insertion.variable.json.comments
+    - meta.insertion.transform.json.comments
+    - string.regexp.json.comments
+- source: '}'
+  scopes:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.variable.transform.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+  scopesEnd:
+    - meta.any.json.comments
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end.json.comments
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.array.json.comments
+- source: '"'
+  scopesBegin:
+    - string.quoted.double.json.comments
+  scopes:
+    - punctuation.definition.string.begin.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.simple.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.simple.json.comments
+- source: '2'
+  scopes:
+    - variable.other.normal.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: $
+  scopes:
+    - punctuation.section.insertion.dollar.simple.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.simple.json.comments
+- source: '3'
+  scopes:
+    - variable.other.normal.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+  scopesEnd:
+    - meta.any.json.comments
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+- source: '}'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+- source: '${4:${5:a} $1 '
+- source: $
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '6'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+- source: b
+  scopes:
+    - meta.any.json.comments
+    - string.quoted.double.json.comments
+- source: '}'
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '}'
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '${4:${5:a} $1 '
+- source: $
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '6'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+- source: b
+  scopes:
+    - meta.any.json.comments
+    - string.quoted.double.json.comments
+- source: '}'
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '}'
+  scopesEnd:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '"'
+  scopes:
+    - punctuation.definition.string.end.json.comments
+  scopesEnd:
+    - string.quoted.double.json.comments
+- source: ','
+  scopes:
+    - punctuation.separator.array.json.comments
+- source: '"'
+  scopesBegin:
+    - string.quoted.double.json.comments
+  scopes:
+    - punctuation.definition.string.begin.json.comments
+- source: $
+  scopesBegin:
+    - meta.any.json.comments
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.simple.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.simple.json.comments
+- source: '1'
+  scopes:
+    - variable.other.normal.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+  scopesEnd:
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+- source: ':'
+  scopes:
+    - string.quoted.double.json.comments
+- source: $
+  scopesBegin:
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.simple.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.simple.json.comments
+- source: '2'
+  scopes:
+    - variable.other.normal.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: $
+  scopes:
+    - punctuation.section.insertion.dollar.simple.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.simple.json.comments
+- source: '3'
+  scopes:
+    - variable.other.normal.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+  scopesEnd:
+    - meta.insertion.simple.numeric.json.comments
+    - meta.insertion.tabstop.simple.json.comments
+- source: '}'
+- source: '${4:${5:a} $1 '
+- source: $
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '6'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+- source: b
+  scopes:
+    - meta.any.json.comments
+    - string.quoted.double.json.comments
+- source: '}'
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '}'
+  scopesEnd:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '${4:${5:a} $1 '
+- source: $
+  scopesBegin:
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+  scopes:
+    - punctuation.section.insertion.dollar.brackets.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.dollar.brackets.json.comments
+- source: '{'
+  scopes:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '6'
+  scopes:
+    - variable.other.normal.json.comments
+    - custom.variable.other.normal.numeric.json.comments
+- source: ':'
+  scopes:
+    - punctuation.section.insertion.json.comments
+    - punctuation.separator.colon.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.separator.colon.json.comments
+- source: b
+  scopes:
+    - meta.any.json.comments
+    - string.quoted.double.json.comments
+- source: '}'
+  scopesBegin:
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
+- source: '}'
+  scopesEnd:
+    - meta.any.json.comments
+    - meta.insertion.brackets.json.comments
+    - meta.insertion.placeholder.json.comments
+    - punctuation.section.insertion.bracket.json.comments
+    - keyword.operator.insertion.json.comments
+    - custom.punctuation.section.insertion.bracket.json.comments
 - source: '"'
   scopes:
     - punctuation.definition.string.end.json.comments

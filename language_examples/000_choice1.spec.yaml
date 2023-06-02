@@ -113,6 +113,7 @@
     - punctuation.definition.string.begin.json.comments
 - source: $
   scopesBegin:
+    - meta.any.json.comments
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
   scopes:
@@ -169,6 +170,7 @@
     - keyword.operator.insertion.json.comments
     - custom.punctuation.section.insertion.bracket.json.comments
   scopesEnd:
+    - meta.any.json.comments
     - meta.insertion.brackets.json.comments
     - meta.insertion.choice.json.comments
 - source: '"'
