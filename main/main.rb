@@ -42,7 +42,7 @@ grammar.scope_name = "source.json.comments"
     part_of_a_variable = /[_a-zA-Z][_a-zA-Z0-9]*/ # according to VS Code docs
     # this is really useful for keywords. eg: variableBounds[/new/] wont match "newThing" or "thingnew"
     variableBounds = ->(regex_pattern) do
-        lookBehindToAvoid(@standard_character).then(regex_pattern).lookAheadToAvoid(@standard_character)
+        lookBehindToAvoid(@standard_character).then(Pattern.new(regex_pattern)).lookAheadToAvoid(@standard_character)
     end
     variable = variableBounds[part_of_a_variable]
     
