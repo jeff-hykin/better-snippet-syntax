@@ -229,7 +229,7 @@ grammar.scope_name = "source.json.comments"
                         grammar[:bracket_escape],
                         grammar[:basic_escape],
                         # basic text
-                        /[^,\|]++/, # TODO: this might need to be changed, both the ++, maybe the greedy-ness and also what is not-ed
+                        /[^,}\|]/,
                     ])
                 ),
             )
