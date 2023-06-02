@@ -74,7 +74,6 @@ string.regexp.insertion.escape.json.comments
 string.regexp.json.comments
 support.type.built-in.json.comments
 support.type.property-name.json.comments
-text.$131.json.comments
 variable.language.capture.json.comments
 variable.language.special.transform.json.comments
 variable.language.this.json.comments

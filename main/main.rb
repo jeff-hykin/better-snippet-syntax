@@ -539,7 +539,6 @@ grammar.scope_name = "source.json.comments"
                         match: grammar[:bnf_format].or(
                             grammar[:regex_backslash_escape].or(
                                 Pattern.new(
-                                    tag_as: "text.$match",
                                     match: zeroOrMoreOf(
                                         match: grammar[:simple_escape_context].or(/[^\n\r]/),
                                     ),
@@ -555,6 +554,10 @@ grammar.scope_name = "source.json.comments"
                         Pattern.new(
                             tag_as: "variable.language.capture",
                             match: /\$\d+/,
+                        ),
+                        Pattern.new(
+                            tag_as: "variable.language.capture",
+                            match: /\$\{\d+\}/,
                         ),
                         :bnf_format,
                         :regex_backslash_escape,
@@ -652,8 +655,14 @@ grammar.scope_name = "source.json.comments"
                                     grammar[:colon_separator]
                                 ).then(
                                     oneOrMoreOf(
-                                        recursivelyMatch("any")
-                                    )
+                                        # NOTE: this should just be recursivelyMatch("any"), but I think something
+                                        # is messed up with the Textmate/regex engine because it doesnt work
+                                        # and for some reason adding this prefix does make it work
+                                        # NOTE2: the reTag() avoids an unrelated bug that breaks the recursivelyMatch()
+                                        grammar[:bnf_tabstop].reTag(all: false).or(
+                                            recursivelyMatch("any")
+                                        )
+                                    ),
                                 ).then(
                                     grammar[:bracket_insertion_ender]
                                 )
@@ -666,9 +675,13 @@ grammar.scope_name = "source.json.comments"
                                     grammar[:bnf_int]
                                 ).then(
                                     grammar[:colon_separator]
+                                ).then(
+                                    match: /.+/,
+                                    includes: [
+                                        :bracket_insertion_ender,
+                                        :bnf_any,
+                                    ]
                                 ),
-                                :bracket_insertion_ender,
-                                :bnf_any,
                             ]
                         )
                     # 
@@ -750,16 +763,19 @@ grammar.scope_name = "source.json.comments"
                                                     "/"
                                                 ).then(
                                                     oneOrMoreOf(
-                                                        Pattern.new(
-                                                            grammar[:regex_backslash_escape]
-                                                        ).or(
-                                                            /[^\/]/
+                                                        as_few_as_possible?: true,
+                                                        match: Pattern.new(
+                                                            Pattern.new(
+                                                                grammar[:regex_backslash_escape]
+                                                            ).or(
+                                                                /[^\/]/
+                                                            )
                                                         )
                                                     )
                                                 ).then(
                                                     "/"
                                                 ).then(
-                                                    /.*/
+                                                    /.*?/
                                                 ).then(
                                                     "/"
                                                 ).then(
