@@ -625,9 +625,10 @@ grammar.scope_name = "source.json.comments"
         #                | variable
         #                | text
         grammar[:bnf_any] = Pattern.new(
+            tag_as: "meta.any",
             # NOTE: this second Pattern.new() is required as a workaround for a bug in ruby_grammar_builder
             #       (there can't be a backreference to group 0 e.g. top-level)
-            Pattern.new(
+            match: Pattern.new("}").or(
                 reference: "any",
                 match: Pattern.new(
                     # 

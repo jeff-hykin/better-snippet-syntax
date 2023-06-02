@@ -18,6 +18,7 @@ invalid.illegal.unrecognized-string-escape.json.comments
 keyword.operator.insertion.json.comments
 keyword.operator.ternary.json.comments
 keyword.other.flag.json.comments
+meta.any.json.comments
 meta.insertion.brackets.json.comments
 meta.insertion.choice.json.comments
 meta.insertion.format.conditional.json.comments
