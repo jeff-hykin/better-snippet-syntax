@@ -2,7 +2,7 @@
     "name": "better-jsonc-syntax",
     "displayName": "Better Snippet Syntax",
     "description": "",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icon": "icon.png",
     "repository": "git@github.com:jeff-hykin/better-snippet-syntax.git",
     "scripts": {},
